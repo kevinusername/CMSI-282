@@ -2,6 +2,7 @@ package pathfinder.uninformed;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -22,34 +23,33 @@ public class Pathfinder {
 
         ArrayDeque<SearchTreeNode> frontier = new ArrayDeque<SearchTreeNode>();
 
-        frontier.add(new SearchTreeNode(problem.GOAL_STATE, null, null));
+        frontier.add(new SearchTreeNode(problem.INITIAL_STATE, null, null));
 
-        // TODO: Loop: as long as the frontier is not empty...
         while (!frontier.isEmpty()) {
             SearchTreeNode currentNode = frontier.poll();
+
+            if (problem.isGoal(currentNode.state)) {
+                return generatePath(currentNode);
+            }
+
             Map<String, MazeState> transitions = problem.getTransitions(currentNode.state);
             for (String t : transitions.keySet()) {
                 frontier.add(new SearchTreeNode(transitions.get(t), t, currentNode));
             }
         }
 
-
-        // TODO: If that node's state is the goal (see problem's isGoal method),
-        // you're done! Return the solution
-        // [Hint] Use a helper method to collect the solution from the current node!
-
-        // TODO: Otherwise, must generate children to keep searching. So, use the
-        // problem's getTransitions method from the currently expanded node's state...
-
-        // TODO: ...and *for each* of those transition states...
-        // [Hint] Look up how to iterate through <key, value> pairs in a Map -- an
-        // example of this is already done in the MazeProblem's getTransitions method
-
-        // TODO: ...add a new SearchTreeNode to the frontier with the appropriate
-        // action, state, and parent
-
-        // Should never get here, but just return null to make the compiler happy
         return null;
+    }
+
+    private static ArrayList<String> generatePath(SearchTreeNode currentNode) {
+        ArrayList<String> path = new ArrayList<>();
+
+        while (currentNode.parent != null) {
+            path.add(currentNode.action);
+            currentNode = currentNode.parent;
+        }
+        Collections.reverse(path);
+        return path;
     }
 }
 
