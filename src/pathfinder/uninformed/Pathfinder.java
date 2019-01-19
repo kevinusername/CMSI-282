@@ -39,6 +39,11 @@ public class Pathfinder {
         return null;
     }
 
+    /**
+     * @param currentNode the final node in a path
+     * @return A ArrayList<String> of in-order steps to traverse from the problem's START_STATE to its GOAL_STATE
+     * Ex: ["R","D","D","L","U"]
+     */
     private static ArrayList<String> generatePath(SearchTreeNode currentNode) {
         ArrayList<String> path = new ArrayList<>();
 
