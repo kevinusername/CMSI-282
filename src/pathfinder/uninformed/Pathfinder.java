@@ -21,16 +21,14 @@ public class Pathfinder {
      */
     public static ArrayList<String> solve(MazeProblem problem) {
 
-        ArrayDeque<SearchTreeNode> frontier = new ArrayDeque<SearchTreeNode>();
+        ArrayDeque<SearchTreeNode> frontier = new ArrayDeque<>();
 
         frontier.add(new SearchTreeNode(problem.INITIAL_STATE, null, null));
 
         while (!frontier.isEmpty()) {
             SearchTreeNode currentNode = frontier.poll();
 
-            if (problem.isGoal(currentNode.state)) {
-                return generatePath(currentNode);
-            }
+            if (problem.isGoal(currentNode.state)) { return generatePath(currentNode); }
 
             Map<String, MazeState> transitions = problem.getTransitions(currentNode.state);
             for (String t : transitions.keySet()) {
