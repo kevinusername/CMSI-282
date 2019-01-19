@@ -47,5 +47,4 @@ public class MazeState {
     public String toString() {
         return "(" + col + ", " + row + ")";
     }
-
 }
