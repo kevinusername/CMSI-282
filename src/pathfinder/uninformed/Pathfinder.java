@@ -1,3 +1,4 @@
+// Kevin Peters
 package pathfinder.uninformed;
 
 import java.util.ArrayDeque;
