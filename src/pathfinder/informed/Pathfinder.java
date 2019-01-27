@@ -1,10 +1,7 @@
 // Kevin Peters
 package pathfinder.informed;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Maze Pathfinding algorithm that implements a basic, uninformed, breadth-first tree search.
@@ -22,18 +19,23 @@ public class Pathfinder {
      */
     public static ArrayList<String> solve(MazeProblem problem) {
 
-        ArrayDeque<SearchTreeNode> frontier = new ArrayDeque<>();
+        PriorityQueue<SearchTreeNode> frontier = new PriorityQueue<>();
+        HashSet<MazeState> graveyard = new HashSet<>();
 
-        frontier.add(new SearchTreeNode(problem.INITIAL_STATE, null, null));
+        frontier.add(new SearchTreeNode(problem.INITIAL_STATE, null, null, 0, 0));
 
-        while (!frontier.isEmpty()) {
+        while (!(frontier.peek() == null)) {
             SearchTreeNode currentNode = frontier.poll();
+            graveyard.add(currentNode.state);
 
             if (problem.isGoal(currentNode.state)) { return generatePath(currentNode); }
 
-            Map<String, MazeState> transitions = problem.getTransitions(currentNode.state);
-            for (String t : transitions.keySet()) {
-                frontier.add(new SearchTreeNode(transitions.get(t), t, currentNode));
+            for (Map.Entry<String, MazeState> action : problem.getTransitions(currentNode.state).entrySet()) {
+                if (!graveyard.contains(action.getValue())) {
+                    frontier.add(new SearchTreeNode(action.getValue(), action.getKey(), currentNode,
+                                                    estimateCost(problem, action.getValue()),
+                                                    problem.addCost(currentNode.actual_cost, action.getValue())));
+                }
             }
         }
 
@@ -55,17 +57,22 @@ public class Pathfinder {
         Collections.reverse(path);
         return path;
     }
+
+    private static int estimateCost(MazeProblem problem, MazeState state) {
+        return Math.abs(state.col - problem.GOAL_STATE.col) + Math.abs(state.row - problem.GOAL_STATE.row);
+    }
 }
 
 /**
  * SearchTreeNode that is used in the Search algorithm to construct the Search
  * tree.
  */
-class SearchTreeNode {
+class SearchTreeNode implements Comparable<SearchTreeNode>{
 
     MazeState state;
     String action;
     SearchTreeNode parent;
+    int est_cost, actual_cost;
 
     /**
      * Constructs a new SearchTreeNode to be used in the Search Tree.
@@ -74,9 +81,15 @@ class SearchTreeNode {
      * @param action The action that *led to* this state / node.
      * @param parent Reference to parent SearchTreeNode in the Search Tree.
      */
-    SearchTreeNode(MazeState state, String action, SearchTreeNode parent) {
+    SearchTreeNode(MazeState state, String action, SearchTreeNode parent, int est_cost, int actual_cost) {
         this.state = state;
         this.action = action;
         this.parent = parent;
+        this.est_cost = est_cost;
+        this.actual_cost = actual_cost;
+    }
+
+    public int compareTo(SearchTreeNode other) {
+        return this.est_cost - other.est_cost;
     }
 }

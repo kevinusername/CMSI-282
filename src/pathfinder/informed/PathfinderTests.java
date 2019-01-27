@@ -24,9 +24,9 @@ public class PathfinderTests {
         MazeProblem prob = new MazeProblem(maze);
         ArrayList<String> solution = Pathfinder.solve(prob);
 
-        // result will be a 2-tuple (isSolution, cost) where
+        // result will be a 2-tuple (isSolution, est_cost) where
         // - isSolution = 0 if it is not, 1 if it is
-        // - cost = numerical cost of proposed solution
+        // - est_cost = numerical est_cost of proposed solution
         int[] result = prob.testSolution(solution);
         assertEquals(1, result[0]); // Test that result is a solution
         assertEquals(6, result[1]); // Ensure that the solution is optimal
