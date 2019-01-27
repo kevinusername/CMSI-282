@@ -136,7 +136,7 @@ public class MazeProblem {
         return result;
     }
 
-    public int addCost(int oldCost, MazeState newState) {
+    public int newCost(int oldCost, MazeState newState) {
         return oldCost + getCost(newState);
     }
 

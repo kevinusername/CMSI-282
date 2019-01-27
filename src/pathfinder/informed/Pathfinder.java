@@ -53,8 +53,8 @@ public class Pathfinder {
             for (Map.Entry<String, MazeState> action : problem.getTransitions(currentNode.state).entrySet()) {
                 if (!graveyard.contains(action.getValue())) {
                     frontier.add(new SearchTreeNode(action.getValue(), action.getKey(), currentNode,
-                                                    estimateCost(action.getValue(), finalState),
-                                                    problem.addCost(currentNode.actual_cost, action.getValue())));
+                                                    hCost(action.getValue(), finalState),
+                                                    problem.newCost(currentNode.actual_cost, action.getValue())));
                 }
             }
         }
@@ -78,7 +78,7 @@ public class Pathfinder {
         return path;
     }
 
-    private static int estimateCost(MazeState startState, MazeState finalState) {
+    private static int hCost(MazeState startState, MazeState finalState) {
         return Math.abs(startState.col - finalState.col) + Math.abs(startState.row - finalState.row);
     }
 }
@@ -101,11 +101,11 @@ class SearchTreeNode {
      * @param action The action that *led to* this state / node.
      * @param parent Reference to parent SearchTreeNode in the Search Tree.
      */
-    SearchTreeNode(MazeState state, String action, SearchTreeNode parent, int est_cost, int actual_cost) {
+    SearchTreeNode(MazeState state, String action, SearchTreeNode parent, int heuristicCost, int actualCost) {
         this.state = state;
         this.action = action;
         this.parent = parent;
-        this.est_cost = est_cost + actual_cost;
-        this.actual_cost = actual_cost;
+        this.est_cost = heuristicCost + actualCost;
+        this.actual_cost = actualCost;
     }
 }
