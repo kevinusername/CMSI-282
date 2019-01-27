@@ -24,26 +24,28 @@ public class Pathfinder {
         SearchTreeNode keyNode = optimalPath(problem, new SearchTreeNode(problem.INITIAL_STATE, null, null, 0, 0),
                                              problem.KEY_STATE);
 
-        ArrayList<ArrayList<String>> solutions = new ArrayList<>();
+        if (keyNode == null) { return null; }
+
+        ArrayList<SearchTreeNode> solutions = new ArrayList<>();
 
         for (MazeState goal : problem.GOAL_STATES) {
             SearchTreeNode solution = optimalPath(problem, keyNode, goal);
             if (solution != null) {
-                solutions.add(generatePath(solution));
+                solutions.add(solution);
             }
         }
 
-        ArrayList<String> optimalSolution = null;
+        SearchTreeNode optimalSolution = null;
         int optimalCost = Integer.MAX_VALUE;
-        for (ArrayList<String> sol : solutions) {
-            int cost = sol.size();
+        for (SearchTreeNode sol : solutions) {
+            int cost = sol.actual_cost;
             if (cost != 0 && cost < optimalCost) {
                 optimalSolution = sol;
                 optimalCost = cost;
             }
         }
 
-        return optimalSolution;
+        return optimalSolution == null ? null : generatePath(optimalSolution);
     }
 
     private static SearchTreeNode optimalPath(MazeProblem problem, SearchTreeNode startNode, MazeState finalState) {
@@ -56,12 +58,12 @@ public class Pathfinder {
             SearchTreeNode currentNode = frontier.poll();
             graveyard.add(currentNode.state);
 
-            if (currentNode.state == finalState) { return currentNode; }
+            if (currentNode.state.equals(finalState)) { return currentNode; }
 
             for (Map.Entry<String, MazeState> action : problem.getTransitions(currentNode.state).entrySet()) {
                 if (!graveyard.contains(action.getValue())) {
                     frontier.add(new SearchTreeNode(action.getValue(), action.getKey(), currentNode,
-                                                    estimateCost(problem, action.getValue()),
+                                                    estimateCost(action.getValue(), finalState),
                                                     problem.addCost(currentNode.actual_cost, action.getValue())));
                 }
             }
@@ -86,8 +88,8 @@ public class Pathfinder {
         return path;
     }
 
-    private static int estimateCost(MazeProblem problem, MazeState state) {
-        return Math.abs(state.col - problem.GOAL_STATE.col) + Math.abs(state.row - problem.GOAL_STATE.row);
+    private static int estimateCost(MazeState startState, MazeState finalState) {
+        return Math.abs(startState.col - finalState.col) + Math.abs(startState.row - finalState.row);
     }
 }
 
@@ -113,7 +115,7 @@ class SearchTreeNode implements Comparable<SearchTreeNode> {
         this.state = state;
         this.action = action;
         this.parent = parent;
-        this.est_cost = est_cost;
+        this.est_cost = est_cost + actual_cost;
         this.actual_cost = actual_cost;
     }
 

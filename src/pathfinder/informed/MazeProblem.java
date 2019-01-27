@@ -72,8 +72,11 @@ public class MazeProblem {
                     case 'G':
                         foundGoals.add(new MazeState(col, row)); break;
                     case '.':
+                        break;
                     case 'K':
                         foundKey = new MazeState(col, row); break;
+                    case 'M':
+                        break;
                     case 'X':
                         break;
                     default:
