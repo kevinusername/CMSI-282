@@ -49,7 +49,8 @@ public class Pathfinder {
     }
 
     private static SearchTreeNode optimalPath(MazeProblem problem, SearchTreeNode startNode, MazeState finalState) {
-        PriorityQueue<SearchTreeNode> frontier = new PriorityQueue<>();
+        PriorityQueue<SearchTreeNode> frontier = new PriorityQueue<>(16, Comparator.comparingInt(
+                (SearchTreeNode node) -> node.est_cost));
         HashSet<MazeState> graveyard = new HashSet<>();
 
         frontier.add(startNode);
@@ -97,7 +98,7 @@ public class Pathfinder {
  * SearchTreeNode that is used in the Search algorithm to construct the Search
  * tree.
  */
-class SearchTreeNode implements Comparable<SearchTreeNode> {
+class SearchTreeNode {
 
     MazeState state;
     String action;
@@ -117,9 +118,5 @@ class SearchTreeNode implements Comparable<SearchTreeNode> {
         this.parent = parent;
         this.est_cost = est_cost + actual_cost;
         this.actual_cost = actual_cost;
-    }
-
-    public int compareTo(SearchTreeNode other) {
-        return this.est_cost - other.est_cost;
     }
 }
