@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1877ed1e-cc83-40ab-a6ee-a5ba924b7db9" name="Default Changelist" comment="">
+    <list default="true" id="1877ed1e-cc83-40ab-a6ee-a5ba924b7db9" name="Default Changelist" comment="lambda comparator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pathfinder/informed/MazeProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pathfinder/informed/MazeProblem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pathfinder/informed/Pathfinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pathfinder/informed/Pathfinder.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,12 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/Pathfinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="23" column="111" selection-start-line="23" selection-start-column="111" selection-end-line="23" selection-end-column="111" />
-              <folding>
-                <element signature="e#3371#3372#0" expanded="true" />
-                <element signature="e#3424#3425#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="520">
+              <caret line="31" column="62" lean-forward="true" selection-start-line="31" selection-start-column="62" selection-end-line="31" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -310,38 +305,52 @@
       <option name="project" value="LOCAL" />
       <updated>1548567247146</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="initial working version">
+      <created>1548570151210</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1548570151210</updated>
+    </task>
+    <task id="LOCAL-00010" summary="lambda comparator">
+      <created>1548570990826</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1548570990826</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PathfinderTests_testPathfinder_t0 - 2019.01.26 at 22h 08m 34s.xml">
-      <configuration name="PathfinderTests.testPathfinder_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PathfinderTests_testPathfinder_t0 - 2019.01.26 at 22h 13m 18s.xml">
-      <configuration name="PathfinderTests.testPathfinder_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PathfinderTests_testPathfinder_t0 - 2019.01.26 at 22h 13m 41s.xml">
-      <configuration name="PathfinderTests.testPathfinder_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PathfinderTests_testPathfinder_t0 - 2019.01.26 at 22h 19m 40s.xml">
-      <configuration name="PathfinderTests.testPathfinder_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PathfinderTests_testPathfinder_t0 - 2019.01.26 at 22h 19m 43s.xml">
-      <configuration name="PathfinderTests.testPathfinder_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 19m 51s.xml">
-      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PathfinderTests_testPathfinder_t1 - 2019.01.26 at 22h 20m 05s.xml">
-      <configuration name="PathfinderTests.testPathfinder_t1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PathfinderTests_testPathfinder_t1 - 2019.01.26 at 22h 21m 02s.xml">
-      <configuration name="PathfinderTests.testPathfinder_t1" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 21m 06s.xml">
       <configuration name="PathfinderTests (1)" configurationId="JUnit" />
     </history-entry>
     <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 22m 17s.xml">
+      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 34m 19s.xml">
+      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 34m 24s.xml">
+      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 34m 41s.xml">
+      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 34m 55s.xml">
+      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 35m 43s.xml">
+      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 36m 21s.xml">
+      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 41m 13s.xml">
+      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 41m 27s.xml">
       <configuration name="PathfinderTests (1)" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -402,7 +411,9 @@
     <MESSAGE value="initial hw1 commit" />
     <MESSAGE value="first wave of modifications" />
     <MESSAGE value="initial refactoring for multiple searches" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial refactoring for multiple searches" />
+    <MESSAGE value="initial working version" />
+    <MESSAGE value="lambda comparator" />
+    <option name="LAST_COMMIT_MESSAGE" value="lambda comparator" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/pathfinder/uninformed/MazeState.java">
@@ -493,14 +504,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/util/function/ToIntFunction.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/Pathfinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="23" column="111" selection-start-line="23" selection-start-column="111" selection-end-line="23" selection-end-column="111" />
-          <folding>
-            <element signature="e#3371#3372#0" expanded="true" />
-            <element signature="e#3424#3425#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="520">
+          <caret line="31" column="62" lean-forward="true" selection-start-line="31" selection-start-column="62" selection-end-line="31" selection-end-column="62" />
         </state>
       </provider>
     </entry>

@@ -27,25 +27,14 @@ public class Pathfinder {
         if (keyNode == null) { return null; }
 
         ArrayList<SearchTreeNode> solutions = new ArrayList<>();
-
         for (MazeState goal : problem.GOAL_STATES) {
             SearchTreeNode solution = optimalPath(problem, keyNode, goal);
-            if (solution != null) {
-                solutions.add(solution);
-            }
+            if (solution != null) { solutions.add(solution); }
         }
 
-        SearchTreeNode optimalSolution = null;
-        int optimalCost = Integer.MAX_VALUE;
-        for (SearchTreeNode sol : solutions) {
-            int cost = sol.actual_cost;
-            if (cost != 0 && cost < optimalCost) {
-                optimalSolution = sol;
-                optimalCost = cost;
-            }
-        }
+        solutions.sort(Comparator.comparingInt(sol -> sol.actual_cost));
 
-        return optimalSolution == null ? null : generatePath(optimalSolution);
+        return solutions.isEmpty() ? null : generatePath(solutions.get(0));
     }
 
     private static SearchTreeNode optimalPath(MazeProblem problem, SearchTreeNode startNode, MazeState finalState) {
