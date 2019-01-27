@@ -19,16 +19,44 @@ public class Pathfinder {
      */
     public static ArrayList<String> solve(MazeProblem problem) {
 
+        if (problem.KEY_STATE == null) { return null; }
+
+        SearchTreeNode keyNode = optimalPath(problem, new SearchTreeNode(problem.INITIAL_STATE, null, null, 0, 0),
+                                             problem.KEY_STATE);
+
+        ArrayList<ArrayList<String>> solutions = new ArrayList<>();
+
+        for (MazeState goal : problem.GOAL_STATES) {
+            SearchTreeNode solution = optimalPath(problem, keyNode, goal);
+            if (solution != null) {
+                solutions.add(generatePath(solution));
+            }
+        }
+
+        ArrayList<String> optimalSolution = null;
+        int optimalCost = Integer.MAX_VALUE;
+        for (ArrayList<String> sol : solutions) {
+            int cost = sol.size();
+            if (cost != 0 && cost < optimalCost) {
+                optimalSolution = sol;
+                optimalCost = cost;
+            }
+        }
+
+        return optimalSolution;
+    }
+
+    private static SearchTreeNode optimalPath(MazeProblem problem, SearchTreeNode startNode, MazeState finalState) {
         PriorityQueue<SearchTreeNode> frontier = new PriorityQueue<>();
         HashSet<MazeState> graveyard = new HashSet<>();
 
-        frontier.add(new SearchTreeNode(problem.INITIAL_STATE, null, null, 0, 0));
+        frontier.add(startNode);
 
         while (!(frontier.peek() == null)) {
             SearchTreeNode currentNode = frontier.poll();
             graveyard.add(currentNode.state);
 
-            if (problem.isGoal(currentNode.state)) { return generatePath(currentNode); }
+            if (currentNode.state == finalState) { return currentNode; }
 
             for (Map.Entry<String, MazeState> action : problem.getTransitions(currentNode.state).entrySet()) {
                 if (!graveyard.contains(action.getValue())) {
@@ -67,7 +95,7 @@ public class Pathfinder {
  * SearchTreeNode that is used in the Search algorithm to construct the Search
  * tree.
  */
-class SearchTreeNode implements Comparable<SearchTreeNode>{
+class SearchTreeNode implements Comparable<SearchTreeNode> {
 
     MazeState state;
     String action;

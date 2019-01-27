@@ -15,7 +15,8 @@ public class MazeProblem {
     // -----------------------------------------------------------------------------
     private String[] maze;
     private int rows, cols;
-    public final MazeState INITIAL_STATE, GOAL_STATE;
+    public final MazeState INITIAL_STATE, KEY_STATE;
+    public final ArrayList<MazeState> GOAL_STATES;
     private static final Map<String, MazeState> TRANS_MAP = createTransitions();
 
     /**
@@ -44,21 +45,22 @@ public class MazeProblem {
      *             'X': A wall, 'G': A goal, 'I': The initial state, '.': an open spot
      *             For example, a valid maze might look like:
      *             <pre>
-     *                                                 String[] maze = {
-     *                                                     "XXXXXXX",
-     *                                                     "X.....X",
-     *                                                     "XIX.X.X",
-     *                                                     "XX.X..X",
-     *                                                     "XG....X",
-     *                                                     "XXXXXXX"
-     *                                                 };
-     *                                                 </pre>
+     *                                                             String[] maze = {
+     *                                                                 "XXXXXXX",
+     *                                                                 "X.....X",
+     *                                                                 "XIX.X.X",
+     *                                                                 "XX.X..X",
+     *                                                                 "XG....X",
+     *                                                                 "XXXXXXX"
+     *                                                             };
+     *                                                             </pre>
      */
     MazeProblem(String[] maze) {
         this.maze = maze;
         this.rows = maze.length;
         this.cols = (rows == 0) ? 0 : maze[0].length();
-        MazeState foundInitial = null, foundGoal = null;
+        MazeState foundInitial = null, foundKey = null;
+        ArrayList<MazeState> foundGoals = new ArrayList<>();
 
         // Find the initial and goal state in the given maze, and then
         // store in fields once found
@@ -68,8 +70,10 @@ public class MazeProblem {
                     case 'I':
                         foundInitial = new MazeState(col, row); break;
                     case 'G':
-                        foundGoal = new MazeState(col, row); break;
+                        foundGoals.add(new MazeState(col, row)); break;
                     case '.':
+                    case 'K':
+                        foundKey = new MazeState(col, row); break;
                     case 'X':
                         break;
                     default:
@@ -78,7 +82,8 @@ public class MazeProblem {
             }
         }
         INITIAL_STATE = foundInitial;
-        GOAL_STATE = foundGoal;
+        KEY_STATE = foundKey;
+        GOAL_STATES = foundGoals;
     }
 
     // Methods
@@ -91,7 +96,7 @@ public class MazeProblem {
      * @return Boolean of whether or not the given state is a Goal.
      */
     public boolean isGoal(MazeState state) {
-        return state.equals(GOAL_STATE);
+        return GOAL_STATES.contains(state);
     }
 
     /**
@@ -129,7 +134,11 @@ public class MazeProblem {
     }
 
     public int addCost(int oldCost, MazeState newState) {
-        return maze[newState.row].charAt(newState.col) == 'M' ? oldCost + 3 : oldCost + 1;
+        return oldCost + getCost(newState);
+    }
+
+    private int getCost(MazeState newState) {
+        return maze[newState.row].charAt(newState.col) == 'M' ? 3 : 1;
     }
 
     /**

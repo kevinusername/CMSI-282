@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pathfinder/informed/MazeProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pathfinder/informed/MazeProblem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pathfinder/informed/Pathfinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pathfinder/informed/Pathfinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pathfinder/informed/PathfinderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pathfinder/informed/PathfinderTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/Pathfinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1059">
-              <caret line="92" column="15" selection-start-line="92" selection-start-column="15" selection-end-line="92" selection-end-column="15" />
+            <state relative-caret-position="700">
+              <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
               <folding>
                 <element signature="e#3371#3372#0" expanded="true" />
                 <element signature="e#3424#3425#0" expanded="true" />
@@ -30,10 +29,30 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/PathfinderTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/MazeProblem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="124" column="54" selection-start-line="124" selection-start-column="54" selection-end-line="124" selection-end-column="54" />
+            <state relative-caret-position="-300">
+              <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+              <folding>
+                <element signature="e#3389#3390#0" expanded="true" />
+                <element signature="e#3436#3437#0" expanded="true" />
+                <element signature="e#5382#5383#0" expanded="true" />
+                <element signature="e#5430#5431#0" expanded="true" />
+                <element signature="e#5533#5534#0" expanded="true" />
+                <element signature="e#5619#5620#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -42,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/MazeState.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="900">
-              <caret line="49" column="1" lean-forward="true" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+              <caret line="49" column="1" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -103,14 +122,6 @@
             </path>
             <path>
               <item name="CMSI-282" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CMSI-282" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pathfinder" type="462c0819:PsiDirectoryNode" />
-              <item name="informed" type="462c0819:PsiDirectoryNode" />
-              <item name="Pathfinder.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="CMSI-282" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -152,7 +163,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.PathfinderTests.testPathfinder_t0">
+    <configuration name="PathfinderTests (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CMSI-282" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pathfinder.informed.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pathfinder.informed" />
+      <option name="MAIN_CLASS_NAME" value="pathfinder.informed.PathfinderTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PathfinderTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CMSI-282" />
       <extension name="coverage">
@@ -168,8 +194,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PathfinderTests.testPathfinder_t0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CMSI-282" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pathfinder.informed.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pathfinder.informed" />
+      <option name="MAIN_CLASS_NAME" value="pathfinder.informed.PathfinderTests" />
+      <option name="METHOD_NAME" value="testPathfinder_t0" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PathfinderTests.testPathfinder_t0" />
+        <item itemvalue="JUnit.PathfinderTests (1)" />
         <item itemvalue="JUnit.PathfinderTests" />
       </list>
     </recent_temporary>
@@ -229,16 +273,17 @@
       <option name="project" value="LOCAL" />
       <updated>1548556259380</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="first wave of modifications">
+      <created>1548560649077</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1548560649077</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PathfinderTests - 2019.01.18 at 23h 11m 25s.xml">
-      <configuration name="PathfinderTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PathfinderTests - 2019.01.18 at 23h 16m 53s.xml">
-      <configuration name="PathfinderTests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="PathfinderTests - 2019.01.18 at 23h 16m 59s.xml">
       <configuration name="PathfinderTests" configurationId="JUnit" />
     </history-entry>
@@ -263,6 +308,12 @@
     <history-entry file="PathfinderTests - 2019.01.26 at 15h 34m 21s.xml">
       <configuration name="PathfinderTests" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 19h 49m 35s.xml">
+      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PathfinderTests_testPathfinder_t0 - 2019.01.26 at 19h 50m 00s.xml">
+      <configuration name="PathfinderTests.testPathfinder_t0" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="333000" />
@@ -271,8 +322,8 @@
     <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49922118" visible="true" weight="0.16550879" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.5007788" side_tool="true" visible="true" weight="0.16550879" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49922118" visible="true" weight="0.16550879" />
+      <window_info id="Structure" order="1" sideWeight="0.5007788" side_tool="true" visible="true" weight="0.16550879" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="UI Designer" order="4" />
@@ -288,7 +339,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32943925" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -319,7 +370,8 @@
     <MESSAGE value="formatting" />
     <MESSAGE value="javaDocs" />
     <MESSAGE value="initial hw1 commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial hw1 commit" />
+    <MESSAGE value="first wave of modifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="first wave of modifications" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/pathfinder/uninformed/MazeState.java">
@@ -368,10 +420,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/lang/Comparable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="6" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/MazeState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="49" column="1" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/PathfinderTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="23" column="49" lean-forward="true" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+        <state relative-caret-position="400">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -380,22 +446,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/MazeProblem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="124" column="54" selection-start-line="124" selection-start-column="54" selection-end-line="124" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/MazeState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="49" column="1" lean-forward="true" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+        <state relative-caret-position="-300">
+          <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
+          <folding>
+            <element signature="e#3389#3390#0" expanded="true" />
+            <element signature="e#3436#3437#0" expanded="true" />
+            <element signature="e#5382#5383#0" expanded="true" />
+            <element signature="e#5430#5431#0" expanded="true" />
+            <element signature="e#5533#5534#0" expanded="true" />
+            <element signature="e#5619#5620#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/Pathfinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1059">
-          <caret line="92" column="15" selection-start-line="92" selection-start-column="15" selection-end-line="92" selection-end-column="15" />
+        <state relative-caret-position="700">
+          <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
           <folding>
             <element signature="e#3371#3372#0" expanded="true" />
             <element signature="e#3424#3425#0" expanded="true" />
