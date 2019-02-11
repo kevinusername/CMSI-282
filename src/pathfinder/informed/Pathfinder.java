@@ -1,7 +1,12 @@
 // Kevin Peters
 package pathfinder.informed;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.PriorityQueue;
 
 /**
  * Maze Pathfinding algorithm that implements a basic, uninformed, breadth-first tree search.

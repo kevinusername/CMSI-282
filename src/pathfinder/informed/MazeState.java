@@ -34,9 +34,8 @@ public class MazeState {
 
     @Override
     public boolean equals(Object other) {
-        return other instanceof MazeState
-                ? this.row == ((MazeState) other).row && this.col == ((MazeState) other).col
-                : false;
+        return other instanceof MazeState &&
+               (this.row == ((MazeState) other).row && this.col == ((MazeState) other).col);
     }
 
     @Override
