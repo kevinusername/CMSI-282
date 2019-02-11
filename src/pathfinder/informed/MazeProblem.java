@@ -45,15 +45,15 @@ public class MazeProblem {
      *             'X': A wall, 'G': A goal, 'I': The initial state, '.': an open spot
      *             For example, a valid maze might look like:
      *             <pre>
-     *                                                             String[] maze = {
-     *                                                                 "XXXXXXX",
-     *                                                                 "X.....X",
-     *                                                                 "XIX.X.X",
-     *                                                                 "XX.X..X",
-     *                                                                 "XG....X",
-     *                                                                 "XXXXXXX"
-     *                                                             };
-     *                                                             </pre>
+     *             String[] maze = {
+     *             "XXXXXXX",
+     *             "X.....X",
+     *             "XIX.X.X",
+     *             "XX.X..X",
+     *             "XG....X",
+     *             "XXXXXXX"
+     *             };
+     *             </pre>
      */
     MazeProblem(String[] maze) {
         this.maze = maze;
@@ -62,7 +62,7 @@ public class MazeProblem {
         MazeState foundInitial = null, foundKey = null;
         ArrayList<MazeState> foundGoals = new ArrayList<>();
 
-        // Find the initial and goal state in the given maze, and then
+        // Find the initial, goal, key, and mud state in the given maze, and then
         // store in fields once found
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
@@ -140,7 +140,7 @@ public class MazeProblem {
         return oldCost + getCost(newState);
     }
 
-    private int getCost(MazeState newState) {
+    public int getCost(MazeState newState) {
         return maze[newState.row].charAt(newState.col) == 'M' ? 3 : 1;
     }
 

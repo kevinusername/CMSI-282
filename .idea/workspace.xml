@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1877ed1e-cc83-40ab-a6ee-a5ba924b7db9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pathfinder/informed/MazeProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pathfinder/informed/MazeProblem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pathfinder/informed/Pathfinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pathfinder/informed/Pathfinder.java" afterDir="false" />
@@ -15,27 +16,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/Pathfinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="24" column="64" lean-forward="true" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
+            <state relative-caret-position="1780">
+              <caret line="89" column="78" selection-start-line="89" selection-start-column="78" selection-end-line="89" selection-end-column="78" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/MazeProblem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="138" column="22" selection-start-line="138" selection-start-column="22" selection-end-line="138" selection-end-column="22" />
+            <state relative-caret-position="120">
+              <caret line="142" column="10" selection-start-line="142" selection-start-column="10" selection-end-line="142" selection-end-column="10" />
               <folding>
-                <element signature="e#3389#3390#0" expanded="true" />
-                <element signature="e#3436#3437#0" expanded="true" />
                 <element signature="e#5828#5829#0" expanded="true" />
                 <element signature="e#5878#5879#0" expanded="true" />
-                <element signature="e#5533#5534#0" expanded="true" />
-                <element signature="e#5619#5620#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -53,7 +50,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/PathfinderTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
+            <state relative-caret-position="1560">
               <caret line="78" selection-start-line="78" selection-end-line="78" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -81,13 +78,13 @@
         <option value="$PROJECT_DIR$/src/pathfinder/uninformed/Pathfinder.java" />
         <option value="$PROJECT_DIR$/src/pathfinder/uninformed/PathfinderTests.java" />
         <option value="$PROJECT_DIR$/src/pathfinder/informed/PathfinderTests.java" />
-        <option value="$PROJECT_DIR$/src/pathfinder/informed/MazeProblem.java" />
         <option value="$PROJECT_DIR$/src/pathfinder/informed/Pathfinder.java" />
+        <option value="$PROJECT_DIR$/src/pathfinder/informed/MazeProblem.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="506" />
+    <option name="x" value="505" />
     <option name="y" value="45" />
     <option name="width" value="1295" />
     <option name="height" value="1395" />
@@ -97,6 +94,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -131,7 +129,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -146,7 +143,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -249,6 +246,8 @@
       <updated>1547873359869</updated>
       <workItem from="1547873363554" duration="318000" />
       <workItem from="1547873742655" duration="15000" />
+      <workItem from="1549264574714" duration="12000" />
+      <workItem from="1549845616768" duration="880000" />
     </task>
     <task id="LOCAL-00001" summary="fixed packages">
       <created>1547876807044</created>
@@ -331,9 +330,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 34m 24s.xml">
-      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 34m 41s.xml">
       <configuration name="PathfinderTests (1)" configurationId="JUnit" />
     </history-entry>
@@ -361,22 +357,26 @@
     <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 48m 56s.xml">
       <configuration name="PathfinderTests (1)" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="PathfinderTests_(1) - 2019.02.10 at 16h 53m 43s.xml">
+      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="333000" />
+    <option name="totallyTimeSpent" value="1225000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
+    <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49922118" visible="true" weight="0.16550879" />
-      <window_info id="Structure" order="1" sideWeight="0.5007788" side_tool="true" visible="true" weight="0.16550879" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49696356" visible="true" weight="0.16883117" />
+      <window_info id="Structure" order="1" sideWeight="0.50303644" side_tool="true" visible="true" weight="0.16883117" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Duplicate detector" weight="0.3299595" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943925" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.40576324" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4048583" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3979751" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -471,33 +471,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/lang/Comparable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="6" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/util/PriorityQueue.class">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/PathfinderTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/util/function/ToIntFunction.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/lang/Comparable.class" />
+    <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/util/PriorityQueue.class" />
+    <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/util/function/ToIntFunction.class" />
     <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/MazeState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
@@ -505,25 +481,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/MazeProblem.java">
+    <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/PathfinderTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="138" column="22" selection-start-line="138" selection-start-column="22" selection-end-line="138" selection-end-column="22" />
+        <state relative-caret-position="1560">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
           <folding>
-            <element signature="e#3389#3390#0" expanded="true" />
-            <element signature="e#3436#3437#0" expanded="true" />
-            <element signature="e#5828#5829#0" expanded="true" />
-            <element signature="e#5878#5879#0" expanded="true" />
-            <element signature="e#5533#5534#0" expanded="true" />
-            <element signature="e#5619#5620#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/Pathfinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" column="64" lean-forward="true" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
+        <state relative-caret-position="1780">
+          <caret line="89" column="78" selection-start-line="89" selection-start-column="78" selection-end-line="89" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/MazeProblem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="142" column="10" selection-start-line="142" selection-start-column="10" selection-end-line="142" selection-end-column="10" />
+          <folding>
+            <element signature="e#5828#5829#0" expanded="true" />
+            <element signature="e#5878#5879#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

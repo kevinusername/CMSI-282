@@ -22,7 +22,7 @@ public class Pathfinder {
         if (problem.KEY_STATE == null) { return null; }
 
         SearchTreeNode keyNode = optimalPath(problem, new SearchTreeNode(problem.INITIAL_STATE, null, null, 0, 0),
-                                             problem.KEY_STATE);
+                problem.KEY_STATE);
 
         if (keyNode == null) { return null; }
 
@@ -37,6 +37,14 @@ public class Pathfinder {
         return solutions.isEmpty() ? null : generatePath(solutions.get(0));
     }
 
+    /**
+     * Uses A* along with Manhattan Distance Heuristic to find the optimal path between two nodes
+     *
+     * @param problem    MazeProblem that contains start and end nodes
+     * @param startNode  node from the which the path starts
+     * @param finalState node which path ends at
+     * @return a node with parent references for the optimal path from startNode to endNode
+     */
     private static SearchTreeNode optimalPath(MazeProblem problem, SearchTreeNode startNode, MazeState finalState) {
         PriorityQueue<SearchTreeNode> frontier = new PriorityQueue<>(16, Comparator.comparingInt(
                 (SearchTreeNode node) -> node.est_cost));
@@ -53,8 +61,8 @@ public class Pathfinder {
             for (Map.Entry<String, MazeState> action : problem.getTransitions(currentNode.state).entrySet()) {
                 if (!graveyard.contains(action.getValue())) {
                     frontier.add(new SearchTreeNode(action.getValue(), action.getKey(), currentNode,
-                                                    hCost(action.getValue(), finalState),
-                                                    problem.newCost(currentNode.actual_cost, action.getValue())));
+                            hCost(action.getValue(), finalState),
+                            problem.newCost(currentNode.actual_cost, action.getValue())));
                 }
             }
         }
@@ -78,6 +86,13 @@ public class Pathfinder {
         return path;
     }
 
+    /**
+     * Uses Manhattan Heuristic to estimate cost from startState to finalState
+     *
+     * @param startState starting node for path
+     * @param finalState end node for path
+     * @return the absolute value of the difference between the nodes coordinates
+     */
     private static int hCost(MazeState startState, MazeState finalState) {
         return Math.abs(startState.col - finalState.col) + Math.abs(startState.row - finalState.row);
     }
