@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1877ed1e-cc83-40ab-a6ee-a5ba924b7db9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nim/NimPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nim/NimPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nim/NimPlayerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nim/NimPlayerTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +18,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/nim/NimPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="777">
-              <caret line="56" column="38" lean-forward="true" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
+            <state relative-caret-position="284">
+              <caret line="53" column="23" lean-forward="true" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/nim/NimPlayerTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1541">
+              <caret line="67" selection-start-line="67" selection-end-line="67" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -31,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/src/nim/NimGame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="650">
-              <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+              <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -54,10 +66,11 @@
         <option value="$PROJECT_DIR$/src/pathfinder/uninformed/MazeState.java" />
         <option value="$PROJECT_DIR$/src/pathfinder/uninformed/Pathfinder.java" />
         <option value="$PROJECT_DIR$/src/pathfinder/uninformed/PathfinderTests.java" />
-        <option value="$PROJECT_DIR$/src/pathfinder/informed/PathfinderTests.java" />
         <option value="$PROJECT_DIR$/src/pathfinder/informed/MazeProblem.java" />
         <option value="$PROJECT_DIR$/src/pathfinder/informed/Pathfinder.java" />
         <option value="$PROJECT_DIR$/src/pathfinder/informed/MazeState.java" />
+        <option value="$PROJECT_DIR$/src/pathfinder/informed/PathfinderTests.java" />
+        <option value="$PROJECT_DIR$/src/nim/NimPlayerTests.java" />
         <option value="$PROJECT_DIR$/src/nim/NimPlayer.java" />
       </list>
     </option>
@@ -131,64 +144,51 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PathfinderTests (1)">
-    <configuration name="PathfinderTests (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.NimPlayerTests.NimPlayerTest_t1">
+    <configuration name="NimPlayerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CMSI-282" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pathfinder.informed.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pathfinder.informed" />
-      <option name="MAIN_CLASS_NAME" value="pathfinder.informed.PathfinderTests" />
+      <option name="PACKAGE_NAME" value="nim" />
+      <option name="MAIN_CLASS_NAME" value="nim.NimPlayerTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PathfinderTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NimPlayerTests.NimPlayerTest_t0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CMSI-282" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pathfinder.uninformed.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pathfinder.uninformed" />
-      <option name="MAIN_CLASS_NAME" value="pathfinder.uninformed.PathfinderTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PathfinderTests.testPathfinder_t0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CMSI-282" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pathfinder.informed.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pathfinder.informed" />
-      <option name="MAIN_CLASS_NAME" value="pathfinder.informed.PathfinderTests" />
-      <option name="METHOD_NAME" value="testPathfinder_t0" />
+      <option name="PACKAGE_NAME" value="nim" />
+      <option name="MAIN_CLASS_NAME" value="nim.NimPlayerTests" />
+      <option name="METHOD_NAME" value="NimPlayerTest_t0" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PathfinderTests.testPathfinder_t1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NimPlayerTests.NimPlayerTest_t1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CMSI-282" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pathfinder.informed.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pathfinder.informed" />
-      <option name="MAIN_CLASS_NAME" value="pathfinder.informed.PathfinderTests" />
-      <option name="METHOD_NAME" value="testPathfinder_t1" />
+      <option name="PACKAGE_NAME" value="nim" />
+      <option name="MAIN_CLASS_NAME" value="nim.NimPlayerTests" />
+      <option name="METHOD_NAME" value="NimPlayerTest_t1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NimPlayerTests.NimPlayerTest_t2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CMSI-282" />
+      <option name="PACKAGE_NAME" value="nim" />
+      <option name="MAIN_CLASS_NAME" value="nim.NimPlayerTests" />
+      <option name="METHOD_NAME" value="NimPlayerTest_t2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NimPlayerTests.NimPlayerTest_t4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CMSI-282" />
+      <option name="PACKAGE_NAME" value="nim" />
+      <option name="MAIN_CLASS_NAME" value="nim.NimPlayerTests" />
+      <option name="METHOD_NAME" value="NimPlayerTest_t4" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -196,10 +196,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PathfinderTests (1)" />
-        <item itemvalue="JUnit.PathfinderTests.testPathfinder_t1" />
-        <item itemvalue="JUnit.PathfinderTests.testPathfinder_t0" />
-        <item itemvalue="JUnit.PathfinderTests" />
+        <item itemvalue="JUnit.NimPlayerTests.NimPlayerTest_t1" />
+        <item itemvalue="JUnit.NimPlayerTests" />
+        <item itemvalue="JUnit.NimPlayerTests.NimPlayerTest_t4" />
+        <item itemvalue="JUnit.NimPlayerTests.NimPlayerTest_t2" />
+        <item itemvalue="JUnit.NimPlayerTests.NimPlayerTest_t0" />
       </list>
     </recent_temporary>
   </component>
@@ -220,7 +221,7 @@
       <workItem from="1549921868161" duration="234000" />
       <workItem from="1549922164907" duration="665000" />
       <workItem from="1549922864032" duration="308000" />
-      <workItem from="1551248843763" duration="1708000" />
+      <workItem from="1551248843763" duration="6539000" />
     </task>
     <task id="LOCAL-00001" summary="fixed packages">
       <created>1547876807044</created>
@@ -299,56 +300,63 @@
       <option name="project" value="LOCAL" />
       <updated>1548571354759</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="first version of AB pruning">
+      <created>1551250677286</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1551250677286</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 34m 41s.xml">
-      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    <history-entry file="NimPlayerTests_NimPlayerTest_t1 - 2019.02.27 at 00h 08m 27s.xml">
+      <configuration name="NimPlayerTests.NimPlayerTest_t1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 34m 55s.xml">
-      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    <history-entry file="NimPlayerTests - 2019.02.27 at 00h 08m 33s.xml">
+      <configuration name="NimPlayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 35m 43s.xml">
-      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    <history-entry file="NimPlayerTests_NimPlayerTest_t2 - 2019.02.27 at 00h 08m 42s.xml">
+      <configuration name="NimPlayerTests.NimPlayerTest_t2" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 36m 21s.xml">
-      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    <history-entry file="NimPlayerTests_NimPlayerTest_t4 - 2019.02.27 at 00h 08m 47s.xml">
+      <configuration name="NimPlayerTests.NimPlayerTest_t4" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 41m 13s.xml">
-      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    <history-entry file="NimPlayerTests_NimPlayerTest_t4 - 2019.02.27 at 00h 10m 52s.xml">
+      <configuration name="NimPlayerTests.NimPlayerTest_t4" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 41m 27s.xml">
-      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    <history-entry file="NimPlayerTests - 2019.02.27 at 00h 10m 57s.xml">
+      <configuration name="NimPlayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 46m 11s.xml">
-      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    <history-entry file="NimPlayerTests - 2019.02.27 at 00h 11m 35s.xml">
+      <configuration name="NimPlayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 48m 08s.xml">
-      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    <history-entry file="NimPlayerTests_NimPlayerTest_t4 - 2019.02.27 at 00h 14m 05s.xml">
+      <configuration name="NimPlayerTests.NimPlayerTest_t4" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PathfinderTests_(1) - 2019.01.26 at 22h 48m 56s.xml">
-      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    <history-entry file="NimPlayerTests_NimPlayerTest_t4 - 2019.02.27 at 00h 14m 07s.xml">
+      <configuration name="NimPlayerTests.NimPlayerTest_t4" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PathfinderTests_(1) - 2019.02.10 at 16h 53m 43s.xml">
-      <configuration name="PathfinderTests (1)" configurationId="JUnit" />
+    <history-entry file="NimPlayerTests - 2019.02.27 at 00h 14m 13s.xml">
+      <configuration name="NimPlayerTests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4140000" />
+    <option name="totallyTimeSpent" value="8971000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.13812833" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.13812833" />
       <window_info id="Structure" order="1" sideWeight="0.50564617" side_tool="true" weight="0.17042756" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943925" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4048583" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.40420562" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3979751" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -395,7 +403,20 @@
     <MESSAGE value="initial working version" />
     <MESSAGE value="lambda comparator" />
     <MESSAGE value="lambda sort for solutions" />
-    <option name="LAST_COMMIT_MESSAGE" value="lambda sort for solutions" />
+    <MESSAGE value="first version of AB pruning" />
+    <option name="LAST_COMMIT_MESSAGE" value="first version of AB pruning" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/nim/NimPlayer.java</url>
+          <line>33</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/pathfinder/uninformed/MazeState.java">
@@ -454,13 +475,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/PathfinderTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/MazeState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="874">
@@ -470,8 +484,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/Pathfinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="58" lean-forward="true" selection-start-line="53" selection-end-line="75" />
+        <state relative-caret-position="78">
+          <caret line="40" lean-forward="true" selection-start-line="26" selection-end-line="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/PathfinderTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -481,14 +505,24 @@
     <entry file="file://$PROJECT_DIR$/src/nim/NimGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
-          <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nim/NimPlayerTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1541">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/nim/NimPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="56" column="38" lean-forward="true" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
+        <state relative-caret-position="284">
+          <caret line="53" column="23" lean-forward="true" selection-start-line="53" selection-start-column="23" selection-end-line="53" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

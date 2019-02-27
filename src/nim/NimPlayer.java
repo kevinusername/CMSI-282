@@ -1,6 +1,9 @@
 package nim;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -21,7 +24,14 @@ public class NimPlayer {
      * of [1, MAX_REMOVAL]
      */
     public int choose(int remaining) {
-        throw new UnsupportedOperationException();
+
+        GameTreeNode root = new GameTreeNode(remaining, 0, true);
+        alphaBetaMinimax(root, Integer.MIN_VALUE, Integer.MAX_VALUE, true, new HashMap<GameTreeNode, Integer>());
+
+        root.children.sort(Comparator.comparing(node -> node.score));
+        Collections.reverse(root.children);
+        GameTreeNode bestChoice = root.children.get(0);
+        return  bestChoice.score == -1 ? 1 : bestChoice.action;
     }
 
     /**
@@ -38,11 +48,21 @@ public class NimPlayer {
      */
     private int alphaBetaMinimax(GameTreeNode node, int alpha, int beta, boolean isMax,
                                  Map<GameTreeNode, Integer> visited) {
-        if (visited.containsValue(node.remaining)) { return isMax ? alpha : beta; }
 
-        visited.put(node, node.remaining);
+//        if (node.remaining == 0) {
+//            node .score = 1;
+//            return 1;
+//        }
+        if (visited.containsKey(node)) { return visited.get(node); }
 
-        if (node.remaining == 0) { return node.score; }
+        visited.put(node, node.score);
+
+
+
+        for (int i = 1; i <= Math.min(node.remaining, MAX_REMOVAL); i++) {
+            node.children.add(new GameTreeNode(node.remaining - i, i, !node.isMax));
+        }
+
         if (isMax) {
             int v = Integer.MIN_VALUE;
             for (GameTreeNode child : node.children) {
@@ -52,6 +72,7 @@ public class NimPlayer {
                     break;
                 }
             }
+            node.score = alpha;
             return v;
         } else {
             int v = Integer.MAX_VALUE;
@@ -62,6 +83,7 @@ public class NimPlayer {
                     break;
                 }
             }
+            node.score = beta;
             return v;
         }
 
