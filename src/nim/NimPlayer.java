@@ -38,7 +38,33 @@ public class NimPlayer {
      */
     private int alphaBetaMinimax(GameTreeNode node, int alpha, int beta, boolean isMax,
                                  Map<GameTreeNode, Integer> visited) {
-        throw new UnsupportedOperationException();
+        if (visited.containsValue(node.remaining)) { return isMax ? alpha : beta; }
+
+        visited.put(node, node.remaining);
+
+        if (node.remaining == 0) { return node.score; }
+        if (isMax) {
+            int v = Integer.MIN_VALUE;
+            for (GameTreeNode child : node.children) {
+                v = Math.max(v, alphaBetaMinimax(child, alpha, beta, false, visited));
+                alpha = Math.max(v, alpha);
+                if (beta <= alpha) {
+                    break;
+                }
+            }
+            return v;
+        } else {
+            int v = Integer.MAX_VALUE;
+            for (GameTreeNode child : node.children) {
+                v = Math.min(v, alphaBetaMinimax(child, alpha, beta, true, visited));
+                beta = Math.min(beta, v);
+                if (beta <= alpha) {
+                    break;
+                }
+            }
+            return v;
+        }
+
     }
 
 }
