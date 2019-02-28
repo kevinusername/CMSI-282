@@ -45,7 +45,7 @@ public class NimPlayer {
     private int alphaBetaMinimax(GameTreeNode node, int alpha, int beta, boolean isMax,
                                  Map<GameTreeNode, Integer> visited) {
 
-//        if (visited.containsKey(node)) { return visited.get(node); }
+        if (visited.containsKey(node)) { return visited.get(node); }
 
         if (node.remaining == 0) {
             node.score = isMax ? -1 : 1;
@@ -64,7 +64,8 @@ public class NimPlayer {
                 v = Math.max(v, alphaBetaMinimax(child, alpha, beta, false, visited));
                 alpha = Math.max(v, alpha);
                 if (beta <= alpha) {
-                    node.score = 1;
+                    node.children.clear();
+//                    node.score = 1;
                     return 1;
                 }
             }
@@ -77,7 +78,8 @@ public class NimPlayer {
                 v = Math.min(v, alphaBetaMinimax(child, alpha, beta, true, visited));
                 beta = Math.min(beta, v);
                 if (beta <= alpha) {
-                    node.score = -1;
+//                    node.score = -1;
+                    node.children.clear();
                     return -1;
                 }
             }
