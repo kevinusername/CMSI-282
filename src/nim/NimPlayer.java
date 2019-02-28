@@ -1,10 +1,6 @@
 package nim;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Artificial Intelligence responsible for playing the game of Nim!
@@ -31,7 +27,7 @@ public class NimPlayer {
         root.children.sort(Comparator.comparing(node -> node.score));
         Collections.reverse(root.children);
         GameTreeNode bestChoice = root.children.get(0);
-        return  bestChoice.score == -1 ? 1 : bestChoice.action;
+        return bestChoice.score == -1 ? 1 : bestChoice.action;
     }
 
     /**
@@ -49,14 +45,13 @@ public class NimPlayer {
     private int alphaBetaMinimax(GameTreeNode node, int alpha, int beta, boolean isMax,
                                  Map<GameTreeNode, Integer> visited) {
 
-//        if (node.remaining == 0) {
-//            node .score = 1;
-//            return 1;
-//        }
-        if (visited.containsKey(node)) { return visited.get(node); }
+//        if (visited.containsKey(node)) { return visited.get(node); }
 
-        visited.put(node, node.score);
-
+        if (node.remaining == 0) {
+            node.score = isMax ? -1 : 1;
+            visited.put(node, node.score);
+            return node.score;
+        }
 
 
         for (int i = 1; i <= Math.min(node.remaining, MAX_REMOVAL); i++) {
@@ -69,10 +64,12 @@ public class NimPlayer {
                 v = Math.max(v, alphaBetaMinimax(child, alpha, beta, false, visited));
                 alpha = Math.max(v, alpha);
                 if (beta <= alpha) {
-                    break;
+                    node.score = 1;
+                    return 1;
                 }
             }
             node.score = alpha;
+            visited.put(node, node.score);
             return v;
         } else {
             int v = Integer.MAX_VALUE;
@@ -80,10 +77,12 @@ public class NimPlayer {
                 v = Math.min(v, alphaBetaMinimax(child, alpha, beta, true, visited));
                 beta = Math.min(beta, v);
                 if (beta <= alpha) {
-                    break;
+                    node.score = -1;
+                    return -1;
                 }
             }
             node.score = beta;
+            visited.put(node, node.score);
             return v;
         }
 
