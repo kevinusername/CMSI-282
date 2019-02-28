@@ -1,6 +1,9 @@
 package nim;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Artificial Intelligence responsible for playing the game of Nim!
@@ -25,8 +28,7 @@ public class NimPlayer {
         alphaBetaMinimax(root, Integer.MIN_VALUE, Integer.MAX_VALUE, true, new HashMap<GameTreeNode, Integer>());
 
         root.children.sort(Comparator.comparing(node -> node.score));
-        Collections.reverse(root.children);
-        GameTreeNode bestChoice = root.children.get(0);
+        GameTreeNode bestChoice = root.children.get(root.children.size() - 1);
         return bestChoice.score == -1 ? 1 : bestChoice.action;
     }
 
@@ -44,15 +46,9 @@ public class NimPlayer {
      */
     private int alphaBetaMinimax(GameTreeNode node, int alpha, int beta, boolean isMax,
                                  Map<GameTreeNode, Integer> visited) {
-
         if (visited.containsKey(node)) { return visited.get(node); }
 
-        if (node.remaining == 0) {
-            node.score = isMax ? -1 : 1;
-            visited.put(node, node.score);
-            return node.score;
-        }
-
+        if (node.remaining == 0) { return handleTerminal(node, isMax, visited); }
 
         for (int i = 1; i <= Math.min(node.remaining, MAX_REMOVAL); i++) {
             node.children.add(new GameTreeNode(node.remaining - i, i, !node.isMax));
@@ -62,12 +58,19 @@ public class NimPlayer {
         return handleMin(node, alpha, beta, visited);
     }
 
+    private int handleTerminal(GameTreeNode node, boolean isMax, Map<GameTreeNode, Integer> visited) {
+        node.score = isMax ? -1 : 1;
+        visited.put(node, node.score);
+        return node.score;
+    }
+
     private int handleMin(GameTreeNode node, int alpha, int beta, Map<GameTreeNode, Integer> visited) {
         int v = Integer.MAX_VALUE;
         for (GameTreeNode child : node.children) {
             v = Math.min(v, alphaBetaMinimax(child, alpha, beta, true, visited));
             beta = Math.min(beta, v);
             if (beta <= alpha) {
+                // Remove pruned children so they aren't considered when evaluating optimal choice
                 node.children.clear();
                 return -1;
             }
@@ -83,6 +86,7 @@ public class NimPlayer {
             v = Math.max(v, alphaBetaMinimax(child, alpha, beta, false, visited));
             alpha = Math.max(v, alpha);
             if (beta <= alpha) {
+                // Remove pruned children so they aren't considered when evaluating optimal choice
                 node.children.clear();
                 return 1;
             }
@@ -91,7 +95,6 @@ public class NimPlayer {
         visited.put(node, node.score);
         return v;
     }
-
 }
 
 /**

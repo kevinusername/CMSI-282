@@ -17,8 +17,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/nim/NimPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="62" column="5" lean-forward="true" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+            <state relative-caret-position="253">
+              <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -26,7 +29,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/nim/NimPlayerTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
+            <state relative-caret-position="943">
               <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -141,7 +144,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.NimPlayerTests.NimPlayerTest_t2">
+  <component name="RunManager" selected="JUnit.NimPlayerTests">
     <configuration name="NimGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="nim.NimGame" />
       <module name="CMSI-282" />
@@ -190,9 +193,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NimPlayerTests" />
         <item itemvalue="JUnit.NimPlayerTests.NimPlayerTest_t2" />
         <item itemvalue="Application.NimGame" />
-        <item itemvalue="JUnit.NimPlayerTests" />
         <item itemvalue="JUnit.NimPlayerTests.NimPlayerTest_t0" />
         <item itemvalue="JUnit.NimPlayerTests.NimPlayerTest_t1" />
       </list>
@@ -218,7 +221,7 @@
       <workItem from="1551248843763" duration="6539000" />
       <workItem from="1551300434688" duration="3559000" />
       <workItem from="1551310453649" duration="4794000" />
-      <workItem from="1551388064112" duration="715000" />
+      <workItem from="1551388064112" duration="2178000" />
     </task>
     <task id="LOCAL-00001" summary="fixed packages">
       <created>1547876807044</created>
@@ -318,22 +321,17 @@
       <option name="project" value="LOCAL" />
       <updated>1551316519153</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="refactoring">
+      <created>1551388799376</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1551388799376</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="NimPlayerTests_NimPlayerTest_t1 - 2019.02.27 at 16h 43m 38s.xml">
-      <configuration name="NimPlayerTests.NimPlayerTest_t1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NimPlayerTests - 2019.02.27 at 16h 43m 47s.xml">
-      <configuration name="NimPlayerTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NimPlayerTests_NimPlayerTest_t0 - 2019.02.27 at 16h 43m 52s.xml">
-      <configuration name="NimPlayerTests.NimPlayerTest_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NimPlayerTests_NimPlayerTest_t0 - 2019.02.27 at 16h 46m 12s.xml">
-      <configuration name="NimPlayerTests.NimPlayerTest_t0" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="NimPlayerTests_NimPlayerTest_t0 - 2019.02.27 at 16h 46m 25s.xml">
       <configuration name="NimPlayerTests.NimPlayerTest_t0" configurationId="JUnit" />
     </history-entry>
@@ -352,9 +350,21 @@
     <history-entry file="NimPlayerTests_NimPlayerTest_t2 - 2019.02.28 at 13h 14m 41s.xml">
       <configuration name="NimPlayerTests.NimPlayerTest_t2" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="NimPlayerTests - 2019.02.28 at 13h 32m 53s.xml">
+      <configuration name="NimPlayerTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NimPlayerTests - 2019.02.28 at 13h 38m 38s.xml">
+      <configuration name="NimPlayerTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NimPlayerTests - 2019.02.28 at 13h 39m 01s.xml">
+      <configuration name="NimPlayerTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NimPlayerTests - 2019.02.28 at 13h 43m 11s.xml">
+      <configuration name="NimPlayerTests" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18039000" />
+    <option name="totallyTimeSpent" value="19502000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1721" height="935" extended-state="6" />
@@ -417,14 +427,15 @@
     <MESSAGE value="first version of AB pruning" />
     <MESSAGE value="working: needs memoization" />
     <MESSAGE value="all working(?)" />
-    <option name="LAST_COMMIT_MESSAGE" value="all working(?)" />
+    <MESSAGE value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/nim/NimPlayer.java</url>
-          <line>29</line>
+          <line>31</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
@@ -531,7 +542,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/nim/NimPlayerTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
+        <state relative-caret-position="943">
           <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -541,8 +552,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/nim/NimPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="62" column="5" lean-forward="true" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+        <state relative-caret-position="253">
+          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
