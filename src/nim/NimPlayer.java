@@ -58,36 +58,38 @@ public class NimPlayer {
             node.children.add(new GameTreeNode(node.remaining - i, i, !node.isMax));
         }
 
-        if (isMax) {
-            int v = Integer.MIN_VALUE;
-            for (GameTreeNode child : node.children) {
-                v = Math.max(v, alphaBetaMinimax(child, alpha, beta, false, visited));
-                alpha = Math.max(v, alpha);
-                if (beta <= alpha) {
-                    node.children.clear();
-//                    node.score = 1;
-                    return 1;
-                }
-            }
-            node.score = alpha;
-            visited.put(node, node.score);
-            return v;
-        } else {
-            int v = Integer.MAX_VALUE;
-            for (GameTreeNode child : node.children) {
-                v = Math.min(v, alphaBetaMinimax(child, alpha, beta, true, visited));
-                beta = Math.min(beta, v);
-                if (beta <= alpha) {
-//                    node.score = -1;
-                    node.children.clear();
-                    return -1;
-                }
-            }
-            node.score = beta;
-            visited.put(node, node.score);
-            return v;
-        }
+        if (isMax) { return handleMax(node, alpha, beta, visited); }
+        return handleMin(node, alpha, beta, visited);
+    }
 
+    private int handleMin(GameTreeNode node, int alpha, int beta, Map<GameTreeNode, Integer> visited) {
+        int v = Integer.MAX_VALUE;
+        for (GameTreeNode child : node.children) {
+            v = Math.min(v, alphaBetaMinimax(child, alpha, beta, true, visited));
+            beta = Math.min(beta, v);
+            if (beta <= alpha) {
+                node.children.clear();
+                return -1;
+            }
+        }
+        node.score = beta;
+        visited.put(node, node.score);
+        return v;
+    }
+
+    private int handleMax(GameTreeNode node, int alpha, int beta, Map<GameTreeNode, Integer> visited) {
+        int v = Integer.MIN_VALUE;
+        for (GameTreeNode child : node.children) {
+            v = Math.max(v, alphaBetaMinimax(child, alpha, beta, false, visited));
+            alpha = Math.max(v, alpha);
+            if (beta <= alpha) {
+                node.children.clear();
+                return 1;
+            }
+        }
+        node.score = alpha;
+        visited.put(node, node.score);
+        return v;
     }
 
 }
