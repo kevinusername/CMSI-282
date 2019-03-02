@@ -23,7 +23,6 @@ public class NimPlayer {
      * of [1, MAX_REMOVAL]
      */
     public int choose(int remaining) {
-
         GameTreeNode root = new GameTreeNode(remaining, 0, true);
         alphaBetaMinimax(root, Integer.MIN_VALUE, Integer.MAX_VALUE, true, new HashMap<GameTreeNode, Integer>());
 
@@ -57,9 +56,36 @@ public class NimPlayer {
             node.children.add(new GameTreeNode(node.remaining - i, i, !node.isMax));
         }
 
-        // Alpha-beta pruning. Actions based on if MIN or MAX node
-        if (isMax) { return handleMax(node, alpha, beta, visited); }
-        return handleMin(node, alpha, beta, visited);
+        // Alpha-beta pruning algorithm. Actions based on if MIN or MAX node
+        if (isMax) {
+            int v = Integer.MIN_VALUE;
+            for (GameTreeNode child : node.children) {
+                v = Math.max(v, alphaBetaMinimax(child, alpha, beta, false, visited));
+                alpha = Math.max(v, alpha);
+                if (beta <= alpha) {
+                    // Remove pruned children so they aren't considered when evaluating optimal choice
+                    node.children.clear();
+                    return 1;
+                }
+            }
+            node.score = alpha;
+            visited.put(node, node.score);
+            return v;
+        } else { // implied MIN node
+            int v = Integer.MAX_VALUE;
+            for (GameTreeNode child : node.children) {
+                v = Math.min(v, alphaBetaMinimax(child, alpha, beta, true, visited));
+                beta = Math.min(beta, v);
+                if (beta <= alpha) {
+                    // Remove pruned children so they aren't considered when evaluating optimal choice
+                    node.children.clear();
+                    return -1;
+                }
+            }
+            node.score = beta;
+            visited.put(node, node.score);
+            return v;
+        }
     }
 
     /*
@@ -70,40 +96,6 @@ public class NimPlayer {
         node.score = isMax ? -1 : 1;
         visited.put(node, node.score);
         return node.score;
-    }
-
-    /* sub-section of alpha-beta pruning algorithm to handle MIN nodes */
-    private int handleMin(GameTreeNode node, int alpha, int beta, Map<GameTreeNode, Integer> visited) {
-        int v = Integer.MAX_VALUE;
-        for (GameTreeNode child : node.children) {
-            v = Math.min(v, alphaBetaMinimax(child, alpha, beta, true, visited));
-            beta = Math.min(beta, v);
-            if (beta <= alpha) {
-                // Remove pruned children so they aren't considered when evaluating optimal choice
-                node.children.clear();
-                return -1;
-            }
-        }
-        node.score = beta;
-        visited.put(node, node.score);
-        return v;
-    }
-
-    /* sub-section of alpha-beta pruning algorithm to handle MAX nodes */
-    private int handleMax(GameTreeNode node, int alpha, int beta, Map<GameTreeNode, Integer> visited) {
-        int v = Integer.MIN_VALUE;
-        for (GameTreeNode child : node.children) {
-            v = Math.max(v, alphaBetaMinimax(child, alpha, beta, false, visited));
-            alpha = Math.max(v, alpha);
-            if (beta <= alpha) {
-                // Remove pruned children so they aren't considered when evaluating optimal choice
-                node.children.clear();
-                return 1;
-            }
-        }
-        node.score = alpha;
-        visited.put(node, node.score);
-        return v;
     }
 }
 

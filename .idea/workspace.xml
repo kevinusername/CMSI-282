@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1877ed1e-cc83-40ab-a6ee-a5ba924b7db9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nim/NimPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nim/NimPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nim/NimPlayerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nim/NimPlayerTests.java" afterDir="false" />
@@ -16,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/nim/NimPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+            <state relative-caret-position="413">
+              <caret line="77" column="41" lean-forward="true" selection-start-line="77" selection-start-column="41" selection-end-line="77" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#352#353#0" expanded="true" />
@@ -30,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/nim/NimPlayerTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="713">
-              <caret line="31" column="49" lean-forward="true" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
+            <state relative-caret-position="2300">
+              <caret line="100" column="41" selection-start-line="100" selection-start-column="41" selection-end-line="100" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -65,8 +64,8 @@
         <option value="$PROJECT_DIR$/src/pathfinder/informed/Pathfinder.java" />
         <option value="$PROJECT_DIR$/src/pathfinder/informed/MazeState.java" />
         <option value="$PROJECT_DIR$/src/pathfinder/informed/PathfinderTests.java" />
-        <option value="$PROJECT_DIR$/src/nim/NimPlayer.java" />
         <option value="$PROJECT_DIR$/src/nim/NimPlayerTests.java" />
+        <option value="$PROJECT_DIR$/src/nim/NimPlayer.java" />
       </list>
     </option>
   </component>
@@ -327,39 +326,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="NimPlayerTests_NimPlayerTest_t2 - 2019.02.28 at 13h 14m 41s.xml">
-      <configuration name="NimPlayerTests.NimPlayerTest_t2" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NimPlayerTests - 2019.02.28 at 13h 32m 53s.xml">
+    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 20m 37s.xml">
       <configuration name="NimPlayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NimPlayerTests - 2019.02.28 at 13h 38m 38s.xml">
+    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 20m 38s.xml">
       <configuration name="NimPlayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NimPlayerTests - 2019.02.28 at 13h 39m 01s.xml">
+    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 20m 40s.xml">
       <configuration name="NimPlayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NimPlayerTests - 2019.02.28 at 13h 43m 11s.xml">
+    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 26m 45s.xml">
       <configuration name="NimPlayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NimPlayerTests - 2019.03.01 at 18h 45m 05s.xml">
+    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 26m 52s.xml">
       <configuration name="NimPlayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NimPlayerTests - 2019.03.01 at 18h 45m 34s.xml">
+    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 28m 29s.xml">
       <configuration name="NimPlayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NimPlayerTests - 2019.03.01 at 18h 45m 42s.xml">
+    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 28m 33s.xml">
       <configuration name="NimPlayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NimPlayerTests - 2019.03.01 at 18h 45m 49s.xml">
+    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 28m 37s.xml">
       <configuration name="NimPlayerTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NimPlayerTests - 2019.03.01 at 18h 45m 54s.xml">
+    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 28m 41s.xml">
+      <configuration name="NimPlayerTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 33m 07s.xml">
       <configuration name="NimPlayerTests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20526000" />
+    <option name="totallyTimeSpent" value="21347000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
@@ -510,18 +509,6 @@
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/OpenJDK/jdk-11.0.2/lib/src.zip!/java.base/java/util/function/Function.java" />
-    <entry file="file://$PROJECT_DIR$/src/nim/NimPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#352#353#0" expanded="true" />
-            <element signature="e#398#399#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/nim/NimGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
@@ -531,10 +518,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/nim/NimPlayerTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="31" column="49" lean-forward="true" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
+        <state relative-caret-position="2300">
+          <caret line="100" column="41" selection-start-line="100" selection-start-column="41" selection-end-line="100" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nim/NimPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="77" column="41" lean-forward="true" selection-start-line="77" selection-start-column="41" selection-end-line="77" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#352#353#0" expanded="true" />
+            <element signature="e#398#399#0" expanded="true" />
           </folding>
         </state>
       </provider>
