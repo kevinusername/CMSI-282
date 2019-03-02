@@ -1,3 +1,4 @@
+// Kevin Peters
 package nim;
 
 import java.util.ArrayList;
