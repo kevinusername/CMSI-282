@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1877ed1e-cc83-40ab-a6ee-a5ba924b7db9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nim/NimPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nim/NimPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nim/NimPlayerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nim/NimPlayerTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,12 +16,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/nim/NimPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="77" column="41" lean-forward="true" selection-start-line="77" selection-start-column="41" selection-end-line="77" selection-end-column="41" />
+            <state relative-caret-position="621">
+              <caret line="43" column="89" lean-forward="true" selection-start-line="43" selection-start-column="89" selection-end-line="43" selection-end-column="89" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#352#353#0" expanded="true" />
-                <element signature="e#398#399#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -32,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/nim/NimPlayerTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2300">
-              <caret line="100" column="41" selection-start-line="100" selection-start-column="41" selection-end-line="100" selection-end-column="41" />
+            <state relative-caret-position="351">
+              <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,8 +60,8 @@
         <option value="$PROJECT_DIR$/src/pathfinder/informed/Pathfinder.java" />
         <option value="$PROJECT_DIR$/src/pathfinder/informed/MazeState.java" />
         <option value="$PROJECT_DIR$/src/pathfinder/informed/PathfinderTests.java" />
-        <option value="$PROJECT_DIR$/src/nim/NimPlayerTests.java" />
         <option value="$PROJECT_DIR$/src/nim/NimPlayer.java" />
+        <option value="$PROJECT_DIR$/src/nim/NimPlayerTests.java" />
       </list>
     </option>
   </component>
@@ -80,8 +76,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -104,6 +98,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -216,6 +212,7 @@
       <workItem from="1551300434688" duration="3559000" />
       <workItem from="1551310453649" duration="4794000" />
       <workItem from="1551388064112" duration="2178000" />
+      <workItem from="1552976759120" duration="32000" />
     </task>
     <task id="LOCAL-00001" summary="fixed packages">
       <created>1547876807044</created>
@@ -322,25 +319,24 @@
       <option name="project" value="LOCAL" />
       <updated>1551388799376</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="added back jank for the greater good (of the callstack)">
+      <created>1551497609400</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1551497609400</updated>
+    </task>
+    <task id="LOCAL-00017" summary="added name">
+      <created>1551497781050</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1551497781050</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 20m 37s.xml">
-      <configuration name="NimPlayerTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 20m 38s.xml">
-      <configuration name="NimPlayerTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 20m 40s.xml">
-      <configuration name="NimPlayerTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 26m 45s.xml">
-      <configuration name="NimPlayerTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 26m 52s.xml">
-      <configuration name="NimPlayerTests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="NimPlayerTests - 2019.03.01 at 19h 28m 29s.xml">
       <configuration name="NimPlayerTests" configurationId="JUnit" />
     </history-entry>
@@ -356,15 +352,30 @@
     <history-entry file="NimPlayerTests - 2019.03.01 at 19h 33m 07s.xml">
       <configuration name="NimPlayerTests" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 35m 16s.xml">
+      <configuration name="NimPlayerTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 35m 27s.xml">
+      <configuration name="NimPlayerTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 36m 10s.xml">
+      <configuration name="NimPlayerTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 38m 26s.xml">
+      <configuration name="NimPlayerTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NimPlayerTests - 2019.03.01 at 19h 39m 14s.xml">
+      <configuration name="NimPlayerTests" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21347000" />
+    <option name="totallyTimeSpent" value="21743000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.13935432" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.1405803" />
       <window_info id="Structure" order="1" sideWeight="0.50564617" side_tool="true" weight="0.17042756" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -422,7 +433,9 @@
     <MESSAGE value="working: needs memoization" />
     <MESSAGE value="all working(?)" />
     <MESSAGE value="refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
+    <MESSAGE value="added back jank for the greater good (of the callstack)" />
+    <MESSAGE value="added name" />
+    <option name="LAST_COMMIT_MESSAGE" value="added name" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/pathfinder/uninformed/MazeState.java">
@@ -518,8 +531,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/nim/NimPlayerTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2300">
-          <caret line="100" column="41" selection-start-line="100" selection-start-column="41" selection-end-line="100" selection-end-column="41" />
+        <state relative-caret-position="351">
+          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -528,12 +541,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/nim/NimPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="77" column="41" lean-forward="true" selection-start-line="77" selection-start-column="41" selection-end-line="77" selection-end-column="41" />
+        <state relative-caret-position="621">
+          <caret line="43" column="89" lean-forward="true" selection-start-line="43" selection-start-column="89" selection-end-line="43" selection-end-column="89" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#352#353#0" expanded="true" />
-            <element signature="e#398#399#0" expanded="true" />
           </folding>
         </state>
       </provider>
