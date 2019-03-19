@@ -31,24 +31,24 @@ public class LCS {
             } else {
                 if (solTable[row - 1][col] > solTable[row][col - 1]) {
                     if (solTable[row - 1][col] > currentVal) {
-                        curSol.append(rStr.charAt(row - 2));
+                        curSol.append(rStr.charAt(row - 1));
                     }
                     row--;
                 } else if (solTable[row - 1][col] < solTable[row][col - 1]) {
                     if (solTable[row][col - 1] > currentVal) {
-                        curSol.append(cStr.charAt(col - 2));
+                        curSol.append(cStr.charAt(col - 1));
                     }
                     col--;
                 } else {
-                    allSolutions.addAll(genString(solTable, rStr, cStr, row - 1, col, curSol));
-                    allSolutions.addAll(genString(solTable, rStr, cStr, row, col - 1, curSol));
+                    allSolutions.addAll(genString(solTable, rStr, cStr, row - 1, col, new StringBuilder(curSol)));
+                    allSolutions.addAll(genString(solTable, rStr, cStr, row, col - 1, new StringBuilder(curSol)));
                     break;
                 }
             }
             currentVal = solTable[row][col];
         }
         if (currentVal == 0) {
-            allSolutions.add(curSol.toString());
+            allSolutions.add(curSol.reverse().toString());
         }
 
         return allSolutions;
@@ -89,8 +89,8 @@ public class LCS {
 
         Set<String> solution = genString(table, rStr, cStr, rStr.length(), cStr.length(), new StringBuilder());
 
-
-        throw new UnsupportedOperationException();
+        memoCheck = table;
+        return solution;
 
     }
 
