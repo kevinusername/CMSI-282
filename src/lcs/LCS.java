@@ -16,9 +16,8 @@ public class LCS {
     // Shared Helper Methods
     // -----------------------------------------------
 
-    // [!] TODO: Add your shared helper methods here!
-
-    private static Set<String> recoverSolution(int[][] solTable, String rStr, String cStr, int row, int col, StringBuilder curSol) {
+    private static Set<String> recoverSolution(int[][] solTable, String rStr, String cStr, int row, int col,
+                                               StringBuilder curSol) {
         HashSet<String> allSolutions = new HashSet<>();
         int currentVal = solTable[row][col];
 
@@ -76,9 +75,13 @@ public class LCS {
 
         memoCheck = table;
         return solution;
-
     }
 
+    /**
+     * @param rStr row String
+     * @param cStr col String
+     * @return complete table of LCS solution for all subproblems
+     */
     private static int[][] BUFillTable(String rStr, String cStr) {
         int[][] table = new int[rStr.length() + 1][cStr.length() + 1];
 
@@ -91,6 +94,9 @@ public class LCS {
         return table;
     }
 
+    /**
+     * Fills in a given cell based on values of already-filled adjacent cells
+     */
     private static void fillCell(String rStr, String cStr, int[][] table, int curRow, int curCol) {
         if (rStr.charAt(curRow - 1) == cStr.charAt(curCol - 1)) {
             table[curRow][curCol] = table[curRow - 1][curCol - 1] + 1;
@@ -98,8 +104,6 @@ public class LCS {
             table[curRow][curCol] = Math.max(table[curRow - 1][curCol], table[curRow][curCol - 1]);
         }
     }
-
-    // [!] TODO: Add any bottom-up specific helpers here!
 
 
     // -----------------------------------------------
@@ -117,10 +121,31 @@ public class LCS {
      * [Side Effect] sets memoCheck to refer to table
      */
     public static Set<String> topDownLCS(String rStr, String cStr) {
-        throw new UnsupportedOperationException();
+        int row = rStr.length(), col = cStr.length();
+        int[][] table = new int[row + 1][col + 1];
+        HashSet<int[]> explored = new HashSet<>();
+        recursiveFill(table, row, col, rStr, cStr, explored);
+        memoCheck = table;
+
+        return recoverSolution(table, rStr, cStr, row, col, new StringBuilder());
     }
 
-    // [!] TODO: Add any top-down specific helpers here!
+    private static void recursiveFill(int[][] table, int row, int col, String rStr, String cStr,
+                                      HashSet<int[]> explored) {
+        int[] coords = {row, col};
+        if (explored.contains(coords)) return;
+        else explored.add(coords);
 
+        if (row == 0 || col == 0) return;
+
+        if (rStr.charAt(row - 1) == cStr.charAt(col - 1)) {
+            recursiveFill(table, row - 1, col - 1, rStr, cStr, explored);
+            fillCell(rStr, cStr, table, row, col);
+        } else {
+            recursiveFill(table, row - 1, col, rStr, cStr, explored);
+            recursiveFill(table, row, col - 1, rStr, cStr, explored);
+            fillCell(rStr, cStr, table, row, col);
+        }
+    }
 
 }
