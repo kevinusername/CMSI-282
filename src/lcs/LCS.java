@@ -70,11 +70,8 @@ public class LCS {
      */
     public static Set<String> bottomUpLCS(String rStr, String cStr) {
         int[][] table = BUFillTable(rStr, cStr);
-
-        Set<String> solution = recoverSolution(table, rStr, cStr, rStr.length(), cStr.length(), new StringBuilder());
-
         memoCheck = table;
-        return solution;
+        return recoverSolution(table, rStr, cStr, rStr.length(), cStr.length(), new StringBuilder());
     }
 
     /**
@@ -140,12 +137,11 @@ public class LCS {
 
         if (rStr.charAt(row - 1) == cStr.charAt(col - 1)) {
             recursiveFill(table, row - 1, col - 1, rStr, cStr, explored);
-            fillCell(rStr, cStr, table, row, col);
         } else {
             recursiveFill(table, row - 1, col, rStr, cStr, explored);
             recursiveFill(table, row, col - 1, rStr, cStr, explored);
-            fillCell(rStr, cStr, table, row, col);
         }
+        fillCell(rStr, cStr, table, row, col);
     }
 
 }
