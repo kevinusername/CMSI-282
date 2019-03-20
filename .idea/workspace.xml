@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1877ed1e-cc83-40ab-a6ee-a5ba924b7db9" name="Default Changelist" comment="early stages of bottom-up">
+    <list default="true" id="1877ed1e-cc83-40ab-a6ee-a5ba924b7db9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lcs/LCS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lcs/LCS.java" afterDir="false" />
     </list>
@@ -14,24 +14,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lcs/LCS.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="233">
-              <caret line="91" column="26" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
+              <caret line="82" column="70" selection-start-line="82" selection-start-column="70" selection-end-line="82" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4442#4443#0" expanded="true" />
                 <element signature="e#4499#4500#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lcs/LCSTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+            <state relative-caret-position="-864">
+              <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -76,6 +77,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -98,7 +100,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -135,7 +136,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.LCSTests.BULCSTest_t0">
+  <component name="RunManager" selected="JUnit.LCSTests.BULCSTest_t3">
     <configuration name="LCSTests.BULCSTest_t0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CMSI-282" />
       <option name="PACKAGE_NAME" value="lcs" />
@@ -188,11 +189,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LCSTests.BULCSTest_t3" />
+        <item itemvalue="JUnit.LCSTests.BULCSTest_t4" />
         <item itemvalue="JUnit.LCSTests.BULCSTest_t0" />
         <item itemvalue="JUnit.LCSTests.BULCSTest_t1" />
         <item itemvalue="JUnit.LCSTests.BULCSTest_t2" />
-        <item itemvalue="JUnit.LCSTests.BULCSTest_t3" />
-        <item itemvalue="JUnit.LCSTests.BULCSTest_t4" />
       </list>
     </recent_temporary>
   </component>
@@ -217,7 +218,8 @@
       <workItem from="1551300434688" duration="3559000" />
       <workItem from="1551310453649" duration="4794000" />
       <workItem from="1551388064112" duration="2178000" />
-      <workItem from="1552976759120" duration="7764000" />
+      <workItem from="1552976759120" duration="8173000" />
+      <workItem from="1553057724379" duration="440000" />
     </task>
     <task id="LOCAL-00001" summary="fixed packages">
       <created>1547876807044</created>
@@ -352,25 +354,17 @@
       <option name="project" value="LOCAL" />
       <updated>1552983053188</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="bottom up tentatively working">
+      <created>1552984535460</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1552984535460</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LCSTests_BULCSTest_t4 - 2019.03.19 at 01h 32m 10s.xml">
-      <configuration name="LCSTests.BULCSTest_t4" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LCSTests_BULCSTest_t4 - 2019.03.19 at 01h 33m 56s.xml">
-      <configuration name="LCSTests.BULCSTest_t4" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LCSTests_BULCSTest_t4 - 2019.03.19 at 01h 33m 58s.xml">
-      <configuration name="LCSTests.BULCSTest_t4" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LCSTests_BULCSTest_t4 - 2019.03.19 at 01h 34m 21s.xml">
-      <configuration name="LCSTests.BULCSTest_t4" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LCSTests_BULCSTest_t4 - 2019.03.19 at 01h 34m 22s.xml">
-      <configuration name="LCSTests.BULCSTest_t4" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="LCSTests_BULCSTest_t4 - 2019.03.19 at 01h 35m 01s.xml">
       <configuration name="LCSTests.BULCSTest_t4" configurationId="JUnit" />
     </history-entry>
@@ -386,9 +380,24 @@
     <history-entry file="LCSTests_BULCSTest_t0 - 2019.03.19 at 01h 35m 16s.xml">
       <configuration name="LCSTests.BULCSTest_t0" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="LCSTests_BULCSTest_t0 - 2019.03.19 at 22h 00m 22s.xml">
+      <configuration name="LCSTests.BULCSTest_t0" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LCSTests_BULCSTest_t0 - 2019.03.19 at 22h 01m 43s.xml">
+      <configuration name="LCSTests.BULCSTest_t0" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LCSTests_BULCSTest_t4 - 2019.03.19 at 22h 01m 59s.xml">
+      <configuration name="LCSTests.BULCSTest_t4" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LCSTests_BULCSTest_t4 - 2019.03.19 at 22h 02m 19s.xml">
+      <configuration name="LCSTests.BULCSTest_t4" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LCSTests_BULCSTest_t3 - 2019.03.19 at 22h 02m 34s.xml">
+      <configuration name="LCSTests.BULCSTest_t3" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29475000" />
+    <option name="totallyTimeSpent" value="30324000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -403,7 +412,7 @@
     <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.12791173" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.12872906" />
       <window_info id="Structure" order="1" sideWeight="0.50564617" side_tool="true" weight="0.17042756" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -467,7 +476,8 @@
     <MESSAGE value="added name" />
     <MESSAGE value="initial commit for hw3" />
     <MESSAGE value="early stages of bottom-up" />
-    <option name="LAST_COMMIT_MESSAGE" value="early stages of bottom-up" />
+    <MESSAGE value="bottom up tentatively working" />
+    <option name="LAST_COMMIT_MESSAGE" value="bottom up tentatively working" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/pathfinder/uninformed/MazeState.java">
@@ -591,21 +601,22 @@
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/ComparisonCriteria.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lcs/LCS.java">
+    <entry file="file://$PROJECT_DIR$/src/lcs/LCSTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="91" column="26" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4499#4500#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-864">
+          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lcs/LCSTests.java">
+    <entry file="file://$PROJECT_DIR$/src/lcs/LCS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+        <state relative-caret-position="233">
+          <caret line="82" column="70" selection-start-line="82" selection-start-column="70" selection-end-line="82" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4442#4443#0" expanded="true" />
+            <element signature="e#4499#4500#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -18,7 +18,7 @@ public class LCS {
 
     // [!] TODO: Add your shared helper methods here!
 
-    private static Set<String> genString(int[][] solTable, String rStr, String cStr, int row, int col, StringBuilder curSol) {
+    private static Set<String> recoverSolution(int[][] solTable, String rStr, String cStr, int row, int col, StringBuilder curSol) {
         HashSet<String> allSolutions = new HashSet<>();
         int currentVal = solTable[row][col];
 
@@ -40,8 +40,8 @@ public class LCS {
                     }
                     col--;
                 } else {
-                    allSolutions.addAll(genString(solTable, rStr, cStr, row - 1, col, new StringBuilder(curSol)));
-                    allSolutions.addAll(genString(solTable, rStr, cStr, row, col - 1, new StringBuilder(curSol)));
+                    allSolutions.addAll(recoverSolution(solTable, rStr, cStr, row - 1, col, new StringBuilder(curSol)));
+                    allSolutions.addAll(recoverSolution(solTable, rStr, cStr, row, col - 1, new StringBuilder(curSol)));
                     break;
                 }
             }
@@ -70,28 +70,25 @@ public class LCS {
      * [Side Effect] sets memoCheck to refer to table
      */
     public static Set<String> bottomUpLCS(String rStr, String cStr) {
-        int[][] table = new int[rStr.length() + 1][cStr.length() + 1];
-        int row = 1, col = 1;
+        int[][] table = BUFillTable(rStr, cStr);
 
-        while (true) {
-            if (col > cStr.length() + 1) break;
-            for (int curCol = col; curCol < cStr.length() + 1; curCol++) {
-                fillCell(rStr, cStr, table, row, curCol);
-            }
-            row++;
-
-            if (row > rStr.length() + 1) break;
-            for (int curRow = row; curRow < rStr.length() + 1; curRow++) {
-                fillCell(rStr, cStr, table, curRow, col);
-            }
-            col++;
-        }
-
-        Set<String> solution = genString(table, rStr, cStr, rStr.length(), cStr.length(), new StringBuilder());
+        Set<String> solution = recoverSolution(table, rStr, cStr, rStr.length(), cStr.length(), new StringBuilder());
 
         memoCheck = table;
         return solution;
 
+    }
+
+    private static int[][] BUFillTable(String rStr, String cStr) {
+        int[][] table = new int[rStr.length() + 1][cStr.length() + 1];
+
+        for (int i = 1; i <= cStr.length(); i++) {
+            for (int j = 1; j <= rStr.length(); j++) {
+                fillCell(rStr, cStr, table, i, j);
+            }
+        }
+
+        return table;
     }
 
     private static void fillCell(String rStr, String cStr, int[][] table, int curRow, int curCol) {
