@@ -194,4 +194,14 @@ public class LCSTests {
         );
     }
     
+    @Test
+    public void TDLCSTest_t5() {
+        assertEquals(
+                new HashSet<>(Arrays.asList(
+                        "ABC", "XBC", "XBZ", "ABZ"
+                )),
+                LCS.topDownLCS("AXBCZ", "XABZC")
+        );
+    }
+    
 }
