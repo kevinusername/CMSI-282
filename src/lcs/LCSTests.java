@@ -96,6 +96,16 @@ public class LCSTests {
         );
     }
     
+    @Test
+    public void BULCSTest_t5() {
+        assertEquals(
+            new HashSet<>(Arrays.asList(
+                    "ABC", "XBC", "XBZ", "ABZ"
+            )),
+            LCS.bottomUpLCS("AXBCZ", "XABZC")
+        );
+    }
+    
     
     // Top-Down LCS Tests
     // -----------------------------------------------
