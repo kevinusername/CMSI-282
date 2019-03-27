@@ -17,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lcs/LCS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="72" column="26" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
+            <state relative-caret-position="552">
+              <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,7 +75,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -99,6 +98,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -216,7 +216,9 @@
       <workItem from="1551310453649" duration="4794000" />
       <workItem from="1551388064112" duration="2178000" />
       <workItem from="1552976759120" duration="8173000" />
-      <workItem from="1553057724379" duration="2770000" />
+      <workItem from="1553057724379" duration="4212000" />
+      <workItem from="1553136361550" duration="1241000" />
+      <workItem from="1553153000437" duration="36000" />
     </task>
     <task id="LOCAL-00001" summary="fixed packages">
       <created>1547876807044</created>
@@ -372,31 +374,17 @@
       <option name="project" value="LOCAL" />
       <updated>1553060409046</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="minor cleanup/simplifications">
+      <created>1553060563489</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1553060563489</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LCSTests_TDLCSTest_t3 - 2019.03.19 at 22h 33m 03s.xml">
-      <configuration name="LCSTests.TDLCSTest_t3" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LCSTests_TDLCSTest_t3 - 2019.03.19 at 22h 34m 51s.xml">
-      <configuration name="LCSTests.TDLCSTest_t3" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LCSTests_TDLCSTest_t3 - 2019.03.19 at 22h 36m 34s.xml">
-      <configuration name="LCSTests.TDLCSTest_t3" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LCSTests_TDLCSTest_t3 - 2019.03.19 at 22h 37m 48s.xml">
-      <configuration name="LCSTests.TDLCSTest_t3" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LCSTests_TDLCSTest_t3 - 2019.03.19 at 22h 38m 02s.xml">
-      <configuration name="LCSTests.TDLCSTest_t3" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LCSTests_TDLCSTest_t3 - 2019.03.19 at 22h 38m 15s.xml">
-      <configuration name="LCSTests.TDLCSTest_t3" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LCSTests - 2019.03.19 at 22h 38m 21s.xml">
-      <configuration name="LCSTests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="LCSTests_BULCSTest_t0 - 2019.03.19 at 22h 38m 26s.xml">
       <configuration name="LCSTests.BULCSTest_t0" configurationId="JUnit" />
     </history-entry>
@@ -406,9 +394,30 @@
     <history-entry file="LCSTests - 2019.03.19 at 22h 40m 37s.xml">
       <configuration name="LCSTests" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="LCSTests - 2019.03.19 at 22h 41m 42s.xml">
+      <configuration name="LCSTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LCSTests - 2019.03.19 at 22h 41m 45s.xml">
+      <configuration name="LCSTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LCSTests - 2019.03.19 at 22h 41m 47s.xml">
+      <configuration name="LCSTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LCSTests - 2019.03.19 at 22h 42m 32s.xml">
+      <configuration name="LCSTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LCSTests - 2019.03.20 at 19h 47m 04s.xml">
+      <configuration name="LCSTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LCSTests - 2019.03.20 at 20h 05m 19s.xml">
+      <configuration name="LCSTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LCSTests - 2019.03.20 at 20h 05m 22s.xml">
+      <configuration name="LCSTests" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32654000" />
+    <option name="totallyTimeSpent" value="35373000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -423,7 +432,7 @@
     <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.115651816" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.11728647" />
       <window_info id="Structure" order="1" sideWeight="0.50564617" side_tool="true" weight="0.17042756" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -490,7 +499,8 @@
     <MESSAGE value="bottom up tentatively working" />
     <MESSAGE value="greatly improved filling of BU table" />
     <MESSAGE value="top-down working" />
-    <option name="LAST_COMMIT_MESSAGE" value="top-down working" />
+    <MESSAGE value="minor cleanup/simplifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor cleanup/simplifications" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/pathfinder/uninformed/MazeState.java">
@@ -614,20 +624,20 @@
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/ComparisonCriteria.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/lcs/LCS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/lcs/LCSTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3624">
           <caret line="154" selection-start-line="154" selection-end-line="154" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lcs/LCS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="72" column="26" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
