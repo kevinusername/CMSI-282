@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1877ed1e-cc83-40ab-a6ee-a5ba924b7db9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lcs/LCS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lcs/LCS.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lcs/LCS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+            <state relative-caret-position="768">
+              <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -29,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lcs/LCSTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3624">
-              <caret line="154" selection-start-line="154" selection-end-line="154" />
+            <state relative-caret-position="431">
+              <caret line="105" column="10" lean-forward="true" selection-start-line="105" selection-start-column="10" selection-end-line="105" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -61,6 +60,7 @@
         <option value="$PROJECT_DIR$/src/nim/NimPlayer.java" />
         <option value="$PROJECT_DIR$/src/nim/NimPlayerTests.java" />
         <option value="$PROJECT_DIR$/src/lcs/LCS.java" />
+        <option value="$PROJECT_DIR$/src/lcs/LCSTests.java" />
       </list>
     </option>
   </component>
@@ -75,6 +75,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -97,8 +99,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -219,6 +219,8 @@
       <workItem from="1553057724379" duration="4212000" />
       <workItem from="1553136361550" duration="1241000" />
       <workItem from="1553153000437" duration="36000" />
+      <workItem from="1553753153561" duration="285000" />
+      <workItem from="1553928352881" duration="1402000" />
     </task>
     <task id="LOCAL-00001" summary="fixed packages">
       <created>1547876807044</created>
@@ -381,13 +383,17 @@
       <option name="project" value="LOCAL" />
       <updated>1553060563489</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="minor formatting">
+      <created>1553753279774</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1553753279774</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LCSTests_BULCSTest_t0 - 2019.03.19 at 22h 38m 26s.xml">
-      <configuration name="LCSTests.BULCSTest_t0" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="LCSTests - 2019.03.19 at 22h 38m 32s.xml">
       <configuration name="LCSTests" configurationId="JUnit" />
     </history-entry>
@@ -415,9 +421,12 @@
     <history-entry file="LCSTests - 2019.03.20 at 20h 05m 22s.xml">
       <configuration name="LCSTests" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="LCSTests - 2019.03.29 at 23h 46m 13s.xml">
+      <configuration name="LCSTests" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35373000" />
+    <option name="totallyTimeSpent" value="37060000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -429,23 +438,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
+    <frame x="71" y="25" width="2489" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.11728647" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.119115844" />
       <window_info id="Structure" order="1" sideWeight="0.50564617" side_tool="true" weight="0.17042756" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943925" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4034268" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.40295032" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39719626" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32943925" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32943925" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32919255" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -500,7 +509,8 @@
     <MESSAGE value="greatly improved filling of BU table" />
     <MESSAGE value="top-down working" />
     <MESSAGE value="minor cleanup/simplifications" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor cleanup/simplifications" />
+    <MESSAGE value="minor formatting" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor formatting" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/pathfinder/uninformed/MazeState.java">
@@ -624,20 +634,20 @@
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/ComparisonCriteria.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lcs/LCS.java">
+    <entry file="file://$PROJECT_DIR$/src/lcs/LCSTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="431">
+          <caret line="105" column="10" lean-forward="true" selection-start-line="105" selection-start-column="10" selection-end-line="105" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lcs/LCSTests.java">
+    <entry file="file://$PROJECT_DIR$/src/lcs/LCS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3624">
-          <caret line="154" selection-start-line="154" selection-end-line="154" />
+        <state relative-caret-position="768">
+          <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
