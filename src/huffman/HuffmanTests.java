@@ -1,10 +1,11 @@
 package huffman;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 public class HuffmanTests {
-    
+
     // Compression Tests
     // -----------------------------------------------
     @Test
@@ -16,7 +17,7 @@ public class HuffmanTests {
         byte[] compressed = {2, 64};
         assertArrayEquals(compressed, h.compress("AB"));
     }
-    
+
     @Test
     public void comp_t1() {
         Huffman h = new Huffman("AB");
@@ -26,7 +27,7 @@ public class HuffmanTests {
         byte[] compressed = {2, -128};
         assertArrayEquals(compressed, h.compress("BA"));
     }
-    
+
     @Test
     public void comp_t2() {
         Huffman h = new Huffman("ABBBCC");
@@ -37,7 +38,7 @@ public class HuffmanTests {
         byte[] compressed = {6, -121, -128};
         assertArrayEquals(compressed, h.compress("ABBBCC"));
     }
-    
+
     @Test
     public void comp_t3() {
         Huffman h = new Huffman("ABBBCC");
@@ -47,8 +48,8 @@ public class HuffmanTests {
         byte[] compressed = {6, 77, -128};
         assertArrayEquals(compressed, h.compress("BABCBC"));
     }
-    
-    
+
+
     // Decompression Tests
     // -----------------------------------------------
     @Test
@@ -59,7 +60,7 @@ public class HuffmanTests {
         byte[] compressed = {2, 64};
         assertEquals("AB", h.decompress(compressed));
     }
-    
+
     @Test
     public void decomp_t1() {
         Huffman h = new Huffman("AB");
@@ -68,7 +69,7 @@ public class HuffmanTests {
         byte[] compressed = {2, -128};
         assertEquals("BA", h.decompress(compressed));
     }
-    
+
     @Test
     public void decom_t3() {
         Huffman h = new Huffman("ABBBCC");
@@ -78,7 +79,7 @@ public class HuffmanTests {
         byte[] compressed = {6, -121, -128};
         assertEquals("ABBBCC", h.decompress(compressed));
     }
-    
+
     @Test
     public void decom_t4() {
         Huffman h = new Huffman("ABBBCC");
@@ -88,5 +89,5 @@ public class HuffmanTests {
         byte[] compressed = {6, 77, -128};
         assertEquals("BABCBC", h.decompress(compressed));
     }
-    
+
 }
