@@ -78,7 +78,7 @@ public class LCS {
 
         for (int i = 1; i <= cStr.length(); i++) {
             for (int j = 1; j <= rStr.length(); j++) {
-                fillCell(rStr, cStr, table, i, j);
+                fillCell(rStr, cStr, table, j, i);
             }
         }
 
