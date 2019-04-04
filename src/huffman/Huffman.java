@@ -1,6 +1,9 @@
 package huffman;
 
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.PriorityQueue;
 
 /**
  * Huffman instances provide reusable Huffman Encoding Maps for
@@ -14,7 +17,7 @@ public class Huffman {
     // -----------------------------------------------
 
     private HuffNode trieRoot;
-    private Map<Character, String> encodingMap;
+    private Map<Character, String> encodingMap = new HashMap<>();
 
     /**
      * Creates the Huffman Trie and Encoding Map using the character
@@ -27,9 +30,43 @@ public class Huffman {
      *               differ.
      */
     Huffman(String corpus) {
-        // TODO!
+        HashMap<Character, Integer> counter = new HashMap<>();
+        for (char c : corpus.toCharArray()) {
+            // The fanciest java I will ever write
+            counter.computeIfPresent(c, (k, v) -> v + 1);
+            counter.putIfAbsent(c, 1);
+        }
+        PriorityQueue<HuffNode> nodeQueue = new PriorityQueue<>(counter.size());
+        counter.forEach((k, v) -> nodeQueue.add(new HuffNode(k, v)));
+        generateTrie(nodeQueue);
+        generateEncoding(trieRoot, "");
     }
 
+    private void generateEncoding(HuffNode n, String encoding) {
+        if (null == n) return;
+        if (n.isLeaf())
+            encodingMap.put(n.character, encoding);
+        else {
+            generateEncoding(n.left, encoding + '0');
+            generateEncoding(n.right, encoding + '1');
+        }
+    }
+
+    private void generateTrie(PriorityQueue<HuffNode> nodeQueue) {
+        while (nodeQueue.size() > 1) {
+            HuffNode small = nodeQueue.poll(), big = nodeQueue.poll();
+//            if (small.count == big.count && small.character > big.character) {
+//                HuffNode swap = big;
+//                big = small;
+//                small = swap;
+//            }
+            HuffNode combined = new HuffNode(small.character, small.count + big.count);
+            combined.left = small;
+            combined.right = big;
+            nodeQueue.add(combined);
+        }
+        trieRoot = nodeQueue.poll();
+    }
 
     // -----------------------------------------------
     // Compression
@@ -100,6 +137,9 @@ public class Huffman {
         }
 
         public int compareTo(HuffNode other) {
+//            return Comparator.comparingInt((HuffNode n) -> n.count)
+//                             .thenComparing((HuffNode n) -> n.character)
+//                             .compare(this, other);
             return this.count - other.count;
         }
 

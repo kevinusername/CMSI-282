@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1877ed1e-cc83-40ab-a6ee-a5ba924b7db9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lcs/LCS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lcs/LCS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lcs/LCSTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lcs/LCSTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/huffman/Huffman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/huffman/Huffman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/huffman/HuffmanTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/huffman/HuffmanTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,23 +15,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lcs/LCSTests.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/huffman/Huffman.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="196" selection-start-line="196" selection-end-line="196" />
+            <state relative-caret-position="408">
+              <caret line="47" column="51" lean-forward="true" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3335#3336#0" expanded="true" />
+                <element signature="e#4310#4311#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/lcs/LCS.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/nim/NimGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="34" column="97" lean-forward="true" selection-start-line="34" selection-start-column="97" selection-end-line="34" selection-end-column="97" />
+            <state relative-caret-position="373">
+              <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/huffman/HuffmanTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,6 +57,9 @@
       <find>actual</find>
       <find>KEY_STATE</find>
       <find>score</find>
+      <find>main</find>
+      <find>prior</find>
+      <find>queue</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -64,10 +78,10 @@
         <option value="$PROJECT_DIR$/src/pathfinder/informed/PathfinderTests.java" />
         <option value="$PROJECT_DIR$/src/nim/NimPlayer.java" />
         <option value="$PROJECT_DIR$/src/nim/NimPlayerTests.java" />
-        <option value="$PROJECT_DIR$/src/huffman/Huffman.java" />
-        <option value="$PROJECT_DIR$/src/huffman/HuffmanTests.java" />
         <option value="$PROJECT_DIR$/src/lcs/LCSTests.java" />
         <option value="$PROJECT_DIR$/src/lcs/LCS.java" />
+        <option value="$PROJECT_DIR$/src/huffman/HuffmanTests.java" />
+        <option value="$PROJECT_DIR$/src/huffman/Huffman.java" />
       </list>
     </option>
   </component>
@@ -82,7 +96,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -108,10 +121,37 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="lcs" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="CMSI-282" type="b2602c69:ProjectViewProjectNode" />
+              <item name="algorithms" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="nim" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CMSI-282" type="b2602c69:ProjectViewProjectNode" />
+              <item name="algorithms" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pathfinder" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CMSI-282" type="b2602c69:ProjectViewProjectNode" />
+              <item name="algorithms" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pathfinder" type="462c0819:PsiDirectoryNode" />
+              <item name="informed" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CMSI-282" type="b2602c69:ProjectViewProjectNode" />
+              <item name="algorithms" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pathfinder" type="462c0819:PsiDirectoryNode" />
+              <item name="uninformed" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -148,7 +188,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.LCSTests">
+  <component name="RunManager" selected="JUnit.HuffmanTests.comp_t0">
+    <configuration name="Huffman" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="huffman.Huffman" />
+      <module name="CMSI-282" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HuffmanTests.comp_t0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CMSI-282" />
+      <option name="PACKAGE_NAME" value="huffman" />
+      <option name="MAIN_CLASS_NAME" value="huffman.HuffmanTests" />
+      <option name="METHOD_NAME" value="comp_t0" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LCSTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CMSI-282" />
       <option name="PACKAGE_NAME" value="lcs" />
@@ -178,33 +235,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LCSTests.BULCSTest_t3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CMSI-282" />
-      <option name="PACKAGE_NAME" value="lcs" />
-      <option name="MAIN_CLASS_NAME" value="lcs.LCSTests" />
-      <option name="METHOD_NAME" value="BULCSTest_t3" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LCSTests.TDLCSTest_t3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CMSI-282" />
-      <option name="PACKAGE_NAME" value="lcs" />
-      <option name="MAIN_CLASS_NAME" value="lcs.LCSTests" />
-      <option name="METHOD_NAME" value="TDLCSTest_t3" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HuffmanTests.comp_t0" />
+        <item itemvalue="Application.Huffman" />
         <item itemvalue="JUnit.LCSTests" />
         <item itemvalue="JUnit.LCSTests.BULCSTest_t12" />
         <item itemvalue="JUnit.LCSTests.BULCSTest_t0" />
-        <item itemvalue="JUnit.LCSTests.TDLCSTest_t3" />
-        <item itemvalue="JUnit.LCSTests.BULCSTest_t3" />
       </list>
     </recent_temporary>
   </component>
@@ -237,7 +274,8 @@
       <workItem from="1553928352881" duration="1402000" />
       <workItem from="1554274920940" duration="8000" />
       <workItem from="1554274941957" duration="1407000" />
-      <workItem from="1554353220309" duration="1572000" />
+      <workItem from="1554353220309" duration="1604000" />
+      <workItem from="1554359955424" duration="6019000" />
     </task>
     <task id="LOCAL-00001" summary="fixed packages">
       <created>1547876807044</created>
@@ -414,43 +452,50 @@
       <option name="project" value="LOCAL" />
       <updated>1554275774104</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="swapped a misplaced i and j">
+      <created>1554355149292</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1554355149292</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LCSTests - 2019.04.03 at 21h 50m 38s.xml">
-      <configuration name="LCSTests" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 00h 55m 12s.xml">
+      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LCSTests - 2019.04.03 at 21h 50m 46s.xml">
-      <configuration name="LCSTests" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 00h 55m 36s.xml">
+      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LCSTests - 2019.04.03 at 21h 51m 12s.xml">
-      <configuration name="LCSTests" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 00h 57m 47s.xml">
+      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LCSTests_BULCSTest_t12 - 2019.04.03 at 21h 52m 17s.xml">
-      <configuration name="LCSTests.BULCSTest_t12" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 00h 59m 07s.xml">
+      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LCSTests_BULCSTest_t12 - 2019.04.03 at 21h 53m 06s.xml">
-      <configuration name="LCSTests.BULCSTest_t12" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 00h 59m 25s.xml">
+      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LCSTests_BULCSTest_t12 - 2019.04.03 at 21h 55m 27s.xml">
-      <configuration name="LCSTests.BULCSTest_t12" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 01h 01m 11s.xml">
+      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LCSTests_BULCSTest_t12 - 2019.04.03 at 21h 55m 29s.xml">
-      <configuration name="LCSTests.BULCSTest_t12" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 01h 17m 57s.xml">
+      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LCSTests_BULCSTest_t12 - 2019.04.03 at 21h 55m 50s.xml">
-      <configuration name="LCSTests.BULCSTest_t12" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 01h 18m 37s.xml">
+      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LCSTests - 2019.04.03 at 21h 56m 27s.xml">
-      <configuration name="LCSTests" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 01h 19m 16s.xml">
+      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LCSTests - 2019.04.03 at 22h 00m 18s.xml">
-      <configuration name="LCSTests" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 01h 19m 32s.xml">
+      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40047000" />
+    <option name="totallyTimeSpent" value="46098000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -465,7 +510,7 @@
     <frame x="71" y="25" width="2489" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.12157184" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.1223905" />
       <window_info id="Structure" order="1" sideWeight="0.50564617" side_tool="true" weight="0.17042756" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -482,7 +527,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32943925" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32919255" />
       <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.32943925" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -510,7 +555,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fixed packages" />
     <MESSAGE value="baby steps" />
     <MESSAGE value="working?" />
     <MESSAGE value="formatting" />
@@ -535,7 +579,8 @@
     <MESSAGE value="minor cleanup/simplifications" />
     <MESSAGE value="minor formatting" />
     <MESSAGE value="reformatted skeleton" />
-    <option name="LAST_COMMIT_MESSAGE" value="reformatted skeleton" />
+    <MESSAGE value="swapped a misplaced i and j" />
+    <option name="LAST_COMMIT_MESSAGE" value="swapped a misplaced i and j" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -545,6 +590,12 @@
           <line>91</line>
           <properties />
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/huffman/HuffmanTests.java</url>
+          <line>16</line>
+          <properties />
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -565,16 +616,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pathfinder/uninformed/MazeProblem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2200">
-          <caret line="114" column="52" selection-start-line="114" selection-start-column="52" selection-end-line="114" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pathfinder/uninformed/Pathfinder.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -599,13 +640,6 @@
     <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/lang/Comparable.class" />
     <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/util/PriorityQueue.class" />
     <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/util/function/ToIntFunction.class" />
-    <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/MazeProblem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="50" lean-forward="true" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/MazeState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="874">
@@ -634,13 +668,6 @@
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/OpenJDK/jdk-11.0.2/lib/src.zip!/java.base/java/util/function/Function.java" />
-    <entry file="file://$PROJECT_DIR$/src/nim/NimGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/nim/NimPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="598">
@@ -664,23 +691,6 @@
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/ComparisonCriteria.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/huffman/HuffmanTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/huffman/Huffman.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/lang/StringLatin1.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -694,7 +704,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lcs/LCSTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
+        <state relative-caret-position="4392">
           <caret line="196" selection-start-line="196" selection-end-line="196" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -705,9 +715,62 @@
     <entry file="file://$PROJECT_DIR$/src/lcs/LCS.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
-          <caret line="34" column="97" lean-forward="true" selection-start-line="34" selection-start-column="97" selection-end-line="34" selection-end-column="97" />
+          <caret line="34" column="97" selection-start-line="34" selection-start-column="97" selection-end-line="34" selection-end-column="97" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/util/function/BiFunction.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pathfinder/uninformed/MazeProblem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="93" column="24" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pathfinder/informed/MazeProblem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nim/NimGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/huffman/HuffmanTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/huffman/Huffman.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="47" column="51" lean-forward="true" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3335#3336#0" expanded="true" />
+            <element signature="e#4310#4311#0" expanded="true" />
           </folding>
         </state>
       </provider>
