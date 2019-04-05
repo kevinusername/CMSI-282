@@ -10,7 +10,7 @@ public class HuffmanTests {
     // -----------------------------------------------
     @Test
     public void comp_t0() {
-        Huffman h = new Huffman("CAFBDE");
+        Huffman h = new Huffman("AB");
         // byte 0: 0000 0010 = 2 (message length = 2)
         // byte 1: 0100 0000 = 64 (0 = "A", 1 = "B")
         // [!] Only first 2 bits of byte 1 are meaningful

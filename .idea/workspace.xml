@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1877ed1e-cc83-40ab-a6ee-a5ba924b7db9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/huffman/Huffman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/huffman/Huffman.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/huffman/HuffmanTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/huffman/HuffmanTests.java" afterDir="false" />
@@ -18,22 +19,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/huffman/Huffman.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="47" column="51" lean-forward="true" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
+            <state relative-caret-position="501">
+              <caret line="101" column="22" selection-start-line="101" selection-start-column="22" selection-end-line="101" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3335#3336#0" expanded="true" />
-                <element signature="e#4310#4311#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/nim/NimGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -41,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/huffman/HuffmanTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="237">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,17 +76,16 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="504" />
-    <option name="y" value="45" />
-    <option name="width" value="1296" />
-    <option name="height" value="1395" />
+    <option name="x" value="838" />
+    <option name="y" value="25" />
+    <option name="width" value="1286" />
+    <option name="height" value="1391" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -151,6 +140,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -275,7 +265,8 @@
       <workItem from="1554274920940" duration="8000" />
       <workItem from="1554274941957" duration="1407000" />
       <workItem from="1554353220309" duration="1604000" />
-      <workItem from="1554359955424" duration="6019000" />
+      <workItem from="1554359955424" duration="6813000" />
+      <workItem from="1554434496485" duration="3415000" />
     </task>
     <task id="LOCAL-00001" summary="fixed packages">
       <created>1547876807044</created>
@@ -459,31 +450,17 @@
       <option name="project" value="LOCAL" />
       <updated>1554355149292</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="initialization completed (?)">
+      <created>1554365997703</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1554365997703</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 00h 55m 12s.xml">
-      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 00h 55m 36s.xml">
-      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 00h 57m 47s.xml">
-      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 00h 59m 07s.xml">
-      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 00h 59m 25s.xml">
-      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 01h 01m 11s.xml">
-      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 01h 17m 57s.xml">
-      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 01h 18m 37s.xml">
       <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
     </history-entry>
@@ -493,9 +470,30 @@
     <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 01h 19m 32s.xml">
       <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 21h 02m 45s.xml">
+      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 21h 18m 39s.xml">
+      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 21h 20m 05s.xml">
+      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 21h 21m 40s.xml">
+      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 21h 22m 22s.xml">
+      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 21h 22m 31s.xml">
+      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 21h 22m 45s.xml">
+      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46098000" />
+    <option name="totallyTimeSpent" value="50307000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -510,7 +508,7 @@
     <frame x="71" y="25" width="2489" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.1223905" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.12320917" />
       <window_info id="Structure" order="1" sideWeight="0.50564617" side_tool="true" weight="0.17042756" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -518,7 +516,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943925" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.40295032" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39673913" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39673913" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32943925" />
@@ -555,7 +553,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="baby steps" />
     <MESSAGE value="working?" />
     <MESSAGE value="formatting" />
     <MESSAGE value="javaDocs" />
@@ -580,7 +577,8 @@
     <MESSAGE value="minor formatting" />
     <MESSAGE value="reformatted skeleton" />
     <MESSAGE value="swapped a misplaced i and j" />
-    <option name="LAST_COMMIT_MESSAGE" value="swapped a misplaced i and j" />
+    <MESSAGE value="initialization completed (?)" />
+    <option name="LAST_COMMIT_MESSAGE" value="initialization completed (?)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -593,9 +591,9 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/huffman/HuffmanTests.java</url>
-          <line>16</line>
+          <line>17</line>
           <properties />
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -748,15 +746,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/nim/NimGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
+        <state relative-caret-position="600">
           <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/huffman/HuffmanTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="237">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -765,12 +763,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/huffman/Huffman.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="47" column="51" lean-forward="true" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
+        <state relative-caret-position="501">
+          <caret line="101" column="22" selection-start-line="101" selection-start-column="22" selection-end-line="101" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3335#3336#0" expanded="true" />
-            <element signature="e#4310#4311#0" expanded="true" />
           </folding>
         </state>
       </provider>

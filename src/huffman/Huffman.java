@@ -1,6 +1,6 @@
 package huffman;
 
-import java.util.Comparator;
+import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -85,7 +85,21 @@ public class Huffman {
      * 0-padding on the final byte.
      */
     public byte[] compress(String message) {
-        throw new UnsupportedOperationException();
+        StringBuilder binaryVersion = new StringBuilder();
+        for (char c : message.toCharArray()) {
+            binaryVersion.append(encodingMap.get(c));
+        }
+        String[] strBytes = binaryVersion.toString().split("(?<=\\G.{8})");
+        // Pad the last byte in a disgusting manner
+        strBytes[strBytes.length - 1] =
+                strBytes[strBytes.length - 1].concat("0".repeat(8 - strBytes[strBytes.length - 1].length()));
+
+        ByteArrayOutputStream bOutput = new ByteArrayOutputStream();
+        for (String b : strBytes) {
+            bOutput.write(Byte.parseByte(b, 2));
+        }
+        byte[] result =  bOutput.toByteArray();
+        return result;
     }
 
 
