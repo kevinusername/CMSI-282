@@ -86,20 +86,19 @@ public class Huffman {
      */
     public byte[] compress(String message) {
         StringBuilder binaryVersion = new StringBuilder();
-        for (char c : message.toCharArray()) {
+        for (char c : message.toCharArray())
             binaryVersion.append(encodingMap.get(c));
-        }
         String[] strBytes = binaryVersion.toString().split("(?<=\\G.{8})");
+
         // Pad the last byte in a disgusting manner
         strBytes[strBytes.length - 1] =
                 strBytes[strBytes.length - 1].concat("0".repeat(8 - strBytes[strBytes.length - 1].length()));
 
         ByteArrayOutputStream bOutput = new ByteArrayOutputStream();
-        for (String b : strBytes) {
-            bOutput.write(Byte.parseByte(b, 2));
-        }
-        byte[] result =  bOutput.toByteArray();
-        return result;
+        bOutput.write((byte) message.length());
+        for (String b : strBytes)
+            bOutput.write((byte) Integer.parseInt(b, 2));
+        return bOutput.toByteArray();
     }
 
 
@@ -120,7 +119,40 @@ public class Huffman {
      * @return Decompressed String representation of the compressed bytecode message.
      */
     public String decompress(byte[] compressedMsg) {
-        throw new UnsupportedOperationException();
+        int msgLength = (int) compressedMsg[0];
+        int charFound = 0;
+
+        StringBuilder binaryBuilder = new StringBuilder();
+        for (int i = 1; i < compressedMsg.length; i++) {
+            byte b = compressedMsg[i];
+            binaryBuilder.append(String.format("%8s", Integer.toBinaryString(b & 0xFF)).replace(' ', '0'));
+        }
+        String binaryString = binaryBuilder.toString();
+        return decode(msgLength, charFound, binaryString);
+    }
+
+    private String decode(int msgLength, int charFound, String binaryString) {
+        StringBuilder result = new StringBuilder();
+        HuffNode current = trieRoot;
+
+        char[] charArray = binaryString.toCharArray();
+        // Traverse the trie to decode all characters in string
+        for (int i = 0; i < charArray.length; ) {
+            if (current.isLeaf()) {
+                result.append(current.character);
+                current = trieRoot;
+                charFound++;
+            } else if (charArray[i] == '0') {
+                current = current.left;
+                i++;
+            } else {
+                current = current.right;
+                i++;
+            }
+            if (charFound == msgLength) break;
+        }
+
+        return result.toString();
     }
 
 

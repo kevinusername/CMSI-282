@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1877ed1e-cc83-40ab-a6ee-a5ba924b7db9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/huffman/Huffman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/huffman/Huffman.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/huffman/HuffmanTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/huffman/HuffmanTests.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/huffman/Huffman.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="101" column="22" selection-start-line="101" selection-start-column="22" selection-end-line="101" selection-end-column="22" />
+            <state relative-caret-position="600">
+              <caret line="139" column="9" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -31,7 +29,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/huffman/HuffmanTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
+            <state relative-caret-position="442">
               <caret line="17" selection-start-line="17" selection-end-line="17" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -86,6 +84,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -104,44 +104,10 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="huffman" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="CMSI-282" type="b2602c69:ProjectViewProjectNode" />
-              <item name="algorithms" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="lcs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CMSI-282" type="b2602c69:ProjectViewProjectNode" />
-              <item name="algorithms" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="nim" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CMSI-282" type="b2602c69:ProjectViewProjectNode" />
-              <item name="algorithms" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pathfinder" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CMSI-282" type="b2602c69:ProjectViewProjectNode" />
-              <item name="algorithms" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pathfinder" type="462c0819:PsiDirectoryNode" />
-              <item name="informed" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CMSI-282" type="b2602c69:ProjectViewProjectNode" />
-              <item name="algorithms" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pathfinder" type="462c0819:PsiDirectoryNode" />
-              <item name="uninformed" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -156,7 +122,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -178,10 +144,19 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.HuffmanTests.comp_t0">
+  <component name="RunManager" selected="JUnit.HuffmanTests">
     <configuration name="Huffman" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="huffman.Huffman" />
       <module name="CMSI-282" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HuffmanTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CMSI-282" />
+      <option name="PACKAGE_NAME" value="huffman" />
+      <option name="MAIN_CLASS_NAME" value="huffman.HuffmanTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -196,6 +171,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HuffmanTests.decomp_t0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CMSI-282" />
+      <option name="PACKAGE_NAME" value="huffman" />
+      <option name="MAIN_CLASS_NAME" value="huffman.HuffmanTests" />
+      <option name="METHOD_NAME" value="decomp_t0" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LCSTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CMSI-282" />
       <option name="PACKAGE_NAME" value="lcs" />
@@ -205,33 +190,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LCSTests.BULCSTest_t0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CMSI-282" />
-      <option name="PACKAGE_NAME" value="lcs" />
-      <option name="MAIN_CLASS_NAME" value="lcs.LCSTests" />
-      <option name="METHOD_NAME" value="BULCSTest_t0" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LCSTests.BULCSTest_t12" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CMSI-282" />
-      <option name="PACKAGE_NAME" value="lcs" />
-      <option name="MAIN_CLASS_NAME" value="lcs.LCSTests" />
-      <option name="METHOD_NAME" value="BULCSTest_t12" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HuffmanTests" />
+        <item itemvalue="JUnit.HuffmanTests.decomp_t0" />
         <item itemvalue="JUnit.HuffmanTests.comp_t0" />
         <item itemvalue="Application.Huffman" />
         <item itemvalue="JUnit.LCSTests" />
-        <item itemvalue="JUnit.LCSTests.BULCSTest_t12" />
-        <item itemvalue="JUnit.LCSTests.BULCSTest_t0" />
       </list>
     </recent_temporary>
   </component>
@@ -266,7 +231,9 @@
       <workItem from="1554274941957" duration="1407000" />
       <workItem from="1554353220309" duration="1604000" />
       <workItem from="1554359955424" duration="6813000" />
-      <workItem from="1554434496485" duration="3415000" />
+      <workItem from="1554434496485" duration="3511000" />
+      <workItem from="1555125279455" duration="615000" />
+      <workItem from="1555125906418" duration="3883000" />
     </task>
     <task id="LOCAL-00001" summary="fixed packages">
       <created>1547876807044</created>
@@ -457,43 +424,50 @@
       <option name="project" value="LOCAL" />
       <updated>1554365997703</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="random progress on compress()">
+      <created>1554438320395</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1554438320395</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 01h 18m 37s.xml">
-      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_decomp_t0 - 2019.04.12 at 21h 04m 30s.xml">
+      <configuration name="HuffmanTests.decomp_t0" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 01h 19m 16s.xml">
-      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_decomp_t0 - 2019.04.12 at 21h 04m 57s.xml">
+      <configuration name="HuffmanTests.decomp_t0" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 01h 19m 32s.xml">
-      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_decomp_t0 - 2019.04.12 at 21h 19m 47s.xml">
+      <configuration name="HuffmanTests.decomp_t0" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 21h 02m 45s.xml">
-      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_decomp_t0 - 2019.04.12 at 21h 22m 17s.xml">
+      <configuration name="HuffmanTests.decomp_t0" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 21h 18m 39s.xml">
-      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_decomp_t0 - 2019.04.12 at 21h 23m 57s.xml">
+      <configuration name="HuffmanTests.decomp_t0" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 21h 20m 05s.xml">
-      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_decomp_t0 - 2019.04.12 at 21h 26m 26s.xml">
+      <configuration name="HuffmanTests.decomp_t0" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 21h 21m 40s.xml">
-      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_decomp_t0 - 2019.04.12 at 21h 28m 46s.xml">
+      <configuration name="HuffmanTests.decomp_t0" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 21h 22m 22s.xml">
-      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
+    <history-entry file="HuffmanTests_decomp_t0 - 2019.04.12 at 21h 28m 49s.xml">
+      <configuration name="HuffmanTests.decomp_t0" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 21h 22m 31s.xml">
-      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
+    <history-entry file="HuffmanTests - 2019.04.12 at 21h 28m 53s.xml">
+      <configuration name="HuffmanTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HuffmanTests_comp_t0 - 2019.04.04 at 21h 22m 45s.xml">
-      <configuration name="HuffmanTests.comp_t0" configurationId="JUnit" />
+    <history-entry file="HuffmanTests - 2019.04.12 at 21h 29m 22s.xml">
+      <configuration name="HuffmanTests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50307000" />
+    <option name="totallyTimeSpent" value="54901000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -508,15 +482,15 @@
     <frame x="71" y="25" width="2489" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.12320917" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.1248465" />
       <window_info id="Structure" order="1" sideWeight="0.50564617" side_tool="true" weight="0.17042756" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943925" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.40295032" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39673913" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4028103" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39578456" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32943925" />
@@ -524,7 +498,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32919255" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32945737" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32919255" />
       <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.32943925" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -553,7 +527,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="working?" />
     <MESSAGE value="formatting" />
     <MESSAGE value="javaDocs" />
     <MESSAGE value="initial hw1 commit" />
@@ -578,7 +551,8 @@
     <MESSAGE value="reformatted skeleton" />
     <MESSAGE value="swapped a misplaced i and j" />
     <MESSAGE value="initialization completed (?)" />
-    <option name="LAST_COMMIT_MESSAGE" value="initialization completed (?)" />
+    <MESSAGE value="random progress on compress()" />
+    <option name="LAST_COMMIT_MESSAGE" value="random progress on compress()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -588,12 +562,6 @@
           <line>91</line>
           <properties />
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/huffman/HuffmanTests.java</url>
-          <line>17</line>
-          <properties />
-          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -753,7 +721,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/huffman/HuffmanTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
+        <state relative-caret-position="442">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -763,8 +731,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/huffman/Huffman.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="101" column="22" selection-start-line="101" selection-start-column="22" selection-end-line="101" selection-end-column="22" />
+        <state relative-caret-position="600">
+          <caret line="139" column="9" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -811,7 +779,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>10</last-edited>
+          <last-edited>12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
