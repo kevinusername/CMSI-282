@@ -55,11 +55,6 @@ public class Huffman {
     private void generateTrie(PriorityQueue<HuffNode> nodeQueue) {
         while (nodeQueue.size() > 1) {
             HuffNode small = nodeQueue.poll(), big = nodeQueue.poll();
-//            if (small.count == big.count && small.character > big.character) {
-//                HuffNode swap = big;
-//                big = small;
-//                small = swap;
-//            }
             HuffNode combined = new HuffNode(small.character, small.count + big.count);
             combined.left = small;
             combined.right = big;
@@ -117,7 +112,6 @@ public class Huffman {
      */
     public String decompress(byte[] compressedMsg) {
         int msgLength = (int) compressedMsg[0];
-        int charFound = 0;
 
         // Convert byte[] into String of binary representation
         StringBuilder binaryBuilder = new StringBuilder();
@@ -128,27 +122,27 @@ public class Huffman {
         }
         String binaryString = binaryBuilder.toString();
 
-        return decode(msgLength, charFound, binaryString);
+        return decode(msgLength, binaryString);
     }
 
-    private String decode(int msgLength, int charFound, String binaryString) {
+    private String decode(int msgLength, String binaryString) {
         StringBuilder result = new StringBuilder();
         HuffNode current = trieRoot;
-
+        int charFound = 0;
         char[] charArray = binaryString.toCharArray();
+
         // Traverse the trie to decode all characters in string
-        for (int i = 0; i < charArray.length; ) {
+        for (int i = 0; i < charArray.length; i++) {
             if (current.isLeaf()) {
                 result.append(current.character);
                 current = trieRoot;
                 charFound++;
-            } else if (charArray[i] == '0') {
-                current = current.left;
-                i++;
-            } else {
-                current = current.right;
-                i++;
+                i--;
             }
+            else if (charArray[i] == '0')
+                current = current.left;
+            else
+                current = current.right;
             if (charFound == msgLength) break;
         }
 
@@ -182,13 +176,7 @@ public class Huffman {
             return left == null && right == null;
         }
 
-        public int compareTo(HuffNode other) {
-//            return Comparator.comparingInt((HuffNode n) -> n.count)
-//                             .thenComparing((HuffNode n) -> n.character)
-//                             .compare(this, other);
-            return this.count - other.count;
-        }
-
+        public int compareTo(HuffNode other) { return this.count - other.count; }
     }
 
 }
