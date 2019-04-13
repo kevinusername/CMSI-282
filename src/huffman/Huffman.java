@@ -90,14 +90,11 @@ public class Huffman {
             binaryVersion.append(encodingMap.get(c));
         String[] strBytes = binaryVersion.toString().split("(?<=\\G.{8})");
 
-        // Pad the last byte in a disgusting manner
-        strBytes[strBytes.length - 1] =
-                strBytes[strBytes.length - 1].concat("0".repeat(8 - strBytes[strBytes.length - 1].length()));
-
         ByteArrayOutputStream bOutput = new ByteArrayOutputStream();
         bOutput.write((byte) message.length());
         for (String b : strBytes)
-            bOutput.write((byte) Integer.parseInt(b, 2));
+            bOutput.write((byte) Integer.parseInt(b, 2) << 8 - b.length());
+
         return bOutput.toByteArray();
     }
 
@@ -122,12 +119,15 @@ public class Huffman {
         int msgLength = (int) compressedMsg[0];
         int charFound = 0;
 
+        // Convert byte[] into String of binary representation
         StringBuilder binaryBuilder = new StringBuilder();
         for (int i = 1; i < compressedMsg.length; i++) {
             byte b = compressedMsg[i];
+            // Classic java right here ->
             binaryBuilder.append(String.format("%8s", Integer.toBinaryString(b & 0xFF)).replace(' ', '0'));
         }
         String binaryString = binaryBuilder.toString();
+
         return decode(msgLength, charFound, binaryString);
     }
 
