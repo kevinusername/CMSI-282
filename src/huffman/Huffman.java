@@ -132,18 +132,19 @@ public class Huffman {
         char[] charArray = binaryString.toCharArray();
 
         // Traverse the trie to decode all characters in string
-        for (int i = 0; i < charArray.length; i++) {
+        int i = 0;
+        while (charFound != msgLength) {
             if (current.isLeaf()) {
                 result.append(current.character);
                 current = trieRoot;
                 charFound++;
-                i--;
+                continue;
             }
             else if (charArray[i] == '0')
                 current = current.left;
             else
                 current = current.right;
-            if (charFound == msgLength) break;
+            i++;
         }
 
         return result.toString();
