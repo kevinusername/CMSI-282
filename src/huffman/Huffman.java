@@ -1,3 +1,4 @@
+// Kevin Peters
 package huffman;
 
 import java.io.ByteArrayOutputStream;
@@ -117,7 +118,7 @@ public class Huffman {
         StringBuilder binaryBuilder = new StringBuilder();
         for (int i = 1; i < compressedMsg.length; i++) {
             byte b = compressedMsg[i];
-            // Classic java right here ->
+            // Classic java right here -> (P.S. thanks stackoverflow)
             binaryBuilder.append(String.format("%8s", Integer.toBinaryString(b & 0xFF)).replace(' ', '0'));
         }
         String binaryString = binaryBuilder.toString();
@@ -173,9 +174,7 @@ public class Huffman {
             this.character = character;
         }
 
-        public boolean isLeaf() {
-            return left == null && right == null;
-        }
+        public boolean isLeaf() { return left == null && right == null; }
 
         public int compareTo(HuffNode other) { return this.count - other.count; }
     }
