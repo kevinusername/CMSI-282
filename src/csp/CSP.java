@@ -41,6 +41,7 @@ public class CSP {
         return result == null ? null : new ArrayList<>(result.values());
     }
 
+
     private static Map<Integer, LocalDate> rBackTracking(Map<Integer, LocalDate> assignments,
                                                          HashSet<DateVar> variables,
                                                          Set<DateConstraint> constraints) {
@@ -48,8 +49,7 @@ public class CSP {
             return assignments;
 
         DateVar unassigned = getUnassigned(assignments, variables);
-        if (unassigned == null)
-            return null;
+        if (unassigned == null) return null;
 
         for (LocalDate value : unassigned.domain) {
             assignments.put(unassigned.id, value);
@@ -63,29 +63,34 @@ public class CSP {
         return null;
     }
 
+
     private static DateVar getUnassigned(Map<Integer, LocalDate> assignments, HashSet<DateVar> variables) {
         for (DateVar variable : variables)
-            if (assignments.containsKey(variable.id))
+            if (!assignments.containsKey(variable.id))
                 return variable;
         return null;
     }
 
+
     private static boolean checkAssignments(Map<Integer, LocalDate> assignments, Set<DateConstraint> constraints) {
         for (DateConstraint rule : constraints) {
             LocalDate lVal = assignments.get(rule.L_VAL);
-            LocalDate rVal = rule.arity() == 1 ? rule.R_VAL : assignments.get(rule.R_VAL);
+            LocalDate rVal = rule.arity() == 1
+                             ? ((UnaryDateConstraint) rule).R_VAL
+                             : assignments.get(((BinaryDateConstraint) rule).R_VAL);
             if (lVal == null || rVal == null) continue;
             switch (rule.OP) {
-                case ">": if (!lVal.isAfter(rVal)) return false;
-                case "<": if (!lVal.isBefore(rVal)) return false;
-                case ">=": if (lVal.isBefore(rVal)) return false;
-                case "<=": if (lVal.isAfter(rVal)) return false;
-                case "==": if (!lVal.isEqual(rVal)) return false;
-                case "!=": if (lVal.isEqual(rVal)) return false;
+                case ">": if (!lVal.isAfter(rVal)) return false; break;
+                case "<": if (!lVal.isBefore(rVal)) return false; break;
+                case ">=": if (lVal.isBefore(rVal)) return false; break;
+                case "<=": if (lVal.isAfter(rVal)) return false; break;
+                case "==": if (!lVal.isEqual(rVal)) return false; break;
+                case "!=": if (lVal.isEqual(rVal)) return false; break;
             }
         }
         return true;
     }
+
 
     private static boolean isComplete(int nMeetings, Map<Integer, LocalDate> assignments,
                                       Set<DateConstraint> constraints) {
