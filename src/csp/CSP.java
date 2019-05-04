@@ -1,14 +1,16 @@
 package csp;
 
 import java.time.LocalDate;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  * CSP: Calendar Satisfaction Problem Solver
@@ -33,11 +35,85 @@ public class CSP {
     public static List<LocalDate> solve(int nMeetings, LocalDate rangeStart, LocalDate rangeEnd,
                                         Set<DateConstraint> constraints) {
         // Is this better than "for (int i = 0; i < nMeetings; i++)" ? Irrelevant. Its all about style baby
-        HashSet<DateVar> variables = IntStream.range(0, nMeetings).mapToObj
-                (i -> new DateVar(i, rangeStart, rangeEnd)).collect(Collectors.toCollection(HashSet::new));
+        HashMap<Integer, DateVar> variables = new HashMap<>();
+        for (int i = 0; i < nMeetings; i++)
+            variables.put(i, new DateVar(i, rangeStart, rangeEnd));
 
-        var result = rBackTracking(new HashMap<>(), variables, constraints);
+        constraints.stream().filter(rule -> rule.arity() == 1)
+                   .forEach(rule -> nodeConsistency((UnaryDateConstraint) rule, variables));
+
+        var result = rBackTracking(new HashMap<>(), new HashSet<>(variables.values()), constraints);
         return result == null ? null : new ArrayList<>(result.values());
+    }
+
+    private static void nodeConsistency(UnaryDateConstraint constraint, HashMap<Integer, DateVar> variables) {
+        DateVar variable = variables.get(constraint.L_VAL);
+        variable.domain = variable.domain.stream().filter(d -> isConsistent(d, constraint.R_VAL, constraint.OP))
+                                         .collect(Collectors.toCollection(HashSet::new));
+    }
+
+    private static void constraintPropogation(Set<DateConstraint> constraints, HashMap<Integer, DateVar> variables) {
+        HashMap<DateVar, HashMap<DateVar, String>> neigbors = new HashMap<>();
+        Queue<arcNode> nodeQueue = new ArrayDeque<>();
+        constraints.stream().filter(d -> d.arity() == 2).map(d -> (BinaryDateConstraint) d).forEach(rule -> {
+            DateVar lVal = variables.get(rule.L_VAL);
+            DateVar rVal = variables.get(rule.R_VAL);
+            neigbors.computeIfPresent(lVal, (k, v) -> { v.put(rVal, rule.OP); return v; });
+            neigbors.computeIfPresent(rVal, (k, v) -> { v.put(lVal, rule.OP); return v; });
+            neigbors.putIfAbsent(lVal, new HashMap<>(Map.of(rVal, rule.OP)));
+            neigbors.putIfAbsent(rVal, new HashMap<>(Map.of(lVal, rule.OP)));
+            nodeQueue.add(new arcNode(lVal, rVal, rule.OP));
+            nodeQueue.add(new arcNode(rVal, lVal, opInverse(rule.OP)));
+        });
+
+        while (!nodeQueue.isEmpty()) {
+            arcNode pair = nodeQueue.poll();
+            DateVar tail = pair.left, head = pair.right;
+            HashSet<LocalDate> inconsistent = new HashSet<>();
+            for (LocalDate lDate : tail.domain) {
+                boolean consistent = false;
+                for (LocalDate rDate : head.domain)
+                    if (isConsistent(lDate, rDate, pair.op)) {
+                        consistent = true;
+                        break;
+                    }
+                if (!consistent)
+                    inconsistent.add(lDate);
+            }
+            tail.domain.removeAll(inconsistent);
+            if (!inconsistent.isEmpty())
+                neigbors.get(tail).forEach((key, value) -> nodeQueue.add(new arcNode(tail, key, value)));
+        }
+
+    }
+
+    private static String opInverse(String op) {
+        switch (op) {
+            case ">": return "<";
+            case "<": return ">";
+            case ">=": return "<=";
+            case "<=": return ">=";
+            case "==": return "==";
+            case "!=": return "!=";
+        }
+    }
+
+    private static boolean isConsistent(LocalDate lVal, LocalDate rVal, String op) {
+        switch (op) {
+            case ">": if (!lVal.isAfter(rVal)) return false;
+                break;
+            case "<": if (!lVal.isBefore(rVal)) return false;
+                break;
+            case ">=": if (lVal.isBefore(rVal)) return false;
+                break;
+            case "<=": if (lVal.isAfter(rVal)) return false;
+                break;
+            case "==": if (!lVal.isEqual(rVal)) return false;
+                break;
+            case "!=": if (lVal.isEqual(rVal)) return false;
+                break;
+        }
+        return true;
     }
 
 
@@ -79,14 +155,8 @@ public class CSP {
                              : assignments.get(((BinaryDateConstraint) rule).R_VAL);
             if (lVal == null || rVal == null) continue;
 
-            switch (rule.OP) {
-                case ">": if (!lVal.isAfter(rVal)) return false; break;
-                case "<": if (!lVal.isBefore(rVal)) return false; break;
-                case ">=": if (lVal.isBefore(rVal)) return false; break;
-                case "<=": if (lVal.isAfter(rVal)) return false; break;
-                case "==": if (!lVal.isEqual(rVal)) return false; break;
-                case "!=": if (lVal.isEqual(rVal)) return false; break;
-            }
+            if (!isConsistent(lVal, rVal, rule.OP))
+                return false;
         }
         return true;
     }
@@ -101,12 +171,23 @@ public class CSP {
     private static class DateVar {
 
         int id;
-        Set<LocalDate> domain;
+        HashSet<LocalDate> domain;
 
         DateVar(int meeting, LocalDate rangeStart, LocalDate rangeEnd) {
             id = meeting;
             // Toal would be proud of this stream ->
-            domain = rangeStart.datesUntil(rangeEnd.plusDays(1)).collect(Collectors.toSet());
+            domain = (HashSet<LocalDate>) rangeStart.datesUntil(rangeEnd.plusDays(1)).collect(Collectors.toSet());
+        }
+    }
+
+    private static class arcNode {
+        DateVar left, right;
+        String op;
+
+        arcNode(DateVar left, DateVar right, String op) {
+            this.left = left;
+            this.right = right;
+            this.op = op;
         }
     }
 }
