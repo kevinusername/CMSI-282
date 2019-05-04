@@ -17,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/csp/CSP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="46" column="67" lean-forward="true" selection-start-line="46" selection-start-column="67" selection-end-line="46" selection-end-column="67" />
+            <state relative-caret-position="518">
+              <caret line="81" column="32" lean-forward="true" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -27,37 +27,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/csp/DateConstraint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="20" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/csp/BinaryDateConstraint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/csp/UnaryDateConstraint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="12" selection-start-column="12" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/csp/CSPTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
-              <caret line="46" column="13" lean-forward="true" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+            <state relative-caret-position="235">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
             </state>
           </provider>
         </entry>
@@ -72,6 +45,9 @@
       <find>main</find>
       <find>prior</find>
       <find>queue</find>
+      <find>isCons</find>
+      <find>constr</find>
+      <find>value</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -113,7 +89,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -143,6 +118,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -179,12 +155,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CSPTests">
-    <configuration name="CSPTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CSPTests [100]">
+    <configuration name="CSPTests [100]" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true" repeat_count="100" repeat_mode="N Times">
       <module name="CMSI-282" />
       <option name="PACKAGE_NAME" value="csp" />
       <option name="MAIN_CLASS_NAME" value="csp.CSPTests" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -199,21 +177,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CSPTests.CSP_t3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CMSI-282" />
+      <option name="PACKAGE_NAME" value="csp" />
+      <option name="MAIN_CLASS_NAME" value="csp.CSPTests" />
+      <option name="METHOD_NAME" value="CSP_t3" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HuffmanTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CMSI-282" />
       <option name="PACKAGE_NAME" value="huffman" />
       <option name="MAIN_CLASS_NAME" value="huffman.HuffmanTests" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HuffmanTests.comp_t0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CMSI-282" />
-      <option name="PACKAGE_NAME" value="huffman" />
-      <option name="MAIN_CLASS_NAME" value="huffman.HuffmanTests" />
-      <option name="METHOD_NAME" value="comp_t0" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -228,13 +206,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.CSPTests [100]" />
+      <item itemvalue="JUnit.CSPTests.CSP_t0" />
+      <item itemvalue="JUnit.CSPTests.CSP_t3" />
+      <item itemvalue="JUnit.HuffmanTests" />
+      <item itemvalue="JUnit.HuffmanTests.decomp_t0" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CSPTests" />
+        <item itemvalue="JUnit.CSPTests [100]" />
+        <item itemvalue="JUnit.CSPTests.CSP_t3" />
         <item itemvalue="JUnit.CSPTests.CSP_t0" />
         <item itemvalue="JUnit.HuffmanTests" />
         <item itemvalue="JUnit.HuffmanTests.decomp_t0" />
-        <item itemvalue="JUnit.HuffmanTests.comp_t0" />
       </list>
     </recent_temporary>
   </component>
@@ -539,43 +524,50 @@
       <option name="project" value="LOCAL" />
       <updated>1556940564746</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="lots of work towards node and arc consistency">
+      <created>1556965356911</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1556965356911</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CSPTests_CSP_t0 - 2019.05.03 at 20h 22m 35s.xml">
-      <configuration name="CSPTests.CSP_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests_CSP_t0 - 2019.05.03 at 20h 24m 07s.xml">
-      <configuration name="CSPTests.CSP_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests_CSP_t0 - 2019.05.03 at 20h 24m 11s.xml">
-      <configuration name="CSPTests.CSP_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests_CSP_t0 - 2019.05.03 at 20h 24m 12s.xml">
-      <configuration name="CSPTests.CSP_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests_CSP_t0 - 2019.05.03 at 20h 26m 50s.xml">
-      <configuration name="CSPTests.CSP_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests_CSP_t0 - 2019.05.03 at 20h 27m 25s.xml">
-      <configuration name="CSPTests.CSP_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests_CSP_t0 - 2019.05.03 at 20h 28m 23s.xml">
-      <configuration name="CSPTests.CSP_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests_CSP_t0 - 2019.05.03 at 20h 28m 30s.xml">
-      <configuration name="CSPTests.CSP_t0" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests - 2019.05.03 at 20h 28m 41s.xml">
+    <history-entry file="CSPTests - 2019.05.04 at 03h 31m 33s.xml">
       <configuration name="CSPTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests - 2019.05.03 at 20h 37m 02s.xml">
+    <history-entry file="CSPTests - 2019.05.04 at 03h 31m 35s.xml">
       <configuration name="CSPTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests - 2019.05.04 at 03h 31m 36s.xml">
+      <configuration name="CSPTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests - 2019.05.04 at 03h 31m 37s.xml">
+      <configuration name="CSPTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests - 2019.05.04 at 03h 31m 38s.xml">
+      <configuration name="CSPTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests - 2019.05.04 at 03h 31m 39s.xml">
+      <configuration name="CSPTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests_[20] - 2019.05.04 at 03h 31m 50s.xml">
+      <configuration name="CSPTests [20]" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests_[100] - 2019.05.04 at 03h 32m 09s.xml">
+      <configuration name="CSPTests [100]" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests_[100] - 2019.05.04 at 03h 38m 13s.xml">
+      <configuration name="CSPTests [100]" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests_[100] - 2019.05.04 at 03h 38m 34s.xml">
+      <configuration name="CSPTests [100]" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74716000" />
+    <option name="totallyTimeSpent" value="84926000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -590,7 +582,7 @@
     <frame x="71" y="25" width="2489" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.11379451" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.11461318" />
       <window_info id="Structure" order="1" sideWeight="0.50564617" side_tool="true" weight="0.17042756" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -635,7 +627,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="working: needs memoization" />
     <MESSAGE value="all working(?)" />
     <MESSAGE value="refactoring" />
     <MESSAGE value="added back jank for the greater good (of the callstack)" />
@@ -660,7 +651,8 @@
     <MESSAGE value="assignment and completeness checking" />
     <MESSAGE value="basic, un-tested code" />
     <MESSAGE value="all tests pass with simple backtracking" />
-    <option name="LAST_COMMIT_MESSAGE" value="all tests pass with simple backtracking" />
+    <MESSAGE value="lots of work towards node and arc consistency" />
+    <option name="LAST_COMMIT_MESSAGE" value="lots of work towards node and arc consistency" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -863,27 +855,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/huffman/Huffman.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1240">
-          <caret line="62" column="9" selection-start-line="56" selection-start-column="37" selection-end-line="62" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/csp/UnaryDateConstraint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="12" selection-start-column="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/csp/BinaryDateConstraint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -894,17 +869,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/csp/BinaryDateConstraint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/huffman/Huffman.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1000">
+          <caret line="62" column="9" selection-start-line="56" selection-start-column="37" selection-end-line="62" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/csp/CSPTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="46" column="13" lean-forward="true" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+        <state relative-caret-position="235">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/csp/CSP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="46" column="67" lean-forward="true" selection-start-line="46" selection-start-column="67" selection-end-line="46" selection-end-column="67" />
+        <state relative-caret-position="518">
+          <caret line="81" column="32" lean-forward="true" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

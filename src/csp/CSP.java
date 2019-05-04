@@ -42,6 +42,8 @@ public class CSP {
         constraints.stream().filter(rule -> rule.arity() == 1)
                    .forEach(rule -> nodeConsistency((UnaryDateConstraint) rule, variables));
 
+        constraintPropogation(constraints, variables);
+
         var result = rBackTracking(new HashMap<>(), new HashSet<>(variables.values()), constraints);
         return result == null ? null : new ArrayList<>(result.values());
     }
@@ -82,7 +84,8 @@ public class CSP {
             }
             tail.domain.removeAll(inconsistent);
             if (!inconsistent.isEmpty())
-                neigbors.get(tail).forEach((key, value) -> nodeQueue.add(new arcNode(tail, key, value)));
+                neigbors.get(tail).forEach(
+                        (key, value) -> { if (key != head) nodeQueue.add(new arcNode(key, tail, opInverse(value))); });
         }
 
     }
@@ -96,6 +99,7 @@ public class CSP {
             case "==": return "==";
             case "!=": return "!=";
         }
+        return null;
     }
 
     private static boolean isConsistent(LocalDate lVal, LocalDate rVal, String op) {
