@@ -39,7 +39,7 @@ public class CSP {
         for (int i = 0; i < nMeetings; i++)
             variables.put(i, new DateVar(i, rangeStart, rangeEnd));
 
-        constraints.stream().filter(rule -> rule.arity() == 1)
+        constraints.parallelStream().filter(rule -> rule.arity() == 1)
                    .forEach(rule -> nodeConsistency((UnaryDateConstraint) rule, variables));
 
         constraintPropogation(constraints, variables);
@@ -50,7 +50,7 @@ public class CSP {
 
     private static void nodeConsistency(UnaryDateConstraint constraint, HashMap<Integer, DateVar> variables) {
         DateVar variable = variables.get(constraint.L_VAL);
-        variable.domain = variable.domain.stream().filter(d -> isConsistent(d, constraint.R_VAL, constraint.OP))
+        variable.domain = variable.domain.parallelStream().filter(d -> isConsistent(d, constraint.R_VAL, constraint.OP))
                                          .collect(Collectors.toCollection(HashSet::new));
     }
 
@@ -132,6 +132,7 @@ public class CSP {
 
         for (LocalDate value : unassigned.domain) {
             assignments.put(unassigned.id, value);
+            // TODO: optimize this check
             if (checkAssignments(assignments, constraints)) {
                 Map<Integer, LocalDate> result = rBackTracking(assignments, variables, constraints);
                 if (result != null)

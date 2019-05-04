@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1877ed1e-cc83-40ab-a6ee-a5ba924b7db9" name="Default Changelist" comment="">
+    <list default="true" id="1877ed1e-cc83-40ab-a6ee-a5ba924b7db9" name="Default Changelist" comment="everything working???">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/csp/CSP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/csp/CSP.java" afterDir="false" />
     </list>
@@ -17,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/csp/CSP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="81" column="32" lean-forward="true" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
+            <state relative-caret-position="165">
+              <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -29,7 +29,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/csp/CSPTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
+            <state relative-caret-position="500">
               <caret line="33" selection-start-line="33" selection-end-line="33" />
             </state>
           </provider>
@@ -48,6 +48,7 @@
       <find>isCons</find>
       <find>constr</find>
       <find>value</find>
+      <find>stream</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -89,6 +90,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -117,8 +120,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -264,6 +265,7 @@
       <workItem from="1556089703466" duration="1124000" />
       <workItem from="1556341545655" duration="858000" />
       <workItem from="1556927710694" duration="13798000" />
+      <workItem from="1557001203430" duration="493000" />
     </task>
     <task id="LOCAL-00001" summary="fixed packages">
       <created>1547876807044</created>
@@ -531,43 +533,50 @@
       <option name="project" value="LOCAL" />
       <updated>1556965356911</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="everything working???">
+      <created>1556966441843</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1556966441843</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CSPTests - 2019.05.04 at 03h 31m 33s.xml">
-      <configuration name="CSPTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests - 2019.05.04 at 03h 31m 35s.xml">
-      <configuration name="CSPTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests - 2019.05.04 at 03h 31m 36s.xml">
-      <configuration name="CSPTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests - 2019.05.04 at 03h 31m 37s.xml">
-      <configuration name="CSPTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests - 2019.05.04 at 03h 31m 38s.xml">
-      <configuration name="CSPTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests - 2019.05.04 at 03h 31m 39s.xml">
-      <configuration name="CSPTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests_[20] - 2019.05.04 at 03h 31m 50s.xml">
-      <configuration name="CSPTests [20]" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 03h 32m 09s.xml">
+    <history-entry file="CSPTests_[100] - 2019.05.04 at 03h 45m 57s.xml">
       <configuration name="CSPTests [100]" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 03h 38m 13s.xml">
-      <configuration name="CSPTests [100]" configurationId="JUnit" />
+    <history-entry file="CSPTests - 2019.05.04 at 13h 27m 33s.xml">
+      <configuration name="CSPTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 03h 38m 34s.xml">
-      <configuration name="CSPTests [100]" configurationId="JUnit" />
+    <history-entry file="CSPTests - 2019.05.04 at 13h 27m 35s.xml">
+      <configuration name="CSPTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests - 2019.05.04 at 13h 27m 36s.xml">
+      <configuration name="CSPTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests - 2019.05.04 at 13h 27m 37s.xml">
+      <configuration name="CSPTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests - 2019.05.04 at 13h 27m 42s.xml">
+      <configuration name="CSPTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests - 2019.05.04 at 13h 28m 00s.xml">
+      <configuration name="CSPTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests - 2019.05.04 at 13h 28m 01s.xml">
+      <configuration name="CSPTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests - 2019.05.04 at 13h 28m 03s.xml">
+      <configuration name="CSPTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests - 2019.05.04 at 13h 28m 05s.xml">
+      <configuration name="CSPTests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84926000" />
+    <option name="totallyTimeSpent" value="85819000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -582,14 +591,14 @@
     <frame x="71" y="25" width="2489" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.11461318" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.115431845" />
       <window_info id="Structure" order="1" sideWeight="0.50564617" side_tool="true" weight="0.17042756" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943925" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4021739" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4021739" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39518633" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -627,7 +636,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="all working(?)" />
     <MESSAGE value="refactoring" />
     <MESSAGE value="added back jank for the greater good (of the callstack)" />
     <MESSAGE value="added name" />
@@ -652,7 +660,8 @@
     <MESSAGE value="basic, un-tested code" />
     <MESSAGE value="all tests pass with simple backtracking" />
     <MESSAGE value="lots of work towards node and arc consistency" />
-    <option name="LAST_COMMIT_MESSAGE" value="lots of work towards node and arc consistency" />
+    <MESSAGE value="everything working???" />
+    <option name="LAST_COMMIT_MESSAGE" value="everything working???" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -888,15 +897,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/csp/CSPTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
+        <state relative-caret-position="500">
           <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/csp/CSP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="81" column="32" lean-forward="true" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
+        <state relative-caret-position="165">
+          <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
