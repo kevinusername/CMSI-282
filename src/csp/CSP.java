@@ -1,11 +1,14 @@
 package csp;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * CSP: Calendar Satisfaction Problem Solver
@@ -29,40 +32,65 @@ public class CSP {
      */
     public static List<LocalDate> solve(int nMeetings, LocalDate rangeStart, LocalDate rangeEnd,
                                         Set<DateConstraint> constraints) {
-        throw new UnsupportedOperationException();
+        HashSet<DateVar> variables = new HashSet<>();
+        // Is this better than "for (int i = 0; i < nMeetings; i++)" ? Irrelevant. Its all about style baby
+        IntStream.range(0, nMeetings).forEach
+                (i -> variables.add(new DateVar(i, rangeStart, rangeEnd)));
+
+        var result = rBackTracking(new HashMap<>(), variables, constraints);
+        return result == null ? null : new ArrayList<>(result.values());
     }
 
-    private static Map<DateVar, LocalDate> rBackTracking(Map<DateVar, LocalDate> assignments) {
+    private static Map<Integer, LocalDate> rBackTracking(Map<Integer, LocalDate> assignments,
+                                                         HashSet<DateVar> variables,
+                                                         Set<DateConstraint> constraints) {
+        if (isComplete(variables.size(), assignments, constraints))
+            return assignments;
 
+        DateVar unassigned = getUnassigned(assignments, variables);
+        if (unassigned == null)
+            return null;
+
+        for (LocalDate value : unassigned.domain) {
+            assignments.put(unassigned.id, value);
+            if (checkAssignments(assignments, constraints)) {
+                Map<Integer, LocalDate> result = rBackTracking(assignments, variables, constraints);
+                if (result != null)
+                    return result;
+            }
+            assignments.remove(unassigned.id);
+        }
+        return null;
     }
 
-    private static boolean checkAssignments(Map<DateVar, LocalDate> assignments, Set<DateConstraint> constraints) {
+    private static DateVar getUnassigned(Map<Integer, LocalDate> assignments, HashSet<DateVar> variables) {
+        for (DateVar variable : variables)
+            if (assignments.containsKey(variable.id))
+                return variable;
+        return null;
+    }
+
+    private static boolean checkAssignments(Map<Integer, LocalDate> assignments, Set<DateConstraint> constraints) {
         for (DateConstraint rule : constraints) {
             LocalDate lVal = assignments.get(rule.L_VAL);
             LocalDate rVal = rule.arity() == 1 ? rule.R_VAL : assignments.get(rule.R_VAL);
             if (lVal == null || rVal == null) continue;
             switch (rule.OP) {
-                case ">":
-                    if (!lVal.isAfter(rVal)) return false;
-                case "<":
-                    if (!lVal.isBefore(rVal)) return false;
-                case ">=":
-                    if (lVal.isBefore(rVal)) return false;
-                case "<=":
-                    if (lVal.isAfter(rVal)) return false;
-                case "==":
-                    if (!lVal.isEqual(rVal)) return false;
-                case "!=":
-                    if (lVal.isEqual(rVal)) return false;
+                case ">": if (!lVal.isAfter(rVal)) return false;
+                case "<": if (!lVal.isBefore(rVal)) return false;
+                case ">=": if (lVal.isBefore(rVal)) return false;
+                case "<=": if (lVal.isAfter(rVal)) return false;
+                case "==": if (!lVal.isEqual(rVal)) return false;
+                case "!=": if (lVal.isEqual(rVal)) return false;
             }
         }
         return true;
     }
 
-    private static boolean isComplete(int nMeetings, Map<DateVar, LocalDate> assignments, Set<DateConstraint> constraints) {
+    private static boolean isComplete(int nMeetings, Map<Integer, LocalDate> assignments,
+                                      Set<DateConstraint> constraints) {
         return nMeetings == assignments.size() && checkAssignments(assignments, constraints);
     }
-
 
 
     private static class DateVar {
