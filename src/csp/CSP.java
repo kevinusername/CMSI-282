@@ -1,8 +1,11 @@
 package csp;
 
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.Map;
 import java.util.Set;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * CSP: Calendar Satisfaction Problem Solver
@@ -29,4 +32,49 @@ public class CSP {
         throw new UnsupportedOperationException();
     }
 
+    private static Map<DateVar, LocalDate> rBackTracking(Map<DateVar, LocalDate> assignments) {
+
+    }
+
+    private static boolean checkAssignments(Map<DateVar, LocalDate> assignments, Set<DateConstraint> constraints) {
+        for (DateConstraint rule : constraints) {
+            LocalDate lVal = assignments.get(rule.L_VAL);
+            LocalDate rVal = rule.arity() == 1 ? rule.R_VAL : assignments.get(rule.R_VAL);
+            if (lVal == null || rVal == null) continue;
+            switch (rule.OP) {
+                case ">":
+                    if (!lVal.isAfter(rVal)) return false;
+                case "<":
+                    if (!lVal.isBefore(rVal)) return false;
+                case ">=":
+                    if (lVal.isBefore(rVal)) return false;
+                case "<=":
+                    if (lVal.isAfter(rVal)) return false;
+                case "==":
+                    if (!lVal.isEqual(rVal)) return false;
+                case "!=":
+                    if (lVal.isEqual(rVal)) return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean isComplete(int nMeetings, Map<DateVar, LocalDate> assignments, Set<DateConstraint> constraints) {
+        return nMeetings == assignments.size() && checkAssignments(assignments, constraints);
+    }
+
+
+
+    private static class DateVar {
+
+        int id;
+        Set<LocalDate> domain;
+
+        DateVar(int meeting, LocalDate rangeStart, LocalDate rangeEnd) {
+            id = meeting;
+            // Toal would be proud of this stream ->
+            domain = rangeStart.datesUntil(rangeEnd.plusDays(1)).collect(Collectors.toSet());
+        }
+    }
 }
+
