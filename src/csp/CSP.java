@@ -32,10 +32,9 @@ public class CSP {
      */
     public static List<LocalDate> solve(int nMeetings, LocalDate rangeStart, LocalDate rangeEnd,
                                         Set<DateConstraint> constraints) {
-        HashSet<DateVar> variables = new HashSet<>();
         // Is this better than "for (int i = 0; i < nMeetings; i++)" ? Irrelevant. Its all about style baby
-        IntStream.range(0, nMeetings).forEach
-                (i -> variables.add(new DateVar(i, rangeStart, rangeEnd)));
+        HashSet<DateVar> variables = IntStream.range(0, nMeetings).mapToObj
+                (i -> new DateVar(i, rangeStart, rangeEnd)).collect(Collectors.toCollection(HashSet::new));
 
         var result = rBackTracking(new HashMap<>(), variables, constraints);
         return result == null ? null : new ArrayList<>(result.values());
@@ -79,6 +78,7 @@ public class CSP {
                              ? ((UnaryDateConstraint) rule).R_VAL
                              : assignments.get(((BinaryDateConstraint) rule).R_VAL);
             if (lVal == null || rVal == null) continue;
+
             switch (rule.OP) {
                 case ">": if (!lVal.isAfter(rVal)) return false; break;
                 case "<": if (!lVal.isBefore(rVal)) return false; break;
