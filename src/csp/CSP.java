@@ -3,7 +3,6 @@ package csp;
 import java.time.LocalDate;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -11,7 +10,6 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * CSP: Calendar Satisfaction Problem Solver
@@ -44,8 +42,37 @@ public class CSP {
 
         constraintPropogation(constraints, variables);
 
-        var result = rBackTracking(new HashMap<>(), new HashSet<>(variables.values()), constraints);
+        var result = rBackTracking(new HashMap<>(nMeetings * 2), new HashSet<>(variables.values()), constraints);
         return result == null ? null : new ArrayList<>(result.values());
+    }
+
+
+
+    /*---------------------------------------------------------------
+     * Main Methods
+     *-------------------------------------------------------------*/
+
+
+    private static Map<Integer, LocalDate> rBackTracking(Map<Integer, LocalDate> assignments,
+                                                         HashSet<DateVar> variables,
+                                                         Set<DateConstraint> constraints) {
+        if (isComplete(variables.size(), assignments, constraints))
+            return assignments;
+
+        DateVar unassigned = getUnassigned(assignments, variables);
+        if (unassigned == null) return null;
+
+        for (LocalDate value : unassigned.domain) {
+            assignments.put(unassigned.id, value);
+            // TODO: optimize this check
+            if (checkAssignments(assignments, constraints)) {
+                Map<Integer, LocalDate> result = rBackTracking(assignments, variables, constraints);
+                if (result != null)
+                    return result;
+            }
+            assignments.remove(unassigned.id);
+        }
+        return null;
     }
 
     /**
@@ -74,8 +101,14 @@ public class CSP {
         constraints.stream().filter(d -> d.arity() == 2).map(d -> (BinaryDateConstraint) d).forEach(rule -> {
             DateVar lVal = variables.get(rule.L_VAL);
             DateVar rVal = variables.get(rule.R_VAL);
-            neigbors.computeIfPresent(lVal, (k, v) -> { v.put(rVal, rule.OP); return v; });
-            neigbors.computeIfPresent(rVal, (k, v) -> { v.put(lVal, rule.OP); return v; });
+            neigbors.computeIfPresent(lVal, (k, v) -> {
+                v.put(rVal, rule.OP);
+                return v;
+            });
+            neigbors.computeIfPresent(rVal, (k, v) -> {
+                v.put(lVal, rule.OP);
+                return v;
+            });
             neigbors.putIfAbsent(lVal, new HashMap<>(Map.of(rVal, rule.OP)));
             neigbors.putIfAbsent(rVal, new HashMap<>(Map.of(lVal, rule.OP)));
             nodeQueue.add(new arcNode(lVal, rVal, rule.OP));
@@ -98,6 +131,48 @@ public class CSP {
 
     }
 
+
+    /*---------------------------------------------------------------
+     * Helper Methods
+     *-------------------------------------------------------------*/
+
+
+    private static boolean checkAssignments(Map<Integer, LocalDate> assignments, Set<DateConstraint> constraints) {
+        return constraints.parallelStream().allMatch(rule -> {
+            LocalDate lVal = assignments.get(rule.L_VAL);
+            LocalDate rVal = rule.arity() == 1
+                             ? ((UnaryDateConstraint) rule).R_VAL
+                             : assignments.get(((BinaryDateConstraint) rule).R_VAL);
+            if (lVal == null || rVal == null) return true;
+
+            return isConsistent(lVal, rVal, rule.OP);
+        });
+    }
+
+    /**
+     * @param lVal left hand date of constraint
+     * @param rVal right hand date of constraint
+     * @param op   relationship between the two dates
+     * @return if the given values satisfy the given constraint
+     */
+    private static boolean isConsistent(LocalDate lVal, LocalDate rVal, String op) {
+        switch (op) {
+            case ">": if (!lVal.isAfter(rVal)) return false;
+                break;
+            case "<": if (!lVal.isBefore(rVal)) return false;
+                break;
+            case ">=": if (lVal.isBefore(rVal)) return false;
+                break;
+            case "<=": if (lVal.isAfter(rVal)) return false;
+                break;
+            case "==": if (!lVal.isEqual(rVal)) return false;
+                break;
+            case "!=": if (lVal.isEqual(rVal)) return false;
+                break;
+        }
+        return true; // This should never happen
+    }
+
     /**
      * Useful for finding the inverse of an arc between two nodes
      *
@@ -116,48 +191,8 @@ public class CSP {
         return null;
     }
 
-    /**
-     * @param lVal left hand date of constraint
-     * @param rVal right hand date of constraint
-     * @param op   relationship between the two dates
-     * @return if the given values satisfy the given constraint
-     */
-    private static boolean isConsistent(LocalDate lVal, LocalDate rVal, String op) {
-        switch (op) {
-            case ">": if (!lVal.isAfter(rVal)) return false; break;
-            case "<": if (!lVal.isBefore(rVal)) return false; break;
-            case ">=": if (lVal.isBefore(rVal)) return false; break;
-            case "<=": if (lVal.isAfter(rVal)) return false; break;
-            case "==": if (!lVal.isEqual(rVal)) return false; break;
-            case "!=": if (lVal.isEqual(rVal)) return false; break;
-        }
-        return true; // This should never happen
-    }
 
-
-    private static Map<Integer, LocalDate> rBackTracking(Map<Integer, LocalDate> assignments,
-                                                         HashSet<DateVar> variables,
-                                                         Set<DateConstraint> constraints) {
-        if (isComplete(variables.size(), assignments, constraints))
-            return assignments;
-
-        DateVar unassigned = getUnassigned(assignments, variables);
-        if (unassigned == null) return null;
-
-        for (LocalDate value : unassigned.domain) {
-            assignments.put(unassigned.id, value);
-            // TODO: optimize this check
-            if (checkAssignments(assignments, constraints)) {
-                Map<Integer, LocalDate> result = rBackTracking(assignments, variables, constraints);
-                if (result != null)
-                    return result;
-            }
-            assignments.remove(unassigned.id);
-        }
-        return null;
-    }
-
-
+    /* Return the next unassigned variable */
     private static DateVar getUnassigned(Map<Integer, LocalDate> assignments, HashSet<DateVar> variables) {
         for (DateVar variable : variables)
             if (!assignments.containsKey(variable.id))
@@ -166,33 +201,25 @@ public class CSP {
     }
 
 
-    private static boolean checkAssignments(Map<Integer, LocalDate> assignments, Set<DateConstraint> constraints) {
-        return constraints.parallelStream().allMatch(rule -> {
-            LocalDate lVal = assignments.get(rule.L_VAL);
-            LocalDate rVal = rule.arity() == 1
-                             ? ((UnaryDateConstraint) rule).R_VAL
-                             : assignments.get(((BinaryDateConstraint) rule).R_VAL);
-            if (lVal == null || rVal == null) return true;
-
-            return isConsistent(lVal, rVal, rule.OP);
-        });
-    }
-
-
+    /* Check if this is a complete solution */
     private static boolean isComplete(int nMeetings, Map<Integer, LocalDate> assignments,
                                       Set<DateConstraint> constraints) {
         return nMeetings == assignments.size() && checkAssignments(assignments, constraints);
     }
 
 
-    private static class DateVar {
+    /*---------------------------------------------------------------
+     * Private Helper Classes:
+     *
+     * just some things to help keep it more sane
+     *-------------------------------------------------------------*/
 
+    private static class DateVar {
         int id;
         HashSet<LocalDate> domain;
 
         DateVar(int meeting, LocalDate rangeStart, LocalDate rangeEnd) {
             id = meeting;
-            // Toal would be proud of this stream ->
             domain = (HashSet<LocalDate>) rangeStart.datesUntil(rangeEnd.plusDays(1)).collect(Collectors.toSet());
         }
     }
