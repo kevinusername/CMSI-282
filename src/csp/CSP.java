@@ -38,9 +38,7 @@ public class CSP {
         for (int i = 0; i < nMeetings; i++)
             variables.put(i, new DateVar(i, rangeStart, rangeEnd));
 
-        constraints.parallelStream().filter(rule -> rule.arity() == 1)
-                   .forEach(rule -> nodeConsistency((UnaryDateConstraint) rule, variables.get(rule.L_VAL)));
-
+        nodeConsistency(constraints, variables);
         constraintPropogation(constraints, variables);
 
         Map<Integer, LocalDate>
@@ -78,14 +76,19 @@ public class CSP {
     }
 
     /**
-     * For an unary constraint, remove values from relevant variable that will never be possible
+     * For all unary constraint, remove values from relevant variable that will never be possible
      *
-     * @param constraint an Unary constraint
-     * @param variable   variable affected by constraint
+     * @param constraints all constraints in csp
+     * @param variables   all variables in csp
      */
-    private static void nodeConsistency(UnaryDateConstraint constraint, DateVar variable) {
-        variable.domain = variable.domain.parallelStream().filter(d -> isConsistent(d, constraint.R_VAL, constraint.OP))
-                                         .collect(Collectors.toCollection(TreeSet::new));
+    private static void nodeConsistency(Set<DateConstraint> constraints, HashMap<Integer, DateVar> variables) {
+        constraints.parallelStream().filter(rule -> rule.arity() == 1).map(rule -> (UnaryDateConstraint) rule)
+                   .forEach(rule -> {
+                       DateVar variable = variables.get(rule.L_VAL);
+                       variable.domain =
+                               variable.domain.parallelStream().filter(d -> isConsistent(d, rule.R_VAL, rule.OP))
+                                              .collect(Collectors.toCollection(TreeSet::new));
+                   });
     }
 
     /**
@@ -159,18 +162,12 @@ public class CSP {
      */
     private static boolean isConsistent(LocalDate lVal, LocalDate rVal, String op) {
         switch (op) {
-            case ">": if (!lVal.isAfter(rVal)) return false;
-                break;
-            case "<": if (!lVal.isBefore(rVal)) return false;
-                break;
-            case ">=": if (lVal.isBefore(rVal)) return false;
-                break;
-            case "<=": if (lVal.isAfter(rVal)) return false;
-                break;
-            case "==": if (!lVal.isEqual(rVal)) return false;
-                break;
-            case "!=": if (lVal.isEqual(rVal)) return false;
-                break;
+            case ">": if (!lVal.isAfter(rVal)) return false; break;
+            case "<": if (!lVal.isBefore(rVal)) return false; break;
+            case ">=": if (lVal.isBefore(rVal)) return false; break;
+            case "<=": if (lVal.isAfter(rVal)) return false; break;
+            case "==": if (!lVal.isEqual(rVal)) return false; break;
+            case "!=": if (lVal.isEqual(rVal)) return false; break;
         }
         return true; // This should never happen
     }
