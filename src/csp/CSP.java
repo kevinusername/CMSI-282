@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 /**
@@ -38,11 +39,12 @@ public class CSP {
             variables.put(i, new DateVar(i, rangeStart, rangeEnd));
 
         constraints.parallelStream().filter(rule -> rule.arity() == 1)
-                   .forEach(rule -> nodeConsistency((UnaryDateConstraint) rule, variables));
+                   .forEach(rule -> nodeConsistency((UnaryDateConstraint) rule, variables.get(rule.L_VAL)));
 
         constraintPropogation(constraints, variables);
 
-        var result = rBackTracking(new HashMap<>(nMeetings * 2), new HashSet<>(variables.values()), constraints);
+        Map<Integer, LocalDate>
+                result = rBackTracking(new HashMap<>(), new HashSet<>(variables.values()), constraints);
         return result == null ? null : new ArrayList<>(result.values());
     }
 
@@ -64,7 +66,7 @@ public class CSP {
 
         for (LocalDate value : unassigned.domain) {
             assignments.put(unassigned.id, value);
-            // TODO: optimize this check
+            // TODO: optimize this check if possible
             if (checkAssignments(assignments, constraints)) {
                 Map<Integer, LocalDate> result = rBackTracking(assignments, variables, constraints);
                 if (result != null)
@@ -76,15 +78,14 @@ public class CSP {
     }
 
     /**
-     * For each unary constraint, remove values that will never be possible
+     * For an unary constraint, remove values from relevant variable that will never be possible
      *
-     * @param constraint all Unary constraints
-     * @param variables  all variables in CSP
+     * @param constraint an Unary constraint
+     * @param variable   variable affected by constraint
      */
-    private static void nodeConsistency(UnaryDateConstraint constraint, HashMap<Integer, DateVar> variables) {
-        DateVar variable = variables.get(constraint.L_VAL);
+    private static void nodeConsistency(UnaryDateConstraint constraint, DateVar variable) {
         variable.domain = variable.domain.parallelStream().filter(d -> isConsistent(d, constraint.R_VAL, constraint.OP))
-                                         .collect(Collectors.toCollection(HashSet::new));
+                                         .collect(Collectors.toCollection(TreeSet::new));
     }
 
     /**
@@ -98,22 +99,8 @@ public class CSP {
         /* Map all the "neighbor" relationships and make a queue of nodes representing these relationships */
         HashMap<DateVar, HashMap<DateVar, String>> neigbors = new HashMap<>();
         Queue<arcNode> nodeQueue = new ArrayDeque<>();
-        constraints.stream().filter(d -> d.arity() == 2).map(d -> (BinaryDateConstraint) d).forEach(rule -> {
-            DateVar lVal = variables.get(rule.L_VAL);
-            DateVar rVal = variables.get(rule.R_VAL);
-            neigbors.computeIfPresent(lVal, (k, v) -> {
-                v.put(rVal, rule.OP);
-                return v;
-            });
-            neigbors.computeIfPresent(rVal, (k, v) -> {
-                v.put(lVal, rule.OP);
-                return v;
-            });
-            neigbors.putIfAbsent(lVal, new HashMap<>(Map.of(rVal, rule.OP)));
-            neigbors.putIfAbsent(rVal, new HashMap<>(Map.of(lVal, rule.OP)));
-            nodeQueue.add(new arcNode(lVal, rVal, rule.OP));
-            nodeQueue.add(new arcNode(rVal, lVal, opInverse(rule.OP)));
-        });
+        constraints.stream().filter(d -> d.arity() == 2).map(d -> (BinaryDateConstraint) d)
+                   .forEach(rule -> handleArcs(variables, neigbors, nodeQueue, rule));
 
         /* Go through the nodeQueue and remove all inconsistent values */
         while (!nodeQueue.isEmpty()) {
@@ -124,11 +111,26 @@ public class CSP {
                     tail.domain.parallelStream().filter(lDate -> head.domain.parallelStream().noneMatch(
                             rDate -> isConsistent(lDate, rDate, pair.op))).collect(Collectors.toSet());
             tail.domain.removeAll(inconsistent);
+            // If domain changed, re-add arc neighbors->tail to queue
             if (!inconsistent.isEmpty())
                 neigbors.get(tail).forEach(
                         (key, value) -> { if (key != head) nodeQueue.add(new arcNode(key, tail, opInverse(value))); });
         }
 
+    }
+
+    private static void handleArcs(HashMap<Integer, DateVar> variables,
+                                   HashMap<DateVar, HashMap<DateVar, String>> neigbors,
+                                   Queue<arcNode> nodeQueue,
+                                   BinaryDateConstraint rule) {
+        DateVar lVal = variables.get(rule.L_VAL);
+        DateVar rVal = variables.get(rule.R_VAL);
+        neigbors.computeIfPresent(lVal, (k, v) -> { v.put(rVal, rule.OP); return v; });
+        neigbors.computeIfPresent(rVal, (k, v) -> { v.put(lVal, rule.OP); return v; });
+        neigbors.putIfAbsent(lVal, new HashMap<>(Map.of(rVal, rule.OP)));
+        neigbors.putIfAbsent(rVal, new HashMap<>(Map.of(lVal, rule.OP)));
+        nodeQueue.add(new arcNode(lVal, rVal, rule.OP));
+        nodeQueue.add(new arcNode(rVal, lVal, opInverse(rule.OP)));
     }
 
 
@@ -216,11 +218,11 @@ public class CSP {
 
     private static class DateVar {
         int id;
-        HashSet<LocalDate> domain;
+        Set<LocalDate> domain;
 
         DateVar(int meeting, LocalDate rangeStart, LocalDate rangeEnd) {
             id = meeting;
-            domain = (HashSet<LocalDate>) rangeStart.datesUntil(rangeEnd.plusDays(1)).collect(Collectors.toSet());
+            domain = rangeStart.datesUntil(rangeEnd.plusDays(1)).collect(Collectors.toSet());
         }
     }
 
