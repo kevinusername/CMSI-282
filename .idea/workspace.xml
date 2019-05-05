@@ -17,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/csp/CSP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="178" column="42" lean-forward="true" selection-start-line="178" selection-start-column="42" selection-end-line="178" selection-end-column="42" />
+            <state relative-caret-position="580">
+              <caret line="83" selection-start-line="83" selection-end-line="92" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -29,7 +29,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/csp/CSPTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="666">
+            <state relative-caret-position="1200">
               <caret line="68" column="39" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
             </state>
           </provider>
@@ -54,6 +54,7 @@
       <find>HashSet</find>
       <find>Hash</find>
       <find>Tree</find>
+      <find>assignments</find>
     </findStrings>
     <replaceStrings>
       <replace>TreeSet</replace>
@@ -98,7 +99,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -128,6 +128,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -277,7 +278,8 @@
       <workItem from="1557004205073" duration="1122000" />
       <workItem from="1557017654166" duration="719000" />
       <workItem from="1557032186606" duration="72000" />
-      <workItem from="1557032269610" duration="4360000" />
+      <workItem from="1557032269610" duration="5482000" />
+      <workItem from="1557046940446" duration="296000" />
     </task>
     <task id="LOCAL-00001" summary="fixed packages">
       <created>1547876807044</created>
@@ -573,22 +575,24 @@
       <option name="project" value="LOCAL" />
       <updated>1557036036483</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="cleaned up nodeConsistency()">
+      <created>1557036665184</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1557036665184</updated>
+    </task>
+    <task id="LOCAL-00044" summary="return type changes for simplicity">
+      <created>1557037731464</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1557037731464</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 22h 49m 33s.xml">
-      <configuration name="CSPTests [100]" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 22h 49m 48s.xml">
-      <configuration name="CSPTests [100]" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 22h 51m 55s.xml">
-      <configuration name="CSPTests [100]" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 22h 52m 54s.xml">
-      <configuration name="CSPTests [100]" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CSPTests_[100] - 2019.05.04 at 22h 54m 32s.xml">
       <configuration name="CSPTests [100]" configurationId="JUnit" />
     </history-entry>
@@ -607,9 +611,21 @@
     <history-entry file="CSPTests_[100] - 2019.05.04 at 23h 08m 36s.xml">
       <configuration name="CSPTests [100]" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CSPTests_[100] - 2019.05.04 at 23h 10m 39s.xml">
+      <configuration name="CSPTests [100]" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests_[100] - 2019.05.04 at 23h 17m 48s.xml">
+      <configuration name="CSPTests [100]" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests_[100] - 2019.05.04 at 23h 26m 19s.xml">
+      <configuration name="CSPTests [100]" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests_[100] - 2019.05.04 at 23h 28m 37s.xml">
+      <configuration name="CSPTests [100]" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100629000" />
+    <option name="totallyTimeSpent" value="102047000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -624,7 +640,7 @@
     <frame x="71" y="25" width="2489" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.11706918" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.11788784" />
       <window_info id="Structure" order="1" sideWeight="0.50564617" side_tool="true" weight="0.17042756" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -669,8 +685,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="initial commit for hw3" />
-    <MESSAGE value="early stages of bottom-up" />
     <MESSAGE value="bottom up tentatively working" />
     <MESSAGE value="greatly improved filling of BU table" />
     <MESSAGE value="top-down working" />
@@ -694,7 +708,9 @@
     <MESSAGE value="comments and even more streams" />
     <MESSAGE value="rearranged code" />
     <MESSAGE value="fixed stutter and more cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed stutter and more cleanup" />
+    <MESSAGE value="cleaned up nodeConsistency()" />
+    <MESSAGE value="return type changes for simplicity" />
+    <option name="LAST_COMMIT_MESSAGE" value="return type changes for simplicity" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -895,20 +911,20 @@
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/OpenJDK/jdk-11.0.2/lib/src.zip!/java.base/java/util/function/Predicate.java" />
-    <entry file="file://$PROJECT_DIR$/src/csp/CSPTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="68" column="39" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/csp/CSP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="178" column="42" lean-forward="true" selection-start-line="178" selection-start-column="42" selection-end-line="178" selection-end-column="42" />
+        <state relative-caret-position="580">
+          <caret line="83" selection-start-line="83" selection-end-line="92" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/csp/CSPTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="68" column="39" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
         </state>
       </provider>
     </entry>

@@ -81,12 +81,14 @@ public class CSP {
      * @param variables   all variables in csp
      */
     private static void nodeConsistency(Set<DateConstraint> constraints, HashMap<Integer, DateVar> variables) {
-        constraints.parallelStream().filter(rule -> rule.arity() == 1).map(rule -> (UnaryDateConstraint) rule)
+        constraints.parallelStream()
+                   .filter(rule -> rule.arity() == 1)
+                   .map(rule -> (UnaryDateConstraint) rule)
                    .forEach(rule -> {
                        DateVar variable = variables.get(rule.L_VAL);
-                       variable.domain =
-                               variable.domain.parallelStream().filter(d -> isConsistent(d, rule.R_VAL, rule.OP))
-                                              .collect(Collectors.toCollection(TreeSet::new));
+                       variable.domain = variable.domain.parallelStream()
+                                                        .filter(d -> isConsistent(d, rule.R_VAL, rule.OP))
+                                                        .collect(Collectors.toCollection(TreeSet::new));
                    });
     }
 
@@ -101,7 +103,9 @@ public class CSP {
         /* Map all the "neighbor" relationships and make a queue of nodes representing these relationships */
         HashMap<DateVar, HashMap<DateVar, String>> neigbors = new HashMap<>();
         Queue<arcNode> nodeQueue = new ArrayDeque<>();
-        constraints.stream().filter(d -> d.arity() == 2).map(d -> (BinaryDateConstraint) d)
+        constraints.stream()
+                   .filter(d -> d.arity() == 2)
+                   .map(d -> (BinaryDateConstraint) d)
                    .forEach(rule -> handleArcs(variables, neigbors, nodeQueue, rule));
 
         /* Go through the nodeQueue and remove all inconsistent values */
@@ -109,9 +113,10 @@ public class CSP {
             arcNode pair = nodeQueue.poll();
             DateVar tail = pair.left, head = pair.right;
             /* Collect all tail's domain elements that have no suitable value in the head's domain */
-            Set<LocalDate> inconsistent =
-                    tail.domain.parallelStream().filter(lDate -> head.domain.parallelStream().noneMatch(
-                            rDate -> isConsistent(lDate, rDate, pair.op))).collect(Collectors.toSet());
+            Set<LocalDate> inconsistent = tail.domain.parallelStream()
+                                                     .filter(lDate -> head.domain.parallelStream().noneMatch(
+                                                             rDate -> isConsistent(lDate, rDate, pair.op)))
+                                                     .collect(Collectors.toSet());
             tail.domain.removeAll(inconsistent);
             // If domain changed, re-add arc neighbors->tail to queue
             if (!inconsistent.isEmpty())
@@ -218,7 +223,9 @@ public class CSP {
 
         DateVar(int meeting, LocalDate rangeStart, LocalDate rangeEnd) {
             id = meeting;
-            domain = rangeStart.datesUntil(rangeEnd.plusDays(1)).collect(Collectors.toSet());
+            domain = rangeStart
+                    .datesUntil(rangeEnd.plusDays(1))
+                    .collect(Collectors.toSet());
         }
     }
 
