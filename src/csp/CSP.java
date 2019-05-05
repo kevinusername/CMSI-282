@@ -11,6 +11,7 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * CSP: Calendar Satisfaction Problem Solver
@@ -34,16 +35,14 @@ public class CSP {
      */
     public static List<LocalDate> solve(int nMeetings, LocalDate rangeStart, LocalDate rangeEnd,
                                         Set<DateConstraint> constraints) {
-        HashMap<Integer, DateVar> variables = new HashMap<>();
-        for (int i = 0; i < nMeetings; i++)
-            variables.put(i, new DateVar(i, rangeStart, rangeEnd));
+        /* Map of variable numbers to a DateVar with full domain */
+        HashMap<Integer, DateVar> variables = IntStream.range(0, nMeetings).boxed().collect(
+                Collectors.toMap(i -> i, i -> new DateVar(i, rangeStart, rangeEnd), (a, b) -> b, HashMap::new));
 
         nodeConsistency(constraints, variables);
         constraintPropogation(constraints, variables);
 
-        Map<Integer, LocalDate>
-                result = rBackTracking(new HashMap<>(), new HashSet<>(variables.values()), constraints);
-        return result == null ? null : new ArrayList<>(result.values());
+        return rBackTracking(new HashMap<>(), new HashSet<>(variables.values()), constraints);
     }
 
 
@@ -53,11 +52,11 @@ public class CSP {
      *-------------------------------------------------------------*/
 
 
-    private static Map<Integer, LocalDate> rBackTracking(Map<Integer, LocalDate> assignments,
+    private static ArrayList<LocalDate> rBackTracking(Map<Integer, LocalDate> assignments,
                                                          HashSet<DateVar> variables,
                                                          Set<DateConstraint> constraints) {
         if (isComplete(variables.size(), assignments, constraints))
-            return assignments;
+            return new ArrayList<>(assignments.values());
 
         DateVar unassigned = getUnassigned(assignments, variables);
         if (unassigned == null) return null;
@@ -66,7 +65,7 @@ public class CSP {
             assignments.put(unassigned.id, value);
             // TODO: optimize this check if possible
             if (checkAssignments(assignments, constraints)) {
-                Map<Integer, LocalDate> result = rBackTracking(assignments, variables, constraints);
+               ArrayList<LocalDate> result = rBackTracking(assignments, variables, constraints);
                 if (result != null)
                     return result;
             }
