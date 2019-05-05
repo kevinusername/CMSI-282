@@ -3,7 +3,6 @@ package csp;
 import java.time.LocalDate;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -34,7 +33,6 @@ public class CSP {
      */
     public static List<LocalDate> solve(int nMeetings, LocalDate rangeStart, LocalDate rangeEnd,
                                         Set<DateConstraint> constraints) {
-        // Is this better than "for (int i = 0; i < nMeetings; i++)" ? Irrelevant. Its all about style baby
         HashMap<Integer, DateVar> variables = new HashMap<>();
         for (int i = 0; i < nMeetings; i++)
             variables.put(i, new DateVar(i, rangeStart, rangeEnd));
@@ -153,17 +151,15 @@ public class CSP {
 
 
     private static boolean checkAssignments(Map<Integer, LocalDate> assignments, Set<DateConstraint> constraints) {
-        for (DateConstraint rule : constraints) {
+        return constraints.parallelStream().allMatch(rule -> {
             LocalDate lVal = assignments.get(rule.L_VAL);
             LocalDate rVal = rule.arity() == 1
                              ? ((UnaryDateConstraint) rule).R_VAL
                              : assignments.get(((BinaryDateConstraint) rule).R_VAL);
-            if (lVal == null || rVal == null) continue;
+            if (lVal == null || rVal == null) return true;
 
-            if (!isConsistent(lVal, rVal, rule.OP))
-                return false;
-        }
-        return true;
+            return isConsistent(lVal, rVal, rule.OP);
+        });
     }
 
 
