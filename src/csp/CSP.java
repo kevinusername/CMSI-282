@@ -3,6 +3,7 @@ package csp;
 import java.time.LocalDate;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * CSP: Calendar Satisfaction Problem Solver
@@ -46,13 +48,27 @@ public class CSP {
         return result == null ? null : new ArrayList<>(result.values());
     }
 
+    /**
+     * For each unary constraint, remove values that will never be possible
+     *
+     * @param constraint all Unary constraints
+     * @param variables  all variables in CSP
+     */
     private static void nodeConsistency(UnaryDateConstraint constraint, HashMap<Integer, DateVar> variables) {
         DateVar variable = variables.get(constraint.L_VAL);
         variable.domain = variable.domain.parallelStream().filter(d -> isConsistent(d, constraint.R_VAL, constraint.OP))
                                          .collect(Collectors.toCollection(HashSet::new));
     }
 
+    /**
+     * For all binary constraints in the CSP, ensure arc consistency for all arcs. i.e. remove impossible values from
+     * nodes' domains.
+     *
+     * @param constraints all constraints in CSP
+     * @param variables   all variables in CSP
+     */
     private static void constraintPropogation(Set<DateConstraint> constraints, HashMap<Integer, DateVar> variables) {
+        /* Map all the "neighbor" relationships and make a queue of nodes representing these relationships */
         HashMap<DateVar, HashMap<DateVar, String>> neigbors = new HashMap<>();
         Queue<arcNode> nodeQueue = new ArrayDeque<>();
         constraints.stream().filter(d -> d.arity() == 2).map(d -> (BinaryDateConstraint) d).forEach(rule -> {
@@ -66,20 +82,14 @@ public class CSP {
             nodeQueue.add(new arcNode(rVal, lVal, opInverse(rule.OP)));
         });
 
+        /* Go through the nodeQueue and remove all inconsistent values */
         while (!nodeQueue.isEmpty()) {
             arcNode pair = nodeQueue.poll();
             DateVar tail = pair.left, head = pair.right;
-            HashSet<LocalDate> inconsistent = new HashSet<>();
-            for (LocalDate lDate : tail.domain) {
-                boolean consistent = false;
-                for (LocalDate rDate : head.domain)
-                    if (isConsistent(lDate, rDate, pair.op)) {
-                        consistent = true;
-                        break;
-                    }
-                if (!consistent)
-                    inconsistent.add(lDate);
-            }
+            /* Collect all tail's domain elements that have no suitable value in the head's domain */
+            Set<LocalDate> inconsistent =
+                    tail.domain.parallelStream().filter(lDate -> head.domain.parallelStream().noneMatch(
+                            rDate -> isConsistent(lDate, rDate, pair.op))).collect(Collectors.toSet());
             tail.domain.removeAll(inconsistent);
             if (!inconsistent.isEmpty())
                 neigbors.get(tail).forEach(
@@ -88,6 +98,12 @@ public class CSP {
 
     }
 
+    /**
+     * Useful for finding the inverse of an arc between two nodes
+     *
+     * @param op operator to invert
+     * @return string of inverted operator
+     */
     private static String opInverse(String op) {
         switch (op) {
             case ">": return "<";
@@ -100,22 +116,22 @@ public class CSP {
         return null;
     }
 
+    /**
+     * @param lVal left hand date of constraint
+     * @param rVal right hand date of constraint
+     * @param op   relationship between the two dates
+     * @return if the given values satisfy the given constraint
+     */
     private static boolean isConsistent(LocalDate lVal, LocalDate rVal, String op) {
         switch (op) {
-            case ">": if (!lVal.isAfter(rVal)) return false;
-                break;
-            case "<": if (!lVal.isBefore(rVal)) return false;
-                break;
-            case ">=": if (lVal.isBefore(rVal)) return false;
-                break;
-            case "<=": if (lVal.isAfter(rVal)) return false;
-                break;
-            case "==": if (!lVal.isEqual(rVal)) return false;
-                break;
-            case "!=": if (lVal.isEqual(rVal)) return false;
-                break;
+            case ">": if (!lVal.isAfter(rVal)) return false; break;
+            case "<": if (!lVal.isBefore(rVal)) return false; break;
+            case ">=": if (lVal.isBefore(rVal)) return false; break;
+            case "<=": if (lVal.isAfter(rVal)) return false; break;
+            case "==": if (!lVal.isEqual(rVal)) return false; break;
+            case "!=": if (lVal.isEqual(rVal)) return false; break;
         }
-        return true;
+        return true; // This should never happen
     }
 
 

@@ -18,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/csp/CSP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="160" column="19" selection-start-line="160" selection-start-column="19" selection-end-line="160" selection-end-column="19" />
+            <state relative-caret-position="920">
+              <caret line="131" column="67" lean-forward="true" selection-start-line="131" selection-start-column="67" selection-end-line="131" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -30,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/csp/CSPTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="5320">
+              <caret line="274" column="8" selection-start-line="274" selection-start-column="8" selection-end-line="274" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -49,8 +49,9 @@
       <find>isCons</find>
       <find>constr</find>
       <find>value</find>
-      <find>stream</find>
       <find>checkass</find>
+      <find>stream</find>
+      <find>constraints</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -92,6 +93,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -120,8 +123,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -132,7 +133,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="extract.method.default.visibility" value="private" />
+    <property name="extract.method.default.visibility" value="public" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -158,8 +159,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CSPTests [100]">
-    <configuration name="CSPTests [100]" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true" repeat_count="100" repeat_mode="N Times">
+  <component name="RunManager" selected="JUnit.CSPTests">
+    <configuration name="CSPTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true" repeat_count="100">
       <module name="CMSI-282" />
       <option name="PACKAGE_NAME" value="csp" />
       <option name="MAIN_CLASS_NAME" value="csp.CSPTests" />
@@ -190,6 +191,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CSPTests.CSP_t8" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CMSI-282" />
+      <option name="PACKAGE_NAME" value="csp" />
+      <option name="MAIN_CLASS_NAME" value="csp.CSPTests" />
+      <option name="METHOD_NAME" value="CSP_t8" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HuffmanTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CMSI-282" />
       <option name="PACKAGE_NAME" value="huffman" />
@@ -199,30 +210,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HuffmanTests.decomp_t0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CMSI-282" />
-      <option name="PACKAGE_NAME" value="huffman" />
-      <option name="MAIN_CLASS_NAME" value="huffman.HuffmanTests" />
-      <option name="METHOD_NAME" value="decomp_t0" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="JUnit.CSPTests [100]" />
+      <item itemvalue="JUnit.CSPTests" />
       <item itemvalue="JUnit.CSPTests.CSP_t0" />
       <item itemvalue="JUnit.CSPTests.CSP_t3" />
       <item itemvalue="JUnit.HuffmanTests" />
-      <item itemvalue="JUnit.HuffmanTests.decomp_t0" />
+      <item itemvalue="JUnit.CSPTests.CSP_t8" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CSPTests [100]" />
+        <item itemvalue="JUnit.CSPTests" />
+        <item itemvalue="JUnit.CSPTests.CSP_t8" />
         <item itemvalue="JUnit.CSPTests.CSP_t3" />
         <item itemvalue="JUnit.CSPTests.CSP_t0" />
         <item itemvalue="JUnit.HuffmanTests" />
-        <item itemvalue="JUnit.HuffmanTests.decomp_t0" />
       </list>
     </recent_temporary>
   </component>
@@ -548,39 +549,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CSPTests - 2019.05.04 at 14h 22m 03s.xml">
+    <history-entry file="CSPTests_CSP_t8 - 2019.05.04 at 21h 34m 22s.xml">
+      <configuration name="CSPTests.CSP_t8" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests_[100] - 2019.05.04 at 21h 34m 53s.xml">
+      <configuration name="CSPTests [100]" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests_[100] - 2019.05.04 at 21h 35m 36s.xml">
+      <configuration name="CSPTests [100]" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CSPTests - 2019.05.04 at 21h 35m 58s.xml">
       <configuration name="CSPTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests - 2019.05.04 at 14h 23m 03s.xml">
+    <history-entry file="CSPTests - 2019.05.04 at 21h 36m 50s.xml">
       <configuration name="CSPTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests - 2019.05.04 at 14h 23m 36s.xml">
+    <history-entry file="CSPTests - 2019.05.04 at 21h 36m 53s.xml">
       <configuration name="CSPTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests - 2019.05.04 at 14h 24m 10s.xml">
+    <history-entry file="CSPTests - 2019.05.04 at 21h 37m 25s.xml">
       <configuration name="CSPTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 14h 24m 47s.xml">
-      <configuration name="CSPTests [100]" configurationId="JUnit" />
+    <history-entry file="CSPTests - 2019.05.04 at 21h 38m 15s.xml">
+      <configuration name="CSPTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 14h 25m 00s.xml">
-      <configuration name="CSPTests [100]" configurationId="JUnit" />
+    <history-entry file="CSPTests - 2019.05.04 at 21h 45m 19s.xml">
+      <configuration name="CSPTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 14h 27m 01s.xml">
-      <configuration name="CSPTests [100]" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 14h 27m 14s.xml">
-      <configuration name="CSPTests [100]" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 14h 27m 35s.xml">
-      <configuration name="CSPTests [100]" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 18h 02m 22s.xml">
-      <configuration name="CSPTests [100]" configurationId="JUnit" />
+    <history-entry file="CSPTests - 2019.05.04 at 21h 47m 51s.xml">
+      <configuration name="CSPTests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87660000" />
+    <option name="totallyTimeSpent" value="95704000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -592,10 +593,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1721" height="935" extended-state="6" />
+    <frame x="71" y="25" width="2489" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.11800121" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.115431845" />
       <window_info id="Structure" order="1" sideWeight="0.50564617" side_tool="true" weight="0.17042756" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -612,7 +613,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32945737" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32919255" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3286495" />
       <window_info anchor="bottom" id="Duplicate detector" order="13" weight="0.32943925" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -865,27 +866,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/OpenJDK/jdk-11.0.2/lib/src.zip!/java.base/java/util/function/Predicate.java">
+    <entry file="jar://C:/Program Files/OpenJDK/jdk-11.0.2/lib/src.zip!/java.base/java/util/function/Predicate.java" />
+    <entry file="file://$PROJECT_DIR$/src/csp/CSPTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+        <state relative-caret-position="5320">
+          <caret line="274" column="8" selection-start-line="274" selection-start-column="8" selection-end-line="274" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/csp/CSP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="160" column="19" selection-start-line="160" selection-start-column="19" selection-end-line="160" selection-end-column="19" />
+        <state relative-caret-position="920">
+          <caret line="131" column="67" lean-forward="true" selection-start-line="131" selection-start-column="67" selection-end-line="131" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/csp/CSPTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
