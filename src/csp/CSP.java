@@ -5,6 +5,7 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
@@ -35,12 +36,15 @@ public class CSP {
      */
     public static List<LocalDate> solve(int nMeetings, LocalDate rangeStart, LocalDate rangeEnd,
                                         Set<DateConstraint> constraints) {
+        Set<LocalDate> dateRange =
+                rangeStart.datesUntil(rangeEnd.plusDays(1)).collect(Collectors.toCollection(LinkedHashSet::new));
+
         /* Map of variable numbers to a DateVar with full domain */
         HashMap<Integer, DateVar> variables = IntStream.range(0, nMeetings).boxed().collect(
-                Collectors.toMap(i -> i, i -> new DateVar(i, rangeStart, rangeEnd), (a, b) -> b, HashMap::new));
+                Collectors.toMap(i -> i, i -> new DateVar(i, dateRange), (a, b) -> b, HashMap::new));
 
-        nodeConsistency(constraints, variables);
-        constraintPropogation(constraints, variables);
+        if (!nodeConsistency(constraints, variables) || !constraintPropogation(constraints, variables))
+            return null;
 
         return rBackTracking(new HashMap<>(), new HashSet<>(variables.values()), constraints);
     }
@@ -53,8 +57,8 @@ public class CSP {
 
 
     private static ArrayList<LocalDate> rBackTracking(Map<Integer, LocalDate> assignments,
-                                                         HashSet<DateVar> variables,
-                                                         Set<DateConstraint> constraints) {
+                                                      HashSet<DateVar> variables,
+                                                      Set<DateConstraint> constraints) {
         if (isComplete(variables.size(), assignments, constraints))
             return new ArrayList<>(assignments.values());
 
@@ -65,7 +69,7 @@ public class CSP {
             assignments.put(unassigned.id, value);
             // TODO: optimize this check if possible
             if (checkAssignments(assignments, constraints)) {
-               ArrayList<LocalDate> result = rBackTracking(assignments, variables, constraints);
+                ArrayList<LocalDate> result = rBackTracking(assignments, variables, constraints);
                 if (result != null)
                     return result;
             }
@@ -80,16 +84,20 @@ public class CSP {
      * @param constraints all constraints in csp
      * @param variables   all variables in csp
      */
-    private static void nodeConsistency(Set<DateConstraint> constraints, HashMap<Integer, DateVar> variables) {
-        constraints.parallelStream()
-                   .filter(rule -> rule.arity() == 1)
-                   .map(rule -> (UnaryDateConstraint) rule)
-                   .forEach(rule -> {
-                       DateVar variable = variables.get(rule.L_VAL);
-                       variable.domain = variable.domain.parallelStream()
-                                                        .filter(d -> isConsistent(d, rule.R_VAL, rule.OP))
-                                                        .collect(Collectors.toCollection(TreeSet::new));
-                   });
+    private static boolean nodeConsistency(Set<DateConstraint> constraints, HashMap<Integer, DateVar> variables) {
+        for (DateConstraint rule : constraints) {
+            if (rule.arity() == 1) {
+                UnaryDateConstraint unaryDateConstraint = (UnaryDateConstraint) rule;
+                DateVar variable = variables.get(unaryDateConstraint.L_VAL);
+                variable.domain = variable.domain.parallelStream()
+                                                 .filter(d -> isConsistent(d, unaryDateConstraint.R_VAL,
+                                                                           unaryDateConstraint.OP))
+                                                 .collect(Collectors.toCollection(LinkedHashSet::new));
+                if (variable.domain.isEmpty())
+                    return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -99,7 +107,7 @@ public class CSP {
      * @param constraints all constraints in CSP
      * @param variables   all variables in CSP
      */
-    private static void constraintPropogation(Set<DateConstraint> constraints, HashMap<Integer, DateVar> variables) {
+    private static boolean constraintPropogation(Set<DateConstraint> constraints, HashMap<Integer, DateVar> variables) {
         /* Map all the "neighbor" relationships and make a queue of nodes representing these relationships */
         HashMap<DateVar, HashMap<DateVar, String>> neigbors = new HashMap<>();
         Queue<arcNode> nodeQueue = new ArrayDeque<>();
@@ -114,15 +122,18 @@ public class CSP {
             DateVar tail = pair.left, head = pair.right;
             /* Collect all tail's domain elements that have no suitable value in the head's domain */
             Set<LocalDate> inconsistent = tail.domain.parallelStream()
-                                                     .filter(lDate -> head.domain.parallelStream().noneMatch(
+                                                     .filter(lDate -> head.domain.stream().noneMatch(
                                                              rDate -> isConsistent(lDate, rDate, pair.op)))
-                                                     .collect(Collectors.toSet());
+                                                     .collect(Collectors.toCollection(LinkedHashSet::new));
             tail.domain.removeAll(inconsistent);
+            if (tail.domain.isEmpty())
+                return false;
             // If domain changed, re-add arc neighbors->tail to queue
             if (!inconsistent.isEmpty())
                 neigbors.get(tail).forEach(
                         (key, value) -> { if (key != head) nodeQueue.add(new arcNode(key, tail, opInverse(value))); });
         }
+        return true;
 
     }
 
@@ -132,8 +143,14 @@ public class CSP {
                                    BinaryDateConstraint rule) {
         DateVar lVal = variables.get(rule.L_VAL);
         DateVar rVal = variables.get(rule.R_VAL);
-        neigbors.computeIfPresent(lVal, (k, v) -> { v.put(rVal, rule.OP); return v; });
-        neigbors.computeIfPresent(rVal, (k, v) -> { v.put(lVal, rule.OP); return v; });
+        neigbors.computeIfPresent(lVal, (k, v) -> {
+            v.put(rVal, rule.OP);
+            return v;
+        });
+        neigbors.computeIfPresent(rVal, (k, v) -> {
+            v.put(lVal, rule.OP);
+            return v;
+        });
         neigbors.putIfAbsent(lVal, new HashMap<>(Map.of(rVal, rule.OP)));
         neigbors.putIfAbsent(rVal, new HashMap<>(Map.of(lVal, rule.OP)));
         nodeQueue.add(new arcNode(lVal, rVal, rule.OP));
@@ -147,7 +164,7 @@ public class CSP {
 
 
     private static boolean checkAssignments(Map<Integer, LocalDate> assignments, Set<DateConstraint> constraints) {
-        return constraints.parallelStream().allMatch(rule -> {
+        return constraints.stream().allMatch(rule -> {
             LocalDate lVal = assignments.get(rule.L_VAL);
             LocalDate rVal = rule.arity() == 1
                              ? ((UnaryDateConstraint) rule).R_VAL
@@ -166,12 +183,18 @@ public class CSP {
      */
     private static boolean isConsistent(LocalDate lVal, LocalDate rVal, String op) {
         switch (op) {
-            case ">": if (!lVal.isAfter(rVal)) return false; break;
-            case "<": if (!lVal.isBefore(rVal)) return false; break;
-            case ">=": if (lVal.isBefore(rVal)) return false; break;
-            case "<=": if (lVal.isAfter(rVal)) return false; break;
-            case "==": if (!lVal.isEqual(rVal)) return false; break;
-            case "!=": if (lVal.isEqual(rVal)) return false; break;
+            case ">": if (!lVal.isAfter(rVal)) return false;
+                break;
+            case "<": if (!lVal.isBefore(rVal)) return false;
+                break;
+            case ">=": if (lVal.isBefore(rVal)) return false;
+                break;
+            case "<=": if (lVal.isAfter(rVal)) return false;
+                break;
+            case "==": if (!lVal.isEqual(rVal)) return false;
+                break;
+            case "!=": if (lVal.isEqual(rVal)) return false;
+                break;
         }
         return true; // This should never happen
     }
@@ -219,13 +242,11 @@ public class CSP {
 
     private static class DateVar {
         int id;
-        Set<LocalDate> domain;
+        LinkedHashSet<LocalDate> domain;
 
-        DateVar(int meeting, LocalDate rangeStart, LocalDate rangeEnd) {
+        DateVar(int meeting, Set<LocalDate> dateRange) {
             id = meeting;
-            domain = rangeStart
-                    .datesUntil(rangeEnd.plusDays(1))
-                    .collect(Collectors.toSet());
+            domain = new LinkedHashSet<>(dateRange);
         }
     }
 

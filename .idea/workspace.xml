@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1877ed1e-cc83-40ab-a6ee-a5ba924b7db9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMSI-282.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CMSI-282.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/csp/CSP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/csp/CSP.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -17,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/csp/CSP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="83" selection-start-line="83" selection-end-line="92" selection-end-column="5" />
+            <state relative-caret-position="598">
+              <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -29,8 +31,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/csp/CSPTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="68" column="39" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
+            <state relative-caret-position="238">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lcs/LCSTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+              <folding>
+                <element signature="e#1074#1209#0" expanded="true" />
+                <element signature="e#1208#1209#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,9 +70,13 @@
       <find>Hash</find>
       <find>Tree</find>
       <find>assignments</find>
+      <find>parallelStream</find>
+      <find>LinkedHashSet</find>
     </findStrings>
     <replaceStrings>
       <replace>TreeSet</replace>
+      <replace>stream</replace>
+      <replace>HashSet</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -99,6 +118,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -127,7 +147,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -146,7 +165,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -280,6 +299,7 @@
       <workItem from="1557032186606" duration="72000" />
       <workItem from="1557032269610" duration="5482000" />
       <workItem from="1557046940446" duration="296000" />
+      <workItem from="1557378294010" duration="1867000" />
     </task>
     <task id="LOCAL-00001" summary="fixed packages">
       <created>1547876807044</created>
@@ -593,39 +613,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 22h 54m 32s.xml">
+    <history-entry file="CSPTests_[100] - 2019.05.08 at 22h 22m 33s.xml">
       <configuration name="CSPTests [100]" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 22h 54m 50s.xml">
+    <history-entry file="CSPTests_[100] - 2019.05.08 at 22h 22m 49s.xml">
       <configuration name="CSPTests [100]" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 22h 57m 08s.xml">
+    <history-entry file="CSPTests_[100] - 2019.05.08 at 22h 22m 52s.xml">
       <configuration name="CSPTests [100]" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 22h 57m 55s.xml">
+    <history-entry file="CSPTests_[100] - 2019.05.08 at 22h 22m 55s.xml">
       <configuration name="CSPTests [100]" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 23h 08m 10s.xml">
+    <history-entry file="CSPTests_[100] - 2019.05.08 at 22h 23m 45s.xml">
       <configuration name="CSPTests [100]" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 23h 08m 36s.xml">
+    <history-entry file="CSPTests_[100] - 2019.05.08 at 22h 23m 48s.xml">
       <configuration name="CSPTests [100]" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 23h 10m 39s.xml">
+    <history-entry file="CSPTests_[100] - 2019.05.08 at 22h 24m 34s.xml">
       <configuration name="CSPTests [100]" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 23h 17m 48s.xml">
+    <history-entry file="CSPTests_[100] - 2019.05.08 at 22h 24m 37s.xml">
       <configuration name="CSPTests [100]" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 23h 26m 19s.xml">
+    <history-entry file="CSPTests_[100] - 2019.05.08 at 22h 35m 29s.xml">
       <configuration name="CSPTests [100]" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CSPTests_[100] - 2019.05.04 at 23h 28m 37s.xml">
+    <history-entry file="CSPTests_[100] - 2019.05.08 at 22h 35m 52s.xml">
       <configuration name="CSPTests [100]" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102047000" />
+    <option name="totallyTimeSpent" value="103914000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -640,14 +660,14 @@
     <frame x="71" y="25" width="2489" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.11788784" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49435383" visible="true" weight="0.11870651" />
       <window_info id="Structure" order="1" sideWeight="0.50564617" side_tool="true" weight="0.17042756" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32919255" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.40139753" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.39363354" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39363354" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -812,20 +832,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/ComparisonCriteria.class">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/ComparisonCriteria.class" />
     <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/lang/StringLatin1.class" />
-    <entry file="file://$PROJECT_DIR$/src/lcs/LCSTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4392">
-          <caret line="196" selection-start-line="196" selection-end-line="196" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lcs/LCS.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -911,20 +919,31 @@
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/OpenJDK/jdk-11.0.2/lib/src.zip!/java.base/java/util/function/Predicate.java" />
-    <entry file="file://$PROJECT_DIR$/src/csp/CSP.java">
+    <entry file="file://$PROJECT_DIR$/src/lcs/LCSTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="83" selection-start-line="83" selection-end-line="92" selection-end-column="5" />
+        <state relative-caret-position="40">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1074#1209#0" expanded="true" />
+            <element signature="e#1208#1209#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/csp/CSPTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="68" column="39" selection-start-line="68" selection-start-column="39" selection-end-line="68" selection-end-column="39" />
+        <state relative-caret-position="238">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/csp/CSP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -985,7 +1004,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
