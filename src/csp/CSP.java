@@ -1,3 +1,10 @@
+// Kevin Peters
+/* ************************************************
+ * IMPORTANT NOTE:
+ * ************************************************
+ * This program uses never versions of Java. I can confirm it runs on Java 11/12
+ *  and does not run on Java 8. Versions in between may or may not work.
+ */
 package csp;
 
 import java.time.LocalDate;
