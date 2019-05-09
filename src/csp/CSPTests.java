@@ -297,7 +297,7 @@ public class CSPTests {
         List<LocalDate> solution = CSP.solve(
             5,
             LocalDate.of(2019, 1, 1),
-            LocalDate.of(2019, 6, 30),
+            LocalDate.of(2050, 6, 30),
             constraints
         );
         

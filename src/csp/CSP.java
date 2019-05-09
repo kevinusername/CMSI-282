@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -83,6 +82,7 @@ public class CSP {
      *
      * @param constraints all constraints in csp
      * @param variables   all variables in csp
+     * @return false if any of the variables determined to have an empty domain
      */
     private static boolean nodeConsistency(Set<DateConstraint> constraints, HashMap<Integer, DateVar> variables) {
         for (DateConstraint rule : constraints) {
@@ -106,15 +106,15 @@ public class CSP {
      *
      * @param constraints all constraints in CSP
      * @param variables   all variables in CSP
+     * @return false if any of the variables determined to have an empty domain at any point
      */
     private static boolean constraintPropogation(Set<DateConstraint> constraints, HashMap<Integer, DateVar> variables) {
         /* Map all the "neighbor" relationships and make a queue of nodes representing these relationships */
-        HashMap<DateVar, HashMap<DateVar, String>> neigbors = new HashMap<>();
         Queue<arcNode> nodeQueue = new ArrayDeque<>();
         constraints.stream()
                    .filter(d -> d.arity() == 2)
                    .map(d -> (BinaryDateConstraint) d)
-                   .forEach(rule -> handleArcs(variables, neigbors, nodeQueue, rule));
+                   .forEach(rule -> handleArcs(variables, nodeQueue, rule));
 
         /* Go through the nodeQueue and remove all inconsistent values */
         while (!nodeQueue.isEmpty()) {
@@ -125,12 +125,15 @@ public class CSP {
                                                      .filter(lDate -> head.domain.stream().noneMatch(
                                                              rDate -> isConsistent(lDate, rDate, pair.op)))
                                                      .collect(Collectors.toCollection(LinkedHashSet::new));
+
             tail.domain.removeAll(inconsistent);
+            // we know the problem to be unsolvable if a variable has no domain
             if (tail.domain.isEmpty())
                 return false;
+
             // If domain changed, re-add arc neighbors->tail to queue
             if (!inconsistent.isEmpty())
-                neigbors.get(tail).forEach(
+                tail.neighbors.forEach(
                         (key, value) -> { if (key != head) nodeQueue.add(new arcNode(key, tail, opInverse(value))); });
         }
         return true;
@@ -138,21 +141,12 @@ public class CSP {
     }
 
     private static void handleArcs(HashMap<Integer, DateVar> variables,
-                                   HashMap<DateVar, HashMap<DateVar, String>> neigbors,
                                    Queue<arcNode> nodeQueue,
                                    BinaryDateConstraint rule) {
         DateVar lVal = variables.get(rule.L_VAL);
         DateVar rVal = variables.get(rule.R_VAL);
-        neigbors.computeIfPresent(lVal, (k, v) -> {
-            v.put(rVal, rule.OP);
-            return v;
-        });
-        neigbors.computeIfPresent(rVal, (k, v) -> {
-            v.put(lVal, rule.OP);
-            return v;
-        });
-        neigbors.putIfAbsent(lVal, new HashMap<>(Map.of(rVal, rule.OP)));
-        neigbors.putIfAbsent(rVal, new HashMap<>(Map.of(lVal, rule.OP)));
+        lVal.neighbors.put(rVal, rule.OP);
+        rVal.neighbors.put(lVal, opInverse(rule.OP));
         nodeQueue.add(new arcNode(lVal, rVal, rule.OP));
         nodeQueue.add(new arcNode(rVal, lVal, opInverse(rule.OP)));
     }
@@ -164,7 +158,7 @@ public class CSP {
 
 
     private static boolean checkAssignments(Map<Integer, LocalDate> assignments, Set<DateConstraint> constraints) {
-        return constraints.stream().allMatch(rule -> {
+        return constraints.parallelStream().allMatch(rule -> {
             LocalDate lVal = assignments.get(rule.L_VAL);
             LocalDate rVal = rule.arity() == 1
                              ? ((UnaryDateConstraint) rule).R_VAL
@@ -243,6 +237,7 @@ public class CSP {
     private static class DateVar {
         int id;
         LinkedHashSet<LocalDate> domain;
+        HashMap<DateVar, String> neighbors = new HashMap<>();
 
         DateVar(int meeting, Set<LocalDate> dateRange) {
             id = meeting;
