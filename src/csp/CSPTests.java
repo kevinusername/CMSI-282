@@ -1,6 +1,7 @@
 package csp;
 
 import static org.junit.Assert.*;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.Timeout;
@@ -22,7 +23,7 @@ public class CSPTests {
     // If they are, 5 seconds should be more than enough
     // for any test
     @Rule
-    public Timeout globalTimeout = Timeout.seconds(5);
+    public Timeout globalTimeout = Timeout.seconds(6);
     
     /**
      * Tests whether a given solution to a CSP satisfies all constraints or not
@@ -304,6 +305,226 @@ public class CSPTests {
         // Example Solution:
         // [2019-05-31, 2019-04-30, 2019-04-28, 2019-04-29, 2019-05-30]
         testSolution(solution, constraints);
+    }
+    
+    @Test
+    public void CSP_t10() {
+        Set<DateConstraint> constraints = new HashSet<>(
+            Arrays.asList(
+                new BinaryDateConstraint(0, ">", 1),
+                new BinaryDateConstraint(1, ">", 2),
+                new BinaryDateConstraint(0, ">", 3),
+                new BinaryDateConstraint(2, "<", 3)
+            )
+        );
+        
+        List<LocalDate> solution = CSP.solve(
+            4,
+            LocalDate.of(2019, 1, 1),
+            LocalDate.of(2019, 1, 3),
+            constraints
+        );
+        
+        // Example Solution:
+        // [2019-01-03, 2019-01-02, 2019-01-01, 2019-01-02]
+        testSolution(solution, constraints);
+    }
+    
+    @Test
+    public void CSP_t11() {
+        Set<DateConstraint> constraints = new HashSet<>(
+            Arrays.asList(
+                new BinaryDateConstraint(0, ">", 1),
+                new BinaryDateConstraint(1, ">", 0)
+            )
+        );
+        
+        List<LocalDate> solution = CSP.solve(
+            2,
+            LocalDate.of(2019, 1, 1),
+            LocalDate.of(2019, 1, 3),
+            constraints
+        );
+        
+        assertNull(solution);
+    }
+    
+    @Test
+    public void CSP_t12() {
+        Set<DateConstraint> constraints = new HashSet<>(
+            Arrays.asList(
+                new UnaryDateConstraint(4, "!=", LocalDate.of(2019, 1, 1)),
+                new BinaryDateConstraint(0, ">", 1),
+                new BinaryDateConstraint(1, ">", 2),
+                new BinaryDateConstraint(2, ">", 3),
+                new BinaryDateConstraint(3, ">", 4)
+            )
+        );
+        
+        List<LocalDate> solution = CSP.solve(
+            5,
+            LocalDate.of(2019, 1, 1),
+            LocalDate.of(2019, 1, 5),
+            constraints
+        );
+        
+        assertNull(solution);
+    }
+    
+    @Test
+    public void CSP_t13() {
+        Set<DateConstraint> constraints = new HashSet<>(
+            Arrays.asList(
+                new UnaryDateConstraint(4, "!=", LocalDate.of(2019, 1, 1)),
+                new UnaryDateConstraint(4, "==", LocalDate.of(2019, 1, 1)),
+                new BinaryDateConstraint(3, ">", 1),
+                new BinaryDateConstraint(1, ">", 3)
+            )
+        );
+        
+        List<LocalDate> solution = CSP.solve(
+            5,
+            LocalDate.of(2019, 1, 1),
+            LocalDate.of(2019, 1, 5),
+            constraints
+        );
+        
+        assertNull(solution);
+    }
+    
+    @Test
+    public void CSP_t14() {
+        Set<DateConstraint> constraints = new HashSet<>(
+            Arrays.asList(
+                new UnaryDateConstraint(0, ">", LocalDate.of(2019, 1, 2)),
+                new UnaryDateConstraint(0, "<", LocalDate.of(2019, 1, 3)),
+                new UnaryDateConstraint(1, "<", LocalDate.of(2019, 1, 3)),
+                new BinaryDateConstraint(0, ">", 1)
+            )
+        );
+        
+        List<LocalDate> solution = CSP.solve(
+            2,
+            LocalDate.of(2019, 1, 1),
+            LocalDate.of(2019, 1, 5),
+            constraints
+        );
+        
+        assertNull(solution);
+    }
+    
+    @Test
+    public void CSP_t15() {
+        Set<DateConstraint> constraints = new HashSet<>(
+            Arrays.asList(
+                new UnaryDateConstraint(0, ">", LocalDate.of(2019, 1, 2)),
+                new UnaryDateConstraint(0, "<", LocalDate.of(2019, 1, 4)),
+                new UnaryDateConstraint(1, "<", LocalDate.of(2019, 1, 4)),
+                new BinaryDateConstraint(0, ">", 1)
+            )
+        );
+        
+        List<LocalDate> solution = CSP.solve(
+            2,
+            LocalDate.of(2019, 1, 1),
+            LocalDate.of(2019, 1, 5),
+            constraints
+        );
+        
+        // Example Solution:
+        // [2019-01-03, 2019-01-02]
+        testSolution(solution, constraints);
+    }
+    
+    @Test
+    public void CSP_t16() {
+        Set<DateConstraint> constraints = new HashSet<>(
+            Arrays.asList(
+                new BinaryDateConstraint(0, ">=", 1),
+                new BinaryDateConstraint(0, "<=", 1),
+                new BinaryDateConstraint(1, "==", 0),
+                new BinaryDateConstraint(3, "<", 0),
+                new BinaryDateConstraint(2, ">", 1)
+            )
+        );
+        
+        List<LocalDate> solution = CSP.solve(
+            4,
+            LocalDate.of(1989, 11, 9),
+            LocalDate.of(1989, 11, 12),
+            constraints
+        );
+        
+        // Example Solution:
+        // [1989-11-10, 1989-11-10, 1989-11-12, 1989-11-09]
+        testSolution(solution, constraints);
+    }
+    
+    @Test
+    public void CSP_t17() {
+        final int N_CONS = 10;
+        Set<DateConstraint> constraints = new HashSet<>();
+        
+        for (int i = 1; i < N_CONS; i++) {
+            constraints.add(new BinaryDateConstraint(i, (i % 2 == 0) ? ">" : "<", i - 1));
+        }
+        
+        List<LocalDate> solution = CSP.solve(
+            N_CONS,
+            LocalDate.of(2019, 1, 1),
+            LocalDate.of(2019, 1, 2),
+            constraints
+        );
+        
+        // Example Solution:
+        // [2019-01-02, 2019-01-01, 2019-01-02, 2019-01-01, 2019-01-02, 2019-01-01, 2019-01-02, 2019-01-01, 2019-01-02, 2019-01-01]
+        testSolution(solution, constraints);
+    }
+    
+    @Test
+    public void CSP_t18() {
+        final int N_CONS = 35;
+        Set<DateConstraint> constraints = new HashSet<>();
+        
+        for (int i = 1; i < N_CONS; i++) {
+            for (int j = 0; j < N_CONS; j++) {
+                if (i == j) { continue; }
+                constraints.add(new BinaryDateConstraint(i, "<", j));
+            }
+            constraints.add(new UnaryDateConstraint(i, ">", LocalDate.of(2019, 3, 1).plusDays(i)));
+        }
+        
+        List<LocalDate> solution = CSP.solve(
+            N_CONS,
+            LocalDate.of(2019, 1, 1),
+            LocalDate.of(2019, 5, 30),
+            constraints
+        );
+        
+        assertNull(solution);
+    }
+    
+    @Test
+    public void CSP_t19() {
+        final int N_CONS = 100;
+        Set<DateConstraint> constraints = new HashSet<>();
+        
+        for (int i = 1; i < N_CONS; i++) {
+            for (int j = 0; j < N_CONS; j++) {
+                if (i == j) { continue; }
+                constraints.add(new BinaryDateConstraint(i, (i % 2 == 0) ? ">" : "<", j));
+            }
+            constraints.add(new UnaryDateConstraint(i, (i % 2 == 0) ? ">" : "<", LocalDate.of(2019, 3, 15)));
+        }
+        
+        List<LocalDate> solution = CSP.solve(
+            N_CONS,
+            LocalDate.of(2019, 1, 1),
+            LocalDate.of(2019, 5, 30),
+            constraints
+        );
+        
+        assertNull(solution);
     }
     
 }

@@ -144,7 +144,6 @@ public class CSP {
                         (key, value) -> { if (key != head) nodeQueue.add(new arcNode(key, tail, opInverse(value))); });
         }
         return true;
-
     }
 
     private static void handleArcs(HashMap<Integer, DateVar> variables,
