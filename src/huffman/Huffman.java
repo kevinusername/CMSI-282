@@ -2,9 +2,15 @@
 package huffman;
 
 import java.io.ByteArrayOutputStream;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.summingInt;
 
 /**
  * Huffman instances provide reusable Huffman Encoding Maps for
@@ -31,14 +37,11 @@ public class Huffman {
      *               differ.
      */
     Huffman(String corpus) {
-        HashMap<Character, Integer> counter = new HashMap<>();
-        for (char c : corpus.toCharArray()) {
-            // The fanciest java I will ever write
-            counter.computeIfPresent(c, (k, v) -> v + 1);
-            counter.putIfAbsent(c, 1);
-        }
-        PriorityQueue<HuffNode> nodeQueue = new PriorityQueue<>(counter.size());
-        counter.forEach((k, v) -> nodeQueue.add(new HuffNode(k, v)));
+        PriorityQueue<HuffNode> nodeQueue = new PriorityQueue<>();
+        corpus.chars()
+              .mapToObj(c -> (char) c)
+              .collect(groupingBy(Character::charValue, summingInt(c -> 1)))
+              .forEach((k, v) -> nodeQueue.add(new HuffNode(k, v)));
         generateTrie(nodeQueue);
         generateEncoding(trieRoot, "");
     }
@@ -81,15 +84,15 @@ public class Huffman {
      * 0-padding on the final byte.
      */
     public byte[] compress(String message) {
-        StringBuilder binaryVersion = new StringBuilder();
-        for (char c : message.toCharArray())
-            binaryVersion.append(encodingMap.get(c));
-        String[] strBytes = binaryVersion.toString().split("(?<=\\G.{8})");
+
+        String binaryStr = message.chars().mapToObj(c -> encodingMap.get((char) c)).collect(Collectors.joining());
+        String[] strBytes = binaryStr.split("(?<=\\G.{8})");
 
         ByteArrayOutputStream bOutput = new ByteArrayOutputStream();
         bOutput.write((byte) message.length());
-        for (String b : strBytes)
-            bOutput.write((byte) Integer.parseInt(b, 2) << 8 - b.length());
+        Arrays.stream(strBytes)
+              .mapToInt(b -> (byte) Integer.parseInt(b, 2) << 8 - b.length())
+              .forEachOrdered(bOutput::write);
 
         return bOutput.toByteArray();
     }
@@ -113,15 +116,11 @@ public class Huffman {
      */
     public String decompress(byte[] compressedMsg) {
         int msgLength = (int) compressedMsg[0];
-
-        // Convert byte[] into String of binary representation
-        StringBuilder binaryBuilder = new StringBuilder();
-        for (int i = 1; i < compressedMsg.length; i++) {
-            byte b = compressedMsg[i];
-            // Classic java right here -> (P.S. thanks stackoverflow)
-            binaryBuilder.append(String.format("%8s", Integer.toBinaryString(b & 0xFF)).replace(' ', '0'));
-        }
-        String binaryString = binaryBuilder.toString();
+        String binaryString =
+                IntStream.range(1, compressedMsg.length).mapToObj(i -> compressedMsg[i])
+                         // Classic java right here -> (P.S. thanks stackoverflow)
+                         .map(b -> String.format("%8s", Integer.toBinaryString(b & 0xFF)).replace(' ', '0'))
+                         .collect(Collectors.joining());
 
         return decode(msgLength, binaryString);
     }
@@ -145,7 +144,7 @@ public class Huffman {
                 current = current.left;
             else
                 current = current.right;
-            i++;
+            i += 1;
         }
 
         return result.toString();
