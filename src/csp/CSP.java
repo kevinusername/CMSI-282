@@ -92,18 +92,19 @@ public class CSP {
      * @return false if any of the variables determined to have an empty domain
      */
     private static boolean nodeConsistency(Set<DateConstraint> constraints, HashMap<Integer, DateVar> variables) {
-        for (DateConstraint rule : constraints) {
-            if (rule.arity() == 1) {
-                UnaryDateConstraint unaryDateConstraint = (UnaryDateConstraint) rule;
-                DateVar variable = variables.get(unaryDateConstraint.L_VAL);
-                variable.domain = variable.domain.parallelStream()
-                                                 .filter(d -> isConsistent(d, unaryDateConstraint.R_VAL,
-                                                                           unaryDateConstraint.OP))
-                                                 .collect(Collectors.toCollection(LinkedHashSet::new));
-                if (variable.domain.isEmpty())
-                    return false;
-            }
+
+        Set<UnaryDateConstraint> unaryConstraints = constraints.parallelStream().filter(rule -> rule.arity() == 1)
+                                                               .map(rule -> (UnaryDateConstraint) rule)
+                                                               .collect(Collectors.toSet());
+        for (UnaryDateConstraint rule : unaryConstraints) {
+            DateVar variable = variables.get(rule.L_VAL);
+            variable.domain = variable.domain.parallelStream()
+                                             .filter(d -> isConsistent(d, rule.R_VAL, rule.OP))
+                                             .collect(Collectors.toCollection(LinkedHashSet::new));
+            if (variable.domain.isEmpty())
+                return false;
         }
+
         return true;
     }
 
@@ -118,10 +119,10 @@ public class CSP {
     private static boolean constraintPropogation(Set<DateConstraint> constraints, HashMap<Integer, DateVar> variables) {
         /* Map all the "neighbor" relationships and make a queue of nodes representing these relationships */
         Queue<arcNode> nodeQueue = new ArrayDeque<>();
-        constraints.stream()
+        constraints.parallelStream()
                    .filter(d -> d.arity() == 2)
                    .map(d -> (BinaryDateConstraint) d)
-                   .forEach(rule -> handleArcs(variables, nodeQueue, rule));
+                   .forEachOrdered(rule -> handleArcs(variables, nodeQueue, rule));
 
         /* Go through the nodeQueue and remove all inconsistent values */
         while (!nodeQueue.isEmpty()) {
@@ -149,8 +150,10 @@ public class CSP {
     private static void handleArcs(HashMap<Integer, DateVar> variables,
                                    Queue<arcNode> nodeQueue,
                                    BinaryDateConstraint rule) {
-        DateVar lVal = variables.get(rule.L_VAL);
-        DateVar rVal = variables.get(rule.R_VAL);
+        DateVar lVal, rVal;
+        lVal = variables.get(rule.L_VAL);
+        rVal = variables.get(rule.R_VAL);
+
         lVal.neighbors.put(rVal, rule.OP);
         rVal.neighbors.put(lVal, opInverse(rule.OP));
         nodeQueue.add(new arcNode(lVal, rVal, rule.OP));
@@ -165,10 +168,11 @@ public class CSP {
 
     private static boolean checkAssignments(Map<Integer, LocalDate> assignments, Set<DateConstraint> constraints) {
         return constraints.parallelStream().allMatch(rule -> {
-            LocalDate lVal = assignments.get(rule.L_VAL);
-            LocalDate rVal = rule.arity() == 1
-                             ? ((UnaryDateConstraint) rule).R_VAL
-                             : assignments.get(((BinaryDateConstraint) rule).R_VAL);
+            LocalDate lVal, rVal;
+            lVal = assignments.get(rule.L_VAL);
+            rVal = rule.arity() == 1
+                   ? ((UnaryDateConstraint) rule).R_VAL
+                   : assignments.get(((BinaryDateConstraint) rule).R_VAL);
             if (lVal == null || rVal == null) return true;
 
             return isConsistent(lVal, rVal, rule.OP);
@@ -220,12 +224,11 @@ public class CSP {
 
     /* Return the next unassigned variable */
     private static DateVar getUnassigned(Map<Integer, LocalDate> assignments, HashSet<DateVar> variables) {
-        for (DateVar variable : variables)
-            if (!assignments.containsKey(variable.id))
-                return variable;
-        return null;
+        return variables.parallelStream()
+                        .filter(variable -> !assignments.containsKey(variable.id))
+                        .findFirst()
+                        .orElse(null);
     }
-
 
     /* Check if this is a complete solution */
     private static boolean isComplete(int nMeetings, Map<Integer, LocalDate> assignments,

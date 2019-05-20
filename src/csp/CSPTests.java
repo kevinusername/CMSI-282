@@ -485,7 +485,7 @@ public class CSPTests {
     public void CSP_t18() {
         final int N_CONS = 35;
         Set<DateConstraint> constraints = new HashSet<>();
-        
+
         for (int i = 1; i < N_CONS; i++) {
             for (int j = 0; j < N_CONS; j++) {
                 if (i == j) { continue; }
@@ -493,22 +493,22 @@ public class CSPTests {
             }
             constraints.add(new UnaryDateConstraint(i, ">", LocalDate.of(2019, 3, 1).plusDays(i)));
         }
-        
+
         List<LocalDate> solution = CSP.solve(
             N_CONS,
             LocalDate.of(2019, 1, 1),
             LocalDate.of(2019, 5, 30),
             constraints
         );
-        
+
         assertNull(solution);
     }
-    
+
     @Test
     public void CSP_t19() {
         final int N_CONS = 100;
         Set<DateConstraint> constraints = new HashSet<>();
-        
+
         for (int i = 1; i < N_CONS; i++) {
             for (int j = 0; j < N_CONS; j++) {
                 if (i == j) { continue; }
@@ -516,14 +516,14 @@ public class CSPTests {
             }
             constraints.add(new UnaryDateConstraint(i, (i % 2 == 0) ? ">" : "<", LocalDate.of(2019, 3, 15)));
         }
-        
+
         List<LocalDate> solution = CSP.solve(
             N_CONS,
             LocalDate.of(2019, 1, 1),
             LocalDate.of(2019, 5, 30),
             constraints
         );
-        
+
         assertNull(solution);
     }
     
