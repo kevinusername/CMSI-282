@@ -1,10 +1,13 @@
 package huffman;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class HuffmanTests {
-    
+
     // Compression Tests
     // -----------------------------------------------
     @Test
@@ -16,7 +19,7 @@ public class HuffmanTests {
         byte[] compressed = {2, 64};
         assertArrayEquals(compressed, h.compress("AB"));
     }
-    
+
     @Test
     public void comp_t1() {
         Huffman h = new Huffman("AB");
@@ -26,7 +29,7 @@ public class HuffmanTests {
         byte[] compressed = {2, -128};
         assertArrayEquals(compressed, h.compress("BA"));
     }
-    
+
     @Test
     public void comp_t2() {
         Huffman h = new Huffman("ABBBCC");
@@ -37,7 +40,7 @@ public class HuffmanTests {
         byte[] compressed = {6, -121, -128};
         assertArrayEquals(compressed, h.compress("ABBBCC"));
     }
-    
+
     @Test
     public void comp_t3() {
         Huffman h = new Huffman("ABBBCC");
@@ -47,7 +50,7 @@ public class HuffmanTests {
         byte[] compressed = {6, 77, -128};
         assertArrayEquals(compressed, h.compress("BABCBC"));
     }
-    
+
     @Test
     public void comp_t4() {
         Huffman h = new Huffman("ACADACBABE");
@@ -56,7 +59,7 @@ public class HuffmanTests {
         byte[] compressed = {10, 78, 89, -68};
         assertArrayEquals(compressed, h.compress("ACADACBABE"));
     }
-    
+
     @Test
     public void comp_t5() {
         Huffman h = new Huffman("ABCDEFGHIJ");
@@ -65,7 +68,7 @@ public class HuffmanTests {
         byte[] compressed = {10, -62, -6, -87, -29, 64};
         assertArrayEquals(compressed, h.compress("ABCDEFGHIJ"));
     }
-    
+
     @Test
     public void comp_t6() {
         Huffman h = new Huffman("ABCDEFGHIJ");
@@ -76,7 +79,7 @@ public class HuffmanTests {
         // we *could*
         assertArrayEquals(compressed, h.compress("AAABBB"));
     }
-    
+
     @Test
     public void comp_t7() {
         Huffman h = new Huffman("ABABBABA");
@@ -85,7 +88,7 @@ public class HuffmanTests {
         byte[] compressed = {4, 96};
         assertArrayEquals(compressed, h.compress("ABBA"));
     }
-    
+
     @Test
     public void comp_t8() {
         Huffman h = new Huffman("1223334444555556666667777777");
@@ -94,24 +97,25 @@ public class HuffmanTests {
         byte[] compressed = {7, 35, 27, -80};
         assertArrayEquals(compressed, h.compress("1234567"));
     }
-    
+
     @Test
     public void comp_t9() {
         Huffman h = new Huffman("This is a full sentence. How odd to see it in a test case! Punctuation and all. Wow.");
         // Encoding Map:
         // { 
-        //   ' '=00, !=1011010, a=1101, c=10011, d=01101, e=1110, f=010011, H=010000, h=1011011, i=0111, l=0101, .=10010, 
+        //   ' '=00, !=1011010, a=1101, c=10011, d=01101, e=1110, f=010011, H=010000, h=1011011, i=0111, l=0101,
+        //   .=10010,
         //   n=1100, o=1000, P=101100, s=1010, T=010001, t=1111, u=10111, W=010010, w=01100
         // }
         byte[] compressed = {
-            84, 70, -37, -48, -12, 104, -99, -43, 74, -20, -2, -55, -12, -124, 33, 
-            -124, 53, -89, -63, 93, -61, -8, -8, 105, -3, 94, 79, 107, -83, 22, 95, 
-            39, -9, -33, 120, -61, 113, -90, -86, -56, 74, 25, 32
+                84, 69, 8, -94, 40, -47, 60, -86, -107, -9, -33, 115, -7, 24, -35, -125, -75, -89, 57, 95, -28, 113,
+                22, 105, -33, 92, 79, 107, -15, 24, 102, -25, -39, -34, -121, -77, 109, -90, -86, -56, 73, -39, 32
         };
-        assertArrayEquals(compressed, h.compress("This is a full sentence. How odd to see it in a test case! Punctuation and all. Wow."));
+        assertArrayEquals(compressed, h.compress(
+                "This is a full sentence. How odd to see it in a test case! Punctuation and all. Wow."));
     }
-    
-    
+
+
     // Decompression Tests
     // -----------------------------------------------
     @Test
@@ -122,7 +126,7 @@ public class HuffmanTests {
         byte[] compressed = {2, 64};
         assertEquals("AB", h.decompress(compressed));
     }
-    
+
     @Test
     public void decomp_t1() {
         Huffman h = new Huffman("AB");
@@ -131,7 +135,7 @@ public class HuffmanTests {
         byte[] compressed = {2, -128};
         assertEquals("BA", h.decompress(compressed));
     }
-    
+
     @Test
     public void decomp_t2() {
         Huffman h = new Huffman("ABBBCC");
@@ -141,7 +145,7 @@ public class HuffmanTests {
         byte[] compressed = {6, -121, -128};
         assertEquals("ABBBCC", h.decompress(compressed));
     }
-    
+
     @Test
     public void decomp_t3() {
         Huffman h = new Huffman("ABBBCC");
@@ -151,7 +155,7 @@ public class HuffmanTests {
         byte[] compressed = {6, 77, -128};
         assertEquals("BABCBC", h.decompress(compressed));
     }
-    
+
     @Test
     public void decomp_t4() {
         Huffman h = new Huffman("ACADACBABE");
@@ -160,7 +164,7 @@ public class HuffmanTests {
         byte[] compressed = {10, 78, 89, -68};
         assertEquals("ACADACBABE", h.decompress(compressed));
     }
-    
+
     @Test
     public void decomp_t5() {
         Huffman h = new Huffman("ABCDEFGHIJ");
@@ -169,7 +173,7 @@ public class HuffmanTests {
         byte[] compressed = {10, -62, -6, -87, -29, 64};
         assertEquals("ABCDEFGHIJ", h.decompress(compressed));
     }
-    
+
     @Test
     public void decomp_t6() {
         Huffman h = new Huffman("ABCDEFGHIJ");
@@ -178,7 +182,7 @@ public class HuffmanTests {
         byte[] compressed = {6, -52, -62, 72};
         assertEquals("AAABBB", h.decompress(compressed));
     }
-    
+
     @Test
     public void decomp_t7() {
         Huffman h = new Huffman("ABABBABA");
@@ -187,7 +191,7 @@ public class HuffmanTests {
         byte[] compressed = {4, 96};
         assertEquals("ABBA", h.decompress(compressed));
     }
-    
+
     @Test
     public void decomp_t8() {
         Huffman h = new Huffman("1223334444555556666667777777");
@@ -196,21 +200,22 @@ public class HuffmanTests {
         byte[] compressed = {7, 35, 27, -80};
         assertEquals("1234567", h.decompress(compressed));
     }
-    
+
     @Test
     public void decomp_t9() {
         Huffman h = new Huffman("This is a full sentence. How odd to see it in a test case! Punctuation and all. Wow.");
         // Encoding Map:
         // { 
-        //   ' '=00, !=1011010, a=1101, c=10011, d=01101, e=1110, f=010011, H=010000, h=1011011, i=0111, l=0101, .=10010, 
+        //   ' '=00, !=1011010, a=1101, c=10011, d=01101, e=1110, f=010011, H=010000, h=1011011, i=0111, l=0101,
+        //   .=10010,
         //   n=1100, o=1000, P=101100, s=1010, T=010001, t=1111, u=10111, W=010010, w=01100
         // }
         byte[] compressed = {
-            84, 70, -37, -48, -12, 104, -99, -43, 74, -20, -2, -55, -12, -124, 33, 
-            -124, 53, -89, -63, 93, -61, -8, -8, 105, -3, 94, 79, 107, -83, 22, 95, 
-            39, -9, -33, 120, -61, 113, -90, -86, -56, 74, 25, 32
+                84, 69, 8, -94, 40, -47, 60, -86, -107, -9, -33, 115, -7, 24, -35, -125, -75, -89, 57, 95, -28, 113,
+                22, 105, -33, 92, 79, 107, -15, 24, 102, -25, -39, -34, -121, -77, 109, -90, -86, -56, 73, -39, 32
         };
-        assertEquals("This is a full sentence. How odd to see it in a test case! Punctuation and all. Wow.", h.decompress(compressed));
+        assertEquals("This is a full sentence. How odd to see it in a test case! Punctuation and all. Wow.",
+                     h.decompress(compressed));
     }
-    
+
 }

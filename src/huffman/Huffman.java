@@ -91,7 +91,7 @@ public class Huffman {
         ByteArrayOutputStream bOutput = new ByteArrayOutputStream();
         bOutput.write((byte) message.length());
         Arrays.stream(strBytes)
-              .mapToInt(b -> (byte) Integer.parseInt(b, 2) << 8 - b.length())
+              .mapToInt(b -> Integer.parseInt(b, 2) << 8 - b.length())
               .forEachOrdered(bOutput::write);
 
         return bOutput.toByteArray();
@@ -133,7 +133,7 @@ public class Huffman {
 
         // Traverse the trie to decode all characters in string
         int i = 0;
-        while (charFound != msgLength) {
+        while (charFound != msgLength && i < binaryString.length()) {
             if (current.isLeaf()) {
                 result.append(current.character);
                 current = trieRoot;
