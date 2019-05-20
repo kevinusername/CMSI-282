@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 /**
  * Artificial Intelligence responsible for playing the game of Nim!
@@ -53,9 +54,8 @@ public class NimPlayer {
 
         if (node.remaining == 0) { return handleTerminal(node, isMax, visited); }
 
-        for (int i = 1; i <= Math.min(node.remaining, MAX_REMOVAL); i++) {
-            node.children.add(new GameTreeNode(node.remaining - i, i, !node.isMax));
-        }
+        IntStream.rangeClosed(1, Math.min(node.remaining, MAX_REMOVAL))
+                 .forEachOrdered(i -> node.children.add(new GameTreeNode(node.remaining - i, i, !node.isMax)));
 
         // Alpha-beta pruning algorithm. Actions based on if MIN or MAX node
         if (isMax) {

@@ -27,7 +27,7 @@ public class Pathfinder {
         if (problem.KEY_STATE == null) { return null; }
 
         SearchTreeNode keyNode = optimalPath(problem, new SearchTreeNode(problem.INITIAL_STATE, null, null, 0, 0),
-                problem.KEY_STATE);
+                                             problem.KEY_STATE);
 
         if (keyNode == null) { return null; }
 
@@ -63,13 +63,14 @@ public class Pathfinder {
 
             if (currentNode.state.equals(finalState)) { return currentNode; }
 
-            for (Map.Entry<String, MazeState> action : problem.getTransitions(currentNode.state).entrySet()) {
-                if (!graveyard.contains(action.getValue())) {
-                    frontier.add(new SearchTreeNode(action.getValue(), action.getKey(), currentNode,
-                            hCost(action.getValue(), finalState),
-                            problem.newCost(currentNode.actual_cost, action.getValue())));
-                }
-            }
+            problem.getTransitions(currentNode.state).entrySet().stream()
+                   .filter(action -> !graveyard.contains(action.getValue()))
+                   .map(action -> new SearchTreeNode(action.getValue(),
+                                                     action.getKey(),
+                                                     currentNode,
+                                                     hCost(action.getValue(), finalState),
+                                                     problem.newCost(currentNode.actual_cost, action.getValue())))
+                   .forEachOrdered(frontier::add);
         }
 
         return null;

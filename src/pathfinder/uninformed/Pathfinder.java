@@ -32,9 +32,9 @@ public class Pathfinder {
             if (problem.isGoal(currentNode.state)) { return generatePath(currentNode); }
 
             Map<String, MazeState> transitions = problem.getTransitions(currentNode.state);
-            for (String t : transitions.keySet()) {
-                frontier.add(new SearchTreeNode(transitions.get(t), t, currentNode));
-            }
+            transitions.keySet().stream()
+                       .map(t -> new SearchTreeNode(transitions.get(t), t, currentNode))
+                       .forEach(frontier::add);
         }
 
         return null;

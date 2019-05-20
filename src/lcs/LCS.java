@@ -2,6 +2,7 @@ package lcs;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.IntStream;
 
 public class LCS {
 
@@ -27,14 +28,17 @@ public class LCS {
                 curSol.append(rStr.charAt(row - 1));
                 row--;
                 col--;
-            } else {
+            }
+            else {
                 if (solTable[row - 1][col] > solTable[row][col - 1]) {
                     if (solTable[row - 1][col] > currentVal) curSol.append(rStr.charAt(row - 1));
                     row--;
-                } else if (solTable[row - 1][col] < solTable[row][col - 1]) {
+                }
+                else if (solTable[row - 1][col] < solTable[row][col - 1]) {
                     if (solTable[row][col - 1] > currentVal) curSol.append(cStr.charAt(col - 1));
                     col--;
-                } else {
+                }
+                else {
                     allSolutions.addAll(recoverSolution(solTable, rStr, cStr, row - 1, col, new StringBuilder(curSol)));
                     allSolutions.addAll(recoverSolution(solTable, rStr, cStr, row, col - 1, new StringBuilder(curSol)));
                     break;
@@ -76,12 +80,10 @@ public class LCS {
     private static int[][] BUFillTable(String rStr, String cStr) {
         int[][] table = new int[rStr.length() + 1][cStr.length() + 1];
 
-        for (int i = 1; i <= cStr.length(); i++) {
-            for (int j = 1; j <= rStr.length(); j++) {
-                fillCell(rStr, cStr, table, j, i);
-            }
-        }
 
+        IntStream.rangeClosed(1, cStr.length())
+                 .forEachOrdered(i -> IntStream.rangeClosed(1, rStr.length())
+                                               .forEachOrdered(j -> fillCell(rStr, cStr, table, j, i)));
         return table;
     }
 
@@ -91,7 +93,8 @@ public class LCS {
     private static void fillCell(String rStr, String cStr, int[][] table, int curRow, int curCol) {
         if (rStr.charAt(curRow - 1) == cStr.charAt(curCol - 1)) {
             table[curRow][curCol] = table[curRow - 1][curCol - 1] + 1;
-        } else {
+        }
+        else {
             table[curRow][curCol] = Math.max(table[curRow - 1][curCol], table[curRow][curCol - 1]);
         }
     }
@@ -131,7 +134,8 @@ public class LCS {
 
         if (rStr.charAt(row - 1) == cStr.charAt(col - 1)) {
             recursiveFill(table, row - 1, col - 1, rStr, cStr, explored);
-        } else {
+        }
+        else {
             recursiveFill(table, row - 1, col, rStr, cStr, explored);
             recursiveFill(table, row, col - 1, rStr, cStr, explored);
         }
